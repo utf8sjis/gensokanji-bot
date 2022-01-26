@@ -8,7 +8,7 @@ from twitterapi import put_tweet
 
 
 tweets_file_path = 'app/data/tweets.tsv'
-tweeted_file_path = 'tmp/tweeted_ids.pkl'
+tweeted_file_path = '/tmp/tweeted_ids.pkl'
 
 
 # ツイートのデータの読み込み
