@@ -22,7 +22,7 @@ def read_tweets():
         for row in reader:
             tweet = {}
             for key, value in zip(header, row):
-                tweet[key] = value
+                tweet[key] = value.replace('\\n', '\n')
             tweet_list.append(tweet)
 
     # ツイート済みIDリストの作成
