@@ -2,6 +2,7 @@ import time
 import random
 import csv
 import json
+import datetime
 
 from api.twitter import put_tweet
 from api.gdrive import download_file, upload_file
@@ -10,6 +11,17 @@ from api.gdrive import download_file, upload_file
 TWEETS_FILE_PATH = 'app/data/tweets.tsv'
 TMP_DIR_PATH = '/tmp/'
 TWEETED_DATA_FILE_NAME = 'tweeted_id_list.json'
+LOG_FILE_NAME = 'log.txt'
+
+
+# ログの出力
+def output_log(text):
+    dt_now = datetime.datetime.now(
+        datetime.timezone(datetime.timedelta(hours=9)))
+    if download_file(TMP_DIR_PATH, LOG_FILE_NAME):
+        with open(TMP_DIR_PATH + LOG_FILE_NAME, 'a') as f:
+            f.write('{} {}\n'.format(dt_now.isoformat(), text))
+        upload_file(TMP_DIR_PATH, LOG_FILE_NAME)
 
 
 # ツイートのデータの読み込み
@@ -55,7 +67,7 @@ def bot_job():
         if next_indices:
             break
         else:
-            print('gensokanji log: [notice] tweets have come full circle')
+            output_log('tweets have come full circle')
             with open(TMP_DIR_PATH + TWEETED_DATA_FILE_NAME, 'w') as f:
                 f.write(json.dumps([]))
             upload_file(TMP_DIR_PATH, TWEETED_DATA_FILE_NAME)
@@ -68,6 +80,7 @@ def bot_job():
         # ツイートに成功したらツイート済みIDリストを更新しダンプ
         # ツイートに失敗したら10秒待ってやりなおし
         if is_success:
+            output_log('tweeted {}'.format(tweet_list[index]['id']))
             tweeted_id_list.append(tweet_list[index]['id'])
             with open(TMP_DIR_PATH + TWEETED_DATA_FILE_NAME, 'w') as f:
                 f.write(json.dumps(tweeted_id_list))
@@ -75,9 +88,9 @@ def bot_job():
             break
         else:
             if api_code == 187:  # 連続ツイートの拒否
-                print('gensokanji log: [error] status is a duplicate')
+                output_log('[ERROR] Twitter API: code {} - status is a duplicate'.format(api_code))
             elif api_code == 186:  # ツイート文字数オーバー
-                print('gensokanji log: [error] tweet needs to be a bit shorter')
+                output_log('[ERROR] Twitter API: code {} - tweet needs to be a bit shorter'.format(api_code))
             else:
-                print('gensokanji log: [error] other twitter exception')
+                output_log('[ERROR] Twitter API: code {}'.format(api_code))
             time.sleep(10)

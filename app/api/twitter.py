@@ -26,7 +26,6 @@ def put_tweet(tweet):
             api.update_status(tweet['text'], media_ids=media_ids)
         else:
             api.update_status(tweet['text'])
-        print(tweet['id'])
     except tweepy.errors.HTTPException as e:
         import traceback
         traceback.print_exc()
