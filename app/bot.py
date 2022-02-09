@@ -3,8 +3,8 @@ import random
 import csv
 import json
 
-from twitterapi import put_tweet
-from mydrive import download_file, upload_file
+from api.twitter import put_tweet
+from api.gdrive import download_file, upload_file
 
 
 TWEETS_FILE_PATH = 'app/data/tweets.tsv'

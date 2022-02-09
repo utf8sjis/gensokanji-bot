@@ -2,7 +2,7 @@ import os
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 
-from botjobs import bot_job
+from bot import bot_job
 
 
 if __name__ == '__main__':
