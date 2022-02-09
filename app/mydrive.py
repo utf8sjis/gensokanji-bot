@@ -1,4 +1,4 @@
-import io, json
+import io
 
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
@@ -9,9 +9,6 @@ from apiclient.http import MediaFileUpload
 import config
 
 
-SCOPES = ['https://www.googleapis.com/auth/drive']
-DIR_PATH = '/tmp/'
-TMP_FILE_NAME = 'tweeted_id_list.json'
 FOLDER_ID = '1umeEgiccFzr3rd7OwkiFXVBQ8gpqcExY'  # .apiフォルダ
 
 
@@ -22,8 +19,7 @@ def access_drive():
     return drive_service
 
 
-def get_tweeted_id_list():
-    # ダウンロード
+def download_file(to_dir_name, file_name):
     drive_service = access_drive()
 
     results = drive_service.files().list(
@@ -33,44 +29,34 @@ def get_tweeted_id_list():
     items = results.get('files', [])
 
     if not items:
-        tweeted_id_list = []
+        return False
     else:
         for item in items:
-            if TMP_FILE_NAME == item['name']:
+            if file_name == item['name']:
                 request = drive_service.files().get_media(fileId=item['id'])
-                fh = io.FileIO(DIR_PATH + TMP_FILE_NAME, 'wb')
+                fh = io.FileIO(to_dir_name + file_name, 'wb')
                 downloader = MediaIoBaseDownload(fh, request)
                 done = False
                 while done is False:
                     status, done = downloader.next_chunk()
-
-        # 読み込み
-        with open(DIR_PATH + TMP_FILE_NAME, 'r') as f:
-            tweeted_id_list = json.load(f)
-
-    return tweeted_id_list
+        return True
 
 
-def upload_tweeted_id_list(tweeted_id_list):
-    # 書き込み
-    with open(DIR_PATH + TMP_FILE_NAME, 'w') as f:
-        f.write(json.dumps(tweeted_id_list))
-
-    # アップロード
+def upload_file(from_dir_name, file_name):
     drive_service = access_drive()
 
     media_body = MediaFileUpload(
-        DIR_PATH + TMP_FILE_NAME,
+        from_dir_name + file_name,
         mimetype='application/octet-stream',
         resumable=True)
 
     query = "name = '{}' and '{}' in parents and trashed=false".format(
-        TMP_FILE_NAME, FOLDER_ID)
+        file_name, FOLDER_ID)
     res = drive_service.files().list(q=query).execute()
 
     if not res['files']:
         drive_service.files().create(
-            body={'name': TMP_FILE_NAME,
+            body={'name': file_name,
                 'mimeType': 'application/octet-stream',
                 'parents':[FOLDER_ID]},
             media_body=media_body,
