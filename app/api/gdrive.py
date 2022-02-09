@@ -9,9 +9,10 @@ from apiclient.http import MediaFileUpload
 import config
 
 
-FOLDER_ID = '1umeEgiccFzr3rd7OwkiFXVBQ8gpqcExY'  # .apiフォルダ
+FOLDER_ID = '1umeEgiccFzr3rd7OwkiFXVBQ8gpqcExY'  # gensokanji-botフォルダ
 
 
+# 認証
 def access_drive():
     creds = client.Credentials.new_from_json(config.GOOGLE_API_ACCESS_TOKEN)
     drive_service = build('drive', 'v3', http=creds.authorize(Http()))
@@ -19,6 +20,7 @@ def access_drive():
     return drive_service
 
 
+# ファイルをダウンロード
 def download_file(to_dir_name, file_name):
     drive_service = access_drive()
 
@@ -42,6 +44,7 @@ def download_file(to_dir_name, file_name):
         return True
 
 
+# ファイルを更新
 def upload_file(from_dir_name, file_name):
     drive_service = access_drive()
 

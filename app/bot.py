@@ -9,7 +9,7 @@ from api.gdrive import download_file, upload_file
 
 TWEETS_FILE_PATH = 'app/data/tweets.tsv'
 TMP_DIR_PATH = '/tmp/'
-TMP_FILE_NAME = 'tweeted_id_list.json'
+TWEETED_DATA_FILE_NAME = 'tweeted_id_list.json'
 
 
 # ツイートのデータの読み込み
@@ -27,8 +27,8 @@ def read_tweets():
             tweet_list.append(tweet)
 
     # ツイート済みIDリストの作成
-    if download_file(TMP_DIR_PATH, TMP_FILE_NAME):
-        with open(TMP_DIR_PATH + TMP_FILE_NAME, 'r') as f:
+    if download_file(TMP_DIR_PATH, TWEETED_DATA_FILE_NAME):
+        with open(TMP_DIR_PATH + TWEETED_DATA_FILE_NAME, 'r') as f:
             tweeted_id_list = json.load(f)
     else:
         tweeted_id_list = []
@@ -56,9 +56,9 @@ def bot_job():
             break
         else:
             print('gensokanji log: [notice] tweets have come full circle')
-            with open(TMP_DIR_PATH + TMP_FILE_NAME, 'w') as f:
+            with open(TMP_DIR_PATH + TWEETED_DATA_FILE_NAME, 'w') as f:
                 f.write(json.dumps([]))
-            upload_file(TMP_DIR_PATH, TMP_FILE_NAME)
+            upload_file(TMP_DIR_PATH, TWEETED_DATA_FILE_NAME)
 
     while True:
         # ツイート候補を無作為に取り出しツイート
@@ -69,9 +69,9 @@ def bot_job():
         # ツイートに失敗したら10秒待ってやりなおし
         if is_success:
             tweeted_id_list.append(tweet_list[index]['id'])
-            with open(TMP_DIR_PATH + TMP_FILE_NAME, 'w') as f:
+            with open(TMP_DIR_PATH + TWEETED_DATA_FILE_NAME, 'w') as f:
                 f.write(json.dumps(tweeted_id_list))
-            upload_file(TMP_DIR_PATH, TMP_FILE_NAME)
+            upload_file(TMP_DIR_PATH, TWEETED_DATA_FILE_NAME)
             break
         else:
             if api_code == 187:  # 連続ツイートの拒否
