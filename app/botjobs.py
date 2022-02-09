@@ -1,20 +1,18 @@
-import os
 import time
 import random
 import csv
-import pickle
 
 from twitterapi import put_tweet
+from mydrive import get_tweeted_id_list, upload_tweeted_id_list
 
 
-tweets_file_path = 'app/data/tweets.tsv'
-tweeted_file_path = '/tmp/tweeted_ids.pkl'
+TWEETS_FILE_PATH = 'app/data/tweets.tsv'
 
 
 # ツイートのデータの読み込み
 def read_tweets():
     # ツイートの読み込み
-    with open(tweets_file_path, encoding='utf-8', newline='') as f:
+    with open(TWEETS_FILE_PATH, encoding='utf-8', newline='') as f:
         reader = csv.reader(f, delimiter='\t')
         header = next(reader)
 
@@ -26,13 +24,7 @@ def read_tweets():
             tweet_list.append(tweet)
 
     # ツイート済みIDリストの作成
-    if os.path.exists(tweeted_file_path):
-        with open(tweeted_file_path, 'rb') as f:
-            tweeted_id_list = pickle.load(f)
-    else:
-        with open(tweeted_file_path, 'wb') as f:
-            tweeted_id_list = []
-            pickle.dump(tweeted_id_list, f)
+    tweeted_id_list = get_tweeted_id_list()
 
     return tweet_list, tweeted_id_list
 
@@ -51,13 +43,13 @@ def bot_job():
 
         # ツイート候補のインデクス
         next_indices = not_tweeted_indices(tweet_list, tweeted_id_list)
-        
+
         # もし候補が無ければ（一巡）データを初期化し再読み込み
         if next_indices:
             break
         else:
             print('gensokanji log: [notice] tweets have come full circle')
-            os.remove(tweeted_file_path)
+            upload_tweeted_id_list([])
 
     while True:
         # ツイート候補を無作為に取り出しツイート
@@ -68,8 +60,7 @@ def bot_job():
         # ツイートに失敗したら10秒待ってやりなおし
         if is_success:
             tweeted_id_list.append(tweet_list[index]['id'])
-            with open(tweeted_file_path, 'wb') as f:
-                pickle.dump(tweeted_id_list, f)
+            upload_tweeted_id_list(tweeted_id_list)
             break
         else:
             if api_code == 187:  # 連続ツイートの拒否
