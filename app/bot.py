@@ -20,7 +20,7 @@ def output_log(text):
         datetime.timezone(datetime.timedelta(hours=9)))
     if download_file(TMP_DIR_PATH, LOG_FILE_NAME):
         with open(TMP_DIR_PATH + LOG_FILE_NAME, 'a') as f:
-            f.write('{} {}\n'.format(dt_now.isoformat(), text))
+            f.write('{} {}\n'.format(dt_now.isoformat('seconds'), text))
         upload_file(TMP_DIR_PATH, LOG_FILE_NAME)
 
 
