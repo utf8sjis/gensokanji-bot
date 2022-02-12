@@ -41,7 +41,7 @@ def read_tweets():
     # ツイート済みIDリストの作成
     if download_file(TMP_DIR_PATH, TWEETED_DATA_FILE_NAME):
         with open(TMP_DIR_PATH + TWEETED_DATA_FILE_NAME, 'r') as f:
-            tweeted_id_list = json.load(f)
+            tweeted_id_list = json.load(f)['tweeted_id_list']
     else:
         tweeted_id_list = []
 
@@ -69,7 +69,10 @@ def bot_job():
         else:
             output_log('tweets have come full circle')
             with open(TMP_DIR_PATH + TWEETED_DATA_FILE_NAME, 'w') as f:
-                f.write(json.dumps([]))
+                f.write(json.dumps({
+                    'length': 0,
+                    'tweeted_id_list': [],
+                }, indent=4))
             upload_file(TMP_DIR_PATH, TWEETED_DATA_FILE_NAME)
 
     while True:
@@ -80,10 +83,12 @@ def bot_job():
         # ツイートに成功したらツイート済みIDリストを更新しダンプ
         # ツイートに失敗したら10秒待ってやりなおし
         if is_success:
-            output_log('tweeted {}'.format(tweet_list[index]['id']))
             tweeted_id_list.append(tweet_list[index]['id'])
             with open(TMP_DIR_PATH + TWEETED_DATA_FILE_NAME, 'w') as f:
-                f.write(json.dumps(tweeted_id_list))
+                f.write(json.dumps({
+                    'length': len(tweeted_id_list),
+                    'tweeted_id_list': tweeted_id_list,
+                }, indent=4))
             upload_file(TMP_DIR_PATH, TWEETED_DATA_FILE_NAME)
             break
         else:
