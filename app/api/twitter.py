@@ -16,13 +16,9 @@ def put_tweet(tweet):
 
     # ツイート（例外が発生したらエラーコードを返す）
     try:
-        img_paths = [img_path for img_path in [tweet['img1'],
-                                               tweet['img2'],
-                                               tweet['img3'],
-                                               tweet['img4']] if img_path]
-        if img_paths:
+        if tweet['images']:
             media_ids = [
-                api.media_upload(path).media_id_string for path in img_paths]
+                api.media_upload(path).media_id_string for path in tweet['images']]
             api.update_status(tweet['text'], media_ids=media_ids)
         else:
             api.update_status(tweet['text'])

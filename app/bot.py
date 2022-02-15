@@ -37,9 +37,15 @@ def read_tweets():
 
         tweet_list = []
         for row in reader:
-            tweet = {}
+            tweet = {'images': []}
             for key, value in zip(header, row):
-                tweet[key] = value.replace('\\n', '\n')
+                if key == 'text':
+                    tweet[key] = value.replace('\\n', '\n')
+                elif key in ['img1', 'img2', 'img3', 'img4']:
+                    if value:
+                        tweet['images'].append(value)
+                else:
+                    tweet[key] = value
             tweet_list.append(tweet)
 
     # ツイート済みIDリストの作成
