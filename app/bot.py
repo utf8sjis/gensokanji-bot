@@ -1,17 +1,13 @@
 import time
 import random
 import csv
-import json
 from datetime import datetime, timezone, timedelta
 
 from api.twitter import put_tweet
-from api.gdrive import download_file, upload_file
+from db.tdquery import init_table, get_data, update_data
 
 
 TWEETS_FILE_PATH = 'app/data/tweets.tsv'
-TMP_DIR_PATH = '/tmp/'
-TWEETED_DATA_FILE_NAME = 'tweeted_data.json'
-LOG_FILE_NAME = 'log.txt'
 
 
 # 現在の日付と時刻を返す
@@ -22,12 +18,7 @@ def datetime_now():
 
 # ログの出力
 def output_log(text):
-    # if download_file(TMP_DIR_PATH, LOG_FILE_NAME):
-    #     with open(TMP_DIR_PATH + LOG_FILE_NAME, 'a') as f:
-    #         f.write('{} {}\n'.format(datetime_now(), text))
-    #     upload_file(TMP_DIR_PATH, LOG_FILE_NAME)
-
-    print('{} {}\n'.format(datetime_now(), text))  # 暫定
+    print('{} {}\n'.format(datetime_now(), text))
 
 
 # ツイートのデータの読み込み
@@ -50,14 +41,8 @@ def read_tweets():
                     tweet[key] = value
             tweet_list.append(tweet)
 
-    # # ツイート済みIDリストの作成
-    # if download_file(TMP_DIR_PATH, TWEETED_DATA_FILE_NAME):
-    #     with open(TMP_DIR_PATH + TWEETED_DATA_FILE_NAME, 'r') as f:
-    #         tweeted_id_list = json.load(f)['tweeted_id_list']
-    # else:
-    #     tweeted_id_list = []
-
-    tweeted_id_list = []  # 暫定
+    # ツイート済みIDリストの作成
+    tweeted_id_list = get_data()['tweeted_id_list']
 
     return tweet_list, tweeted_id_list
 
@@ -80,6 +65,9 @@ def make_tweeted_data(tweet_list, tweeted_id_list):
 
 # ジョブ
 def bot_job():
+    # テーブルの確認
+    init_table()
+
     while True:
         # ツイートのデータの読み込み
         tweet_list, tweeted_id_list = read_tweets()
@@ -92,10 +80,7 @@ def bot_job():
             break
         else:
             output_log('tweets have come full circle')
-            # with open(TMP_DIR_PATH + TWEETED_DATA_FILE_NAME, 'w') as f:
-            #     f.write(json.dumps(
-            #         make_tweeted_data(tweet_list, []), indent=4))
-            # upload_file(TMP_DIR_PATH, TWEETED_DATA_FILE_NAME)
+            update_data(make_tweeted_data(tweet_list, []))
 
     while True:
         # ツイート候補を無作為に取り出しツイート
@@ -106,10 +91,7 @@ def bot_job():
         # ツイートに失敗したら10秒待ってやりなおし
         if is_success:
             tweeted_id_list.append(tweet_list[index]['id'])
-            # with open(TMP_DIR_PATH + TWEETED_DATA_FILE_NAME, 'w') as f:
-            #     f.write(json.dumps(
-            #         make_tweeted_data(tweet_list, tweeted_id_list), indent=4))
-            # upload_file(TMP_DIR_PATH, TWEETED_DATA_FILE_NAME)
+            update_data(make_tweeted_data(tweet_list, tweeted_id_list))
             break
         else:
             if api_code == 187:  # 連続ツイートの拒否
