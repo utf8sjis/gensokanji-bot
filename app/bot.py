@@ -3,8 +3,8 @@ import random
 import csv
 from datetime import datetime, timezone, timedelta
 
-from api.twitter import put_tweet
-from db.tdquery import init_table, get_data, update_data
+from api import put_tweet
+from db import init_table, get_data, update_data
 
 
 TWEETS_FILE_PATH = 'app/data/tweets.tsv'

@@ -1,7 +1,7 @@
 import json
 
 import config
-from db.connect import PostgreConnect
+from db import PostgreConnect
 
 
 # DBへの接続
