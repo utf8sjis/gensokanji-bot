@@ -7,10 +7,6 @@ name = "pypi"
 apscheduler = "*"
 python-dotenv = "*"
 tweepy = "*"
-google-api-python-client = "*"
-google-auth-httplib2 = "*"
-google-auth-oauthlib = "*"
-oauth2client = "*"
 psycopg2 = "*"
 
 [dev-packages]
