@@ -57,8 +57,8 @@ class BotJob():
             'tweeted_id_list': tweeted_id_list,
         }
 
-    def bot_job(self):
-        # 定期ジョブ
+    def regularly_tweet(self):
+        # 定期ツイート
         twitter_api = TwitterAPI(config.TWITTER_API_KEY,
                                 config.TWITTER_API_KEY_SECRET,
                                 config.TWITTER_ACCESS_TOKEN,

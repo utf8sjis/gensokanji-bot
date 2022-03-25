@@ -8,8 +8,8 @@ TWEETS_FILE_PATH = 'app/data/tweets.tsv'
 
 
 if __name__ == '__main__':
-    job = BotJob(TWEETS_FILE_PATH)
+    bot_job = BotJob(TWEETS_FILE_PATH)
 
     scheduler = BlockingScheduler(timezone='Asia/Tokyo')
-    scheduler.add_job(job.bot_job, CronTrigger(minute=30))
+    scheduler.add_job(bot_job.regularly_tweet, CronTrigger(minute=30))
     scheduler.start()
