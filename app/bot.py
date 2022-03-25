@@ -90,7 +90,7 @@ def bot_job():
                                  config.TWITTER_API_KEY_SECRET,
                                  config.TWITTER_ACCESS_TOKEN,
                                  config.TWITTER_ACCESS_TOKEN_SECRET)
-        is_success, api_code = twitter_api.put_tweet(tweet_list[index])
+        is_success, api_code = twitter_api.post_tweet(tweet_list[index])
 
         # ツイートに成功したらツイート済みIDリストを更新しダンプ
         # ツイートに失敗したら10秒待ってやりなおし

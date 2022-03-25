@@ -16,7 +16,7 @@ class TwitterAPI():
         auth.set_access_token(self.access_token, self.access_token_secret)
         return tweepy.API(auth, wait_on_rate_limit=True)
 
-    def put_tweet(self, tweet):
+    def post_tweet(self, tweet):
         # ツイートする
         api = self._access()
 
