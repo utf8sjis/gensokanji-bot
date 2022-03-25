@@ -82,8 +82,7 @@ class BotJob():
                 break
             else:
                 self._output_log('tweets have come full circle')
-                bot_db.update_data(
-                    self._make_tweeted_data([]))
+                bot_db.update_data(self._make_tweeted_data([]))
 
         while True:
             # ツイート候補を無作為に取り出しツイート
@@ -95,8 +94,7 @@ class BotJob():
             # ツイートに失敗したら10秒待ってやりなおし
             if is_success:
                 tweeted_id_list.append(self.tweet_list[index]['id'])
-                bot_db.update_data(
-                    self._make_tweeted_data(tweeted_id_list))
+                bot_db.update_data(self._make_tweeted_data(tweeted_id_list))
                 break
             else:
                 if api_code == 187:  # 連続ツイートの拒否
