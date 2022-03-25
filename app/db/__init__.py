@@ -1,2 +1,2 @@
 from db.connect import *
-from db.tdquery import *
+from db.botdb import *
