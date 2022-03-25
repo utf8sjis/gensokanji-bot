@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 
 import config
 from api import TwitterAPI
-from db import init_table, get_data, update_data
+from db import BotDBQuery
 
 
 TWEETS_FILE_PATH = 'app/data/tweets.tsv'
@@ -24,7 +24,6 @@ def output_log(text):
 
 # ツイートのデータの読み込み
 def read_tweets():
-    # ツイートの読み込み
     with open(TWEETS_FILE_PATH, encoding='utf-8', newline='') as f:
         reader = csv.reader(f, delimiter='\t')
         header = next(reader)
@@ -42,10 +41,7 @@ def read_tweets():
                     tweet[key] = value
             tweet_list.append(tweet)
 
-    # ツイート済みIDリストの作成
-    tweeted_id_list = get_data()['tweeted_id_list']
-
-    return tweet_list, tweeted_id_list
+    return tweet_list
 
 
 # 未ツイートのツイートのインデクスを返す
@@ -66,12 +62,21 @@ def make_tweeted_data(tweet_list, tweeted_id_list):
 
 # ジョブ
 def bot_job():
+    twitter_api = TwitterAPI(config.TWITTER_API_KEY,
+                             config.TWITTER_API_KEY_SECRET,
+                             config.TWITTER_ACCESS_TOKEN,
+                             config.TWITTER_ACCESS_TOKEN_SECRET)
+    bot_db = BotDBQuery(config.DATABASE_URL,
+                        config.LOCAL_DB_USER,
+                        config.LOCAL_DB_PASS)
+
     # テーブルの確認
-    init_table()
+    bot_db.init_table()
 
     while True:
         # ツイートのデータの読み込み
-        tweet_list, tweeted_id_list = read_tweets()
+        tweet_list = read_tweets()
+        tweeted_id_list = bot_db.get_data()['tweeted_id_list']
 
         # ツイート候補のインデクス
         next_indices = not_tweeted_indices(tweet_list, tweeted_id_list)
@@ -81,22 +86,18 @@ def bot_job():
             break
         else:
             output_log('tweets have come full circle')
-            update_data(make_tweeted_data(tweet_list, []))
+            bot_db.update_data(make_tweeted_data(tweet_list, []))
 
     while True:
         # ツイート候補を無作為に取り出しツイート
         index = random.choice(next_indices)
-        twitter_api = TwitterAPI(config.TWITTER_API_KEY,
-                                 config.TWITTER_API_KEY_SECRET,
-                                 config.TWITTER_ACCESS_TOKEN,
-                                 config.TWITTER_ACCESS_TOKEN_SECRET)
         is_success, api_code = twitter_api.post_tweet(tweet_list[index])
 
         # ツイートに成功したらツイート済みIDリストを更新しダンプ
         # ツイートに失敗したら10秒待ってやりなおし
         if is_success:
             tweeted_id_list.append(tweet_list[index]['id'])
-            update_data(make_tweeted_data(tweet_list, tweeted_id_list))
+            bot_db.update_data(make_tweeted_data(tweet_list, tweeted_id_list))
             break
         else:
             if api_code == 187:  # 連続ツイートの拒否
