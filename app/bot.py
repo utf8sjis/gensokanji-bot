@@ -3,7 +3,8 @@ import random
 import csv
 from datetime import datetime, timezone, timedelta
 
-from api import put_tweet
+import config
+from api import TwitterAPI
 from db import init_table, get_data, update_data
 
 
@@ -85,7 +86,11 @@ def bot_job():
     while True:
         # ツイート候補を無作為に取り出しツイート
         index = random.choice(next_indices)
-        is_success, api_code = put_tweet(tweet_list[index])
+        twitter_api = TwitterAPI(config.TWITTER_API_KEY,
+                                 config.TWITTER_API_KEY_SECRET,
+                                 config.TWITTER_ACCESS_TOKEN,
+                                 config.TWITTER_ACCESS_TOKEN_SECRET)
+        is_success, api_code = twitter_api.put_tweet(tweet_list[index])
 
         # ツイートに成功したらツイート済みIDリストを更新しダンプ
         # ツイートに失敗したら10秒待ってやりなおし
