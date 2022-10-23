@@ -11,5 +11,6 @@ if __name__ == '__main__':
     bot_job = BotJob(TWEETS_FILE_PATH)
 
     scheduler = BlockingScheduler(timezone='Asia/Tokyo')
-    scheduler.add_job(bot_job.regularly_tweet, CronTrigger(minute=30))
+    # scheduler.add_job(bot_job.regularly_tweet, CronTrigger(minute=30))
+    scheduler.add_job(bot_job.regularly_tweet, 'interval', minutes=5)
     scheduler.start()
