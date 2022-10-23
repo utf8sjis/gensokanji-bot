@@ -36,8 +36,7 @@ class BotJob():
 
     def _datetime_now(self):
         # 現在の日付と時刻を返す
-        return datetime.now(
-            timezone(timedelta(hours=9))).isoformat(timespec='seconds')
+        return datetime.now(timezone(timedelta(hours=9)))
 
     def _output_log(self, text):
         # ログの出力
@@ -51,8 +50,6 @@ class BotJob():
     def _make_tweeted_data(self, tweeted_id_list):
         # tweeted_data.jsonのデータを作る
         return {
-            'last_update': self._datetime_now(),
-            'total': len(self.tweet_list),
             'tweeted': len(tweeted_id_list),
             'tweeted_id_list': tweeted_id_list,
         }
@@ -63,12 +60,7 @@ class BotJob():
                                 config.TWITTER_API_KEY_SECRET,
                                 config.TWITTER_ACCESS_TOKEN,
                                 config.TWITTER_ACCESS_TOKEN_SECRET)
-        bot_db = BotDBQuery(config.DATABASE_URL,
-                            config.LOCAL_DB_USER,
-                            config.LOCAL_DB_PASS)
-
-        # テーブルの確認
-        bot_db.init_table()
+        bot_db = BotDBQuery(config.DATABASE_URL, config.DATABASE_KEY)
 
         while True:
             # ツイート済みのID
@@ -82,7 +74,8 @@ class BotJob():
                 break
             else:
                 self._output_log('tweets have come full circle')
-                bot_db.update_data(self._make_tweeted_data([]))
+                bot_db.update_data(
+                    self._datetime_now(), self._make_tweeted_data([]))
 
         while True:
             # ツイート候補を無作為に取り出しツイート
@@ -94,7 +87,8 @@ class BotJob():
             # ツイートに失敗したら10秒待ってやりなおし
             if is_success:
                 tweeted_id_list.append(self.tweet_list[index]['id'])
-                bot_db.update_data(self._make_tweeted_data(tweeted_id_list))
+                bot_db.update_data(
+                    self._datetime_now(), self._make_tweeted_data(tweeted_id_list))
                 break
             else:
                 if api_code == 187:  # 連続ツイートの拒否
