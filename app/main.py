@@ -1,16 +1,25 @@
-from apscheduler.schedulers.blocking import BlockingScheduler
-from apscheduler.triggers.cron import CronTrigger
+from flask import Flask
+from flask_apscheduler import APScheduler
 
 from bot import BotJob
 
 
-TWEETS_FILE_PATH = 'app/data/tweets.tsv'
+app = Flask(__name__)
+scheduler = APScheduler()
 
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+# @scheduler.task('cron', id='do_job', minute=30)
+@scheduler.task('interval', id='do_job', minutes=5)
+def job():
+    tweets_file_path = 'app/data/tweets.tsv'
+    bot_job = BotJob(tweets_file_path)
+    bot_job.regularly_tweet()
+
+scheduler.init_app(app)
+scheduler.start()
 
 if __name__ == '__main__':
-    bot_job = BotJob(TWEETS_FILE_PATH)
-
-    scheduler = BlockingScheduler(timezone='Asia/Tokyo')
-    # scheduler.add_job(bot_job.regularly_tweet, CronTrigger(minute=30))
-    scheduler.add_job(bot_job.regularly_tweet, 'interval', minutes=5)
-    scheduler.start()
+    app.run()

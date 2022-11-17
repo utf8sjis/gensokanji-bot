@@ -1,15 +1,18 @@
 [[source]]
-url = "https://pypi.python.org/simple"
+url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
 [packages]
-apscheduler = "*"
 python-dotenv = "*"
 tweepy = "*"
 supabase = "*"
+flask = "*"
+flask-apscheduler = "*"
+gunicorn = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.9"
+python_full_version = "3.9.15"
