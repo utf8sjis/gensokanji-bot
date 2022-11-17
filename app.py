@@ -14,7 +14,7 @@ def hello_world():
 # @scheduler.task('cron', id='do_job', minute=30)
 @scheduler.task('interval', id='do_job', minutes=5)
 def job():
-    tweets_file_path = 'app/data/tweets.tsv'
+    tweets_file_path = 'data/tweets.tsv'
     bot_job = BotJob(tweets_file_path)
     bot_job.regularly_tweet()
 
