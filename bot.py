@@ -1,3 +1,4 @@
+import os
 import time
 import random
 import csv
@@ -8,31 +9,32 @@ from api import TwitterAPI
 from db import BotDBQuery
 
 
+def read_tweets(tweets_data_dir):
+    # ツイートのデータの読み込み
+    with open(os.path.join(tweets_data_dir, 'tweets.tsv'), encoding='utf-8', newline='') as f:
+        reader = csv.reader(f, delimiter='\t')
+        header = next(reader)
+
+        tweet_list = []
+        for row in reader:
+            tweet = {'images': []}
+            for key, value in zip(header, row):
+                if key == 'text':
+                    tweet[key] = value.replace('\\n', '\n')
+                elif key in ['img1', 'img2', 'img3', 'img4']:
+                    if value:
+                        tweet['images'].append(value)
+                else:
+                    tweet[key] = value
+            tweet_list.append(tweet)
+
+    return tweet_list
+
+
 class BotJob():
-
-    def __init__(self, tweets_file_path):
-        self.tweet_list = self._read_tweets(tweets_file_path)
-
-    def _read_tweets(self, tweets_file_path):
-        # ツイートのデータの読み込み
-        with open(tweets_file_path, encoding='utf-8', newline='') as f:
-            reader = csv.reader(f, delimiter='\t')
-            header = next(reader)
-
-            tweet_list = []
-            for row in reader:
-                tweet = {'images': []}
-                for key, value in zip(header, row):
-                    if key == 'text':
-                        tweet[key] = value.replace('\\n', '\n')
-                    elif key in ['img1', 'img2', 'img3', 'img4']:
-                        if value:
-                            tweet['images'].append(value)
-                    else:
-                        tweet[key] = value
-                tweet_list.append(tweet)
-
-        return tweet_list
+    def __init__(self, tweets_data_dir):
+        self.tweets_data_dir = tweets_data_dir
+        self.tweet_list = read_tweets(tweets_data_dir)
 
     def _datetime_now(self):
         # 現在の日付と時刻を返す
@@ -56,10 +58,11 @@ class BotJob():
 
     def regularly_tweet(self):
         # 定期ツイート
-        twitter_api = TwitterAPI(config.TWITTER_API_KEY,
-                                config.TWITTER_API_KEY_SECRET,
-                                config.TWITTER_ACCESS_TOKEN,
-                                config.TWITTER_ACCESS_TOKEN_SECRET)
+        twitter_api = TwitterAPI(self.tweets_data_dir,
+                                 config.TWITTER_API_KEY,
+                                 config.TWITTER_API_KEY_SECRET,
+                                 config.TWITTER_ACCESS_TOKEN,
+                                 config.TWITTER_ACCESS_TOKEN_SECRET)
         bot_db = BotDBQuery(config.DATABASE_URL, config.DATABASE_KEY)
 
         while True:
