@@ -14,8 +14,8 @@ scheduler = APScheduler()
 def hello_world():
     return 'Hello, World!'
 
-# @scheduler.task('cron', id='do_job', minute=30)
-@scheduler.task('interval', id='do_job', minutes=5)
+@scheduler.task('cron', id='do_job', minute=30)
+# @scheduler.task('interval', id='do_job', minutes=5)
 def job():
     bot_job = BotJob(TWEETS_DATA_DIR)
     bot_job.regularly_tweet()
