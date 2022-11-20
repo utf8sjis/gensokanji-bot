@@ -1,10 +1,13 @@
+import os
+
 import tweepy
 
 
 class TwitterAPI():
 
-    def __init__(self, api_key, api_key_secret,
+    def __init__(self, tweets_data_dir, api_key, api_key_secret,
                  access_token, access_token_secret):
+        self.tweets_data_dir = tweets_data_dir
         self.api_key = api_key
         self.api_key_secret = api_key_secret
         self.access_token = access_token
@@ -23,8 +26,9 @@ class TwitterAPI():
         try:
             if tweet['images']:
                 media_ids = [
-                    api.media_upload(path).media_id_string
-                    for path in tweet['images']]
+                    api.media_upload(os.path.join(
+                        self.tweets_data_dir, 'img', file_name)).media_id_string
+                    for file_name in tweet['images']]
                 api.update_status(tweet['text'], media_ids=media_ids)
             else:
                 api.update_status(tweet['text'])
