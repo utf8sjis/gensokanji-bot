@@ -4,7 +4,6 @@ import tweepy
 
 
 class TwitterAPI():
-
     def __init__(self, tweets_data_dir, api_key, api_key_secret,
                  access_token, access_token_secret):
         self.tweets_data_dir = tweets_data_dir
@@ -12,12 +11,6 @@ class TwitterAPI():
         self.api_key_secret = api_key_secret
         self.access_token = access_token
         self.access_token_secret = access_token_secret
-
-    def _access(self):
-        # 認証
-        auth = tweepy.OAuthHandler(self.api_key, self.api_key_secret)
-        auth.set_access_token(self.access_token, self.access_token_secret)
-        return tweepy.API(auth, wait_on_rate_limit=True)
 
     def post_tweet(self, tweet):
         # ツイートする
@@ -41,3 +34,9 @@ class TwitterAPI():
                 return False, -1
 
         return True, -1
+
+    def _access(self):
+        # 認証
+        auth = tweepy.OAuthHandler(self.api_key, self.api_key_secret)
+        auth.set_access_token(self.access_token, self.access_token_secret)
+        return tweepy.API(auth, wait_on_rate_limit=True)

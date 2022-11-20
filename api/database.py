@@ -2,13 +2,9 @@ from supabase import create_client
 
 
 class BotDBQuery():
-
     def __init__(self, url, key):
         self.url = url
         self.key = key
-
-    def _connect(self):
-        return create_client(self.url, self.key)
 
     def get_data(self):
         supabase = self._connect()
@@ -21,3 +17,6 @@ class BotDBQuery():
         record = supabase.table('tweeted_data').update(
             {'updated_at': str(updated_at), 'tweeted_data_json': data}).eq('id', 1).execute()
         return record
+
+    def _connect(self):
+        return create_client(self.url, self.key)

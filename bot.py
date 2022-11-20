@@ -8,52 +8,10 @@ import config
 from api import TwitterAPI, BotDBQuery
 
 
-def read_tweets(tweets_data_dir):
-    # ツイートのデータの読み込み
-    with open(os.path.join(tweets_data_dir, 'tweets.tsv'), encoding='utf-8', newline='') as f:
-        reader = csv.reader(f, delimiter='\t')
-        header = next(reader)
-
-        tweet_list = []
-        for row in reader:
-            tweet = {'images': []}
-            for key, value in zip(header, row):
-                if key == 'text':
-                    tweet[key] = value.replace('\\n', '\n')
-                elif key in ['img1', 'img2', 'img3', 'img4']:
-                    if value:
-                        tweet['images'].append(value)
-                else:
-                    tweet[key] = value
-            tweet_list.append(tweet)
-
-    return tweet_list
-
-
 class BotJob():
     def __init__(self, tweets_data_dir):
         self.tweets_data_dir = tweets_data_dir
-        self.tweet_list = read_tweets(tweets_data_dir)
-
-    def _datetime_now(self):
-        # 現在の日付と時刻を返す
-        return datetime.now(timezone(timedelta(hours=9)))
-
-    def _output_log(self, text):
-        # ログの出力
-        print('{} {}\n'.format(self._datetime_now(), text))
-
-    def _not_tweeted_indices(self, tweeted_id_list):
-        # 未ツイートのツイートのインデクスを返す
-        return [i for i, tweet in enumerate(self.tweet_list)
-                if tweet['id'] not in tweeted_id_list]
-
-    def _make_tweeted_data(self, tweeted_id_list):
-        # tweeted_data.jsonのデータを作る
-        return {
-            'tweeted': len(tweeted_id_list),
-            'tweeted_id_list': tweeted_id_list,
-        }
+        self.tweet_list = self._read_tweets(tweets_data_dir)
 
     def regularly_tweet(self):
         # 定期ツイート
@@ -100,3 +58,44 @@ class BotJob():
                 else:
                     self._output_log('[ERROR] Twitter API: code {}'.format(api_code))
                 time.sleep(10)
+
+    def _read_tweets(tweets_data_dir):
+        # ツイートのデータの読み込み
+        with open(os.path.join(tweets_data_dir, 'tweets.tsv'), encoding='utf-8', newline='') as f:
+            reader = csv.reader(f, delimiter='\t')
+            header = next(reader)
+
+            tweet_list = []
+            for row in reader:
+                tweet = {'images': []}
+                for key, value in zip(header, row):
+                    if key == 'text':
+                        tweet[key] = value.replace('\\n', '\n')
+                    elif key in ['img1', 'img2', 'img3', 'img4']:
+                        if value:
+                            tweet['images'].append(value)
+                    else:
+                        tweet[key] = value
+                tweet_list.append(tweet)
+
+        return tweet_list
+
+    def _datetime_now(self):
+        # 現在の日付と時刻を返す
+        return datetime.now(timezone(timedelta(hours=9)))
+
+    def _output_log(self, text):
+        # ログの出力
+        print('{} {}\n'.format(self._datetime_now(), text))
+
+    def _not_tweeted_indices(self, tweeted_id_list):
+        # 未ツイートのツイートのインデクスを返す
+        return [i for i, tweet in enumerate(self.tweet_list)
+                if tweet['id'] not in tweeted_id_list]
+
+    def _make_tweeted_data(self, tweeted_id_list):
+        # tweeted_data.jsonのデータを作る
+        return {
+            'tweeted': len(tweeted_id_list),
+            'tweeted_id_list': tweeted_id_list,
+        }
