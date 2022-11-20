@@ -1,22 +1,21 @@
 from supabase import create_client
 
 
-class BotDBQuery():
-    def __init__(self, url, key):
-        self.url = url
-        self.key = key
+class BotDatabase():
+    def __init__(self, api_url, api_key):
+        self.api_url = api_url
+        self.api_key = api_key
 
-    def get_data(self):
+    def get_posted_data(self):
         supabase = self._connect()
         record = supabase.table('tweeted_data').select('*').eq('id', 1).execute()
-        data = record.data[0]['tweeted_data_json']
-        return data
+        posted_data = record.data[0]
+        return posted_data
 
-    def update_data(self, updated_at, data):
+    def update_posted_data(self, posted_data):
         supabase = self._connect()
-        record = supabase.table('tweeted_data').update(
-            {'updated_at': str(updated_at), 'tweeted_data_json': data}).eq('id', 1).execute()
+        record = supabase.table('tweeted_data').update(posted_data).eq('id', 1).execute()
         return record
 
     def _connect(self):
-        return create_client(self.url, self.key)
+        return create_client(self.api_url, self.api_key)

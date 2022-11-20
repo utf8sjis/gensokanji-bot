@@ -18,7 +18,7 @@ def hello_world():
 # @scheduler.task('interval', id='do_job', minutes=5)
 def job():
     bot_job = BotJob(TWEETS_DATA_DIR)
-    bot_job.regularly_tweet()
+    bot_job.post_regular_tweet()
 
 scheduler.init_app(app)
 scheduler.start()
