@@ -22,7 +22,7 @@ class BotDatabase():
 
         """
         supabase = self._connect()
-        record = supabase.table('tweeted_data').select('*').eq('id', 1).execute()
+        record = supabase.table('bot_data').select('*').eq('id', 1).execute()
         data = record.data[0]
         return data
 
@@ -35,7 +35,7 @@ class BotDatabase():
 
         """
         supabase = self._connect()
-        supabase.table('tweeted_data').update(data).eq('id', 1).execute()
+        supabase.table('bot_data').update(data).eq('id', 1).execute()
 
     def _connect(self):
         """Connect to the database.
