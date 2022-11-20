@@ -14,8 +14,7 @@ class BotDatabase():
 
     def update_posted_data(self, posted_data):
         supabase = self._connect()
-        record = supabase.table('tweeted_data').update(posted_data).eq('id', 1).execute()
-        return record
+        supabase.table('tweeted_data').update(posted_data).eq('id', 1).execute()
 
     def _connect(self):
         return create_client(self.api_url, self.api_key)
