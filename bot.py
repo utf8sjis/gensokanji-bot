@@ -8,7 +8,7 @@ import config
 from api import TwitterAPI, BotDatabase
 
 
-class BotJob():
+class Bot():
     def __init__(self, tweets_data_dir):
         self.tweets_data_dir = tweets_data_dir
         self.tweets = self._read_tweets(tweets_data_dir)
