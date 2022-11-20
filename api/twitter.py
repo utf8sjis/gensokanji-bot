@@ -6,6 +6,16 @@ import tweepy
 class TwitterAPI():
     def __init__(self, tweets_data_dir, api_key, api_key_secret,
                  access_token, access_token_secret):
+        """Operate using Twitter API.
+
+        Args:
+            tweets_data_dir (str): Path to the directory of tweets data.
+            api_key (str): Twitter API customer key.
+            api_key_secret (str): Twitter API customer key (secret).
+            access_token (str): Twitter API authentication token.
+            access_token_secret (str): Twitter API authentication token (secret).
+
+        """
         self.tweets_data_dir = tweets_data_dir
         self.api_key = api_key
         self.api_key_secret = api_key_secret
@@ -13,7 +23,17 @@ class TwitterAPI():
         self.access_token_secret = access_token_secret
 
     def post_tweet(self, tweet):
-        # ツイートする
+        """Post the tweet.
+
+        Args:
+            tweet (dict): Text and image data of the tweet.
+
+        Returns:
+            bool: True if successful, false otherwise.
+            int: -1 if successful, otherwise Twitter API error code
+                (https://developer.twitter.com/en/support/twitter-api/error-troubleshooting).
+
+        """
         api = self._access()
 
         try:
@@ -36,7 +56,12 @@ class TwitterAPI():
         return True, -1
 
     def _access(self):
-        # 認証
+        """Authenticate Twitter API.
+
+        Returns:
+            API: tweepy.API (https://docs.tweepy.org/en/stable/api.html).
+
+        """
         auth = tweepy.OAuthHandler(self.api_key, self.api_key_secret)
         auth.set_access_token(self.access_token, self.access_token_secret)
         return tweepy.API(auth, wait_on_rate_limit=True)

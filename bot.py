@@ -10,11 +10,22 @@ from api import TwitterAPI, BotDatabase
 
 class Bot():
     def __init__(self, tweets_data_dir):
+        """bot functions.
+
+        Currently, only the function to post tweets regularly is registered.
+
+        Args:
+            tweets_data_dir (str): Path to the directory of tweets data.
+
+        """
         self.tweets_data_dir = tweets_data_dir
-        self.tweets = self._read_tweets(tweets_data_dir)
+
+        self.tweets = self._read_tweets()
 
     def post_regular_tweet(self):
-        # 定期ツイート
+        """Post a regular tweet.
+
+        """
         twitter_api = TwitterAPI(self.tweets_data_dir,
                                  config.TWITTER_API_KEY,
                                  config.TWITTER_API_KEY_SECRET,
@@ -23,44 +34,45 @@ class Bot():
         bot_database = BotDatabase(config.DATABASE_URL, config.DATABASE_KEY)
 
         while True:
-            # ツイート済みのID
-            posted_data = bot_database.get_posted_data()
-            posted_ids = posted_data['tweeted_data_json']['tweeted_id_list']
-
-            # ツイート候補のインデクス
+            # Get candidates for tweets to post.
+            posted_ids = bot_database.get_posted_data()['tweeted_data_json']['tweeted_id_list']
             candidate_indices = self._get_unposted_indices(posted_ids)
 
-            # もし候補が無ければ（一巡）データを初期化し再読み込み
             if candidate_indices:
                 break
             else:
+                # If there are no candidates, initialize data on tweets already posted
+                # and reload them (next loop).
                 self._output_log('tweets have come full circle')
                 bot_database.update_posted_data(self._make_posted_data([]))
 
         while True:
-            # ツイート候補を無作為に取り出しツイート
+            # Post one of the candidates at random.
             candidate_index = random.choice(candidate_indices)
             is_success, api_code = twitter_api.post_tweet(
                 self.tweets[candidate_index])
 
-            # ツイートに成功したらツイート済みIDリストを更新
-            # ツイートに失敗したら10秒待ってやりなおし
             if is_success:
                 posted_ids.append(self.tweets[candidate_index]['id'])
                 bot_database.update_posted_data(self._make_posted_data(posted_ids))
                 break
             else:
-                if api_code == 187:  # 連続ツイートの拒否
+                if api_code == 187:
                     self._output_log('[ERROR] Twitter API: code {} - status is a duplicate'.format(api_code))
-                elif api_code == 186:  # ツイート文字数オーバー
+                elif api_code == 186:
                     self._output_log('[ERROR] Twitter API: code {} - tweet needs to be a bit shorter'.format(api_code))
                 else:
                     self._output_log('[ERROR] Twitter API: code {}'.format(api_code))
                 time.sleep(10)
 
-    def _read_tweets(self, tweets_data_dir):
-        # ツイートのデータの読み込み
-        tweets_data_path = os.path.join(tweets_data_dir, 'tweets.tsv')
+    def _read_tweets(self):
+        """Load regular tweets data.
+
+        Returns:
+            list: List of regular tweets (text and image data).
+
+        """
+        tweets_data_path = os.path.join(self.tweets_data_dir, 'tweets.tsv')
         with open(tweets_data_path, encoding='utf-8', newline='') as f:
             reader = csv.reader(f, delimiter='\t')
             header = next(reader)
@@ -81,11 +93,28 @@ class Bot():
         return tweets
 
     def _get_unposted_indices(self, posted_ids):
-        # 未ツイートのツイートのインデクスを返す
+        """Get unposted tweets data.
+
+        Args:
+            posted_ids (list): List of IDs of tweets already posted.
+
+        Returns:
+            list: Indices in `self.tweets` for unposted tweets.
+
+        """
         return [index for index, tweet in enumerate(self.tweets)
                 if tweet['id'] not in posted_ids]
 
     def _make_posted_data(self, posted_ids):
+        """Generate new posted data.
+
+        Args:
+            posted_ids (list): List of IDs of tweets already posted.
+
+        Returns:
+            dict: Data on current date and time and tweets already posted.
+
+        """
         posted_tweets_data = {
             'tweeted': len(posted_ids),
             'tweeted_id_list': posted_ids,
@@ -97,9 +126,19 @@ class Bot():
         return posted_data
 
     def _output_log(self, text):
-        # ログの出力
+        """Output log.
+
+        Args:
+            text (str): Log message.
+
+        """
         print('{} {}\n'.format(self._get_current_datetime(), text))
 
     def _get_current_datetime(self):
-        # 現在の日付と時刻を返す
+        """Get current date and time
+
+        Returns:
+            datetime: Current date and time (Japan Standard Time).
+
+        """
         return datetime.now(timezone(timedelta(hours=9)))
