@@ -13,7 +13,7 @@ class BotDatabase():
         self.api_url = api_url
         self.api_key = api_key
 
-    def get_posted_data(self):
+    def get_data(self):
         """Get data from the database.
 
         Returns:
@@ -23,8 +23,8 @@ class BotDatabase():
         """
         supabase = self._connect()
         record = supabase.table('tweeted_data').select('*').eq('id', 1).execute()
-        posted_data = record.data[0]
-        return posted_data
+        data = record.data[0]
+        return data
 
     def update_posted_data(self, posted_data):
         """Update data in the database.

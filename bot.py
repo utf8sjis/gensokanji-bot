@@ -35,7 +35,7 @@ class Bot():
 
         while True:
             # Get candidates for tweets to post.
-            posted_ids = bot_database.get_posted_data()['tweeted_data_json']['tweeted_id_list']
+            posted_ids = bot_database.get_data()['tweeted_data_json']['tweeted_id_list']
             candidate_indices = self._get_unposted_indices(posted_ids)
 
             if candidate_indices:
