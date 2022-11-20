@@ -44,7 +44,7 @@ class Bot():
                 # If there are no candidates, initialize data on tweets already posted
                 # and reload them (next loop).
                 self._output_log('tweets have come full circle')
-                bot_database.update_posted_data(self._make_posted_data([]))
+                bot_database.update_data(self._make_posted_data([]))
 
         while True:
             # Post one of the candidates at random.
@@ -54,7 +54,7 @@ class Bot():
 
             if is_success:
                 posted_ids.append(self.tweets[candidate_index]['id'])
-                bot_database.update_posted_data(self._make_posted_data(posted_ids))
+                bot_database.update_data(self._make_posted_data(posted_ids))
                 break
             else:
                 if api_code == 187:

@@ -26,16 +26,16 @@ class BotDatabase():
         data = record.data[0]
         return data
 
-    def update_posted_data(self, posted_data):
+    def update_data(self, data):
         """Update data in the database.
 
         Args:
-            posted_data (dict): Data such as last updated date and time,
+            data (dict): Data such as last updated date and time,
                 tweets already posted, etc.
 
         """
         supabase = self._connect()
-        supabase.table('tweeted_data').update(posted_data).eq('id', 1).execute()
+        supabase.table('tweeted_data').update(data).eq('id', 1).execute()
 
     def _connect(self):
         """Connect to the database.
