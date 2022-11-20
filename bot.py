@@ -5,8 +5,7 @@ import csv
 from datetime import datetime, timezone, timedelta
 
 import config
-from api import TwitterAPI
-from db import BotDBQuery
+from api import TwitterAPI, BotDBQuery
 
 
 def read_tweets(tweets_data_dir):
