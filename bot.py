@@ -115,13 +115,13 @@ class Bot():
             dict: Data on current date and time and tweets already posted.
 
         """
-        posted_tweets_data = {
+        posted_data = {
             'total': len(posted_ids),
             'ids': posted_ids,
         }
         new_data = {
             'updated_at': str(self._get_current_datetime()),
-            'posted_data': posted_tweets_data
+            'posted_data': posted_data
         }
         return new_data
 
