@@ -30,11 +30,12 @@ class TwitterAPI():
 
         Returns:
             bool: True if successful, false otherwise.
-            int: -1 if successful, otherwise Twitter API error code
+            int: -1 if successful, otherwise Twitter API error code.
                 (https://developer.twitter.com/en/support/twitter-api/error-troubleshooting).
 
         """
-        api = self._access()
+        api = self._api()
+        client = self._client()
 
         try:
             if tweet['images']:
@@ -42,9 +43,9 @@ class TwitterAPI():
                     api.media_upload(os.path.join(
                         self.tweets_data_dir, 'img', file_name)).media_id_string
                     for file_name in tweet['images']]
-                api.update_status(tweet['text'], media_ids=media_ids)
+                client.create_tweet(text=tweet['text'], media_ids=media_ids)
             else:
-                api.update_status(tweet['text'])
+                client.create_tweet(text=tweet['text'])
         except tweepy.errors.HTTPException as e:
             import traceback
             traceback.print_exc()
@@ -55,13 +56,27 @@ class TwitterAPI():
 
         return True, -1
 
-    def _access(self):
-        """Authenticate Twitter API.
+    def _api(self):
+        """Get Twitter API v1.1 interface.
 
         Returns:
-            API: tweepy.API (https://docs.tweepy.org/en/stable/api.html).
+            API: Twitter API v1.1 interface.
 
         """
         auth = tweepy.OAuthHandler(self.api_key, self.api_key_secret)
         auth.set_access_token(self.access_token, self.access_token_secret)
         return tweepy.API(auth, wait_on_rate_limit=True)
+
+    def _client(self):
+        """Get Twitter API v2 client.
+
+        Returns:
+            Client: Twitter API v2 client.
+
+        """
+        return tweepy.Client(
+            consumer_key = self.api_key,
+            consumer_secret = self.api_key_secret,
+            access_token = self.access_token,
+            access_token_secret = self.access_token_secret
+        )

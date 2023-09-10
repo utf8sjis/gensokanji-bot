@@ -10,7 +10,7 @@ from api import TwitterAPI, BotDatabase
 
 class Bot():
     def __init__(self, tweets_data_dir):
-        """bot functions.
+        """Bot functions.
 
         Currently, only the function to post tweets regularly is registered.
 
