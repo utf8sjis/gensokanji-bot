@@ -75,8 +75,8 @@ class TwitterAPI():
 
         """
         return tweepy.Client(
-            consumer_key = self.api_key,
-            consumer_secret = self.api_key_secret,
-            access_token = self.access_token,
-            access_token_secret = self.access_token_secret
+            consumer_key=self.api_key,
+            consumer_secret=self.api_key_secret,
+            access_token=self.access_token,
+            access_token_secret=self.access_token_secret
         )
