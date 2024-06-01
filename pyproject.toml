@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "gensokanji-bot"
+version = "0.1.0"
+description = ""
+authors = ["utf8sjis <89941856+utf8sjis@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "~3.11"
+python-dotenv = "~0.21"
+tweepy = "~4.12"
+supabase = "~0.7"
+flask = "~2.2"
+flask-apscheduler = "~1.12"
+gunicorn = "~20.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
