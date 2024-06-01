@@ -15,7 +15,6 @@ def hello_world():
     return 'Hello, World!'
 
 @scheduler.task('cron', id='do_job', minute=30)
-# @scheduler.task('interval', id='do_job', minutes=5)
 def job():
     bot = Bot(TWEETS_DATA_DIR)
     bot.post_regular_tweet()
