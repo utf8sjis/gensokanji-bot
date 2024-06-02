@@ -35,7 +35,7 @@ class BotDatabase:
         """
         data = {
             "updated_at": str(get_current_datetime()),
-            "posted_data": posted_data.model_dump(),
+            "posted_data": posted_data.dict(),
         }
         supabase = self._connect()
         supabase.table("bot_data").update(data).eq("id", 1).execute()
