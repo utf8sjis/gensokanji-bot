@@ -288,6 +288,20 @@ files = [
 ]
 
 [[package]]
+name = "colorlog"
+version = "4.8.0"
+description = "Log formatting with colors!"
+optional = false
+python-versions = "*"
+files = [
+    {file = "colorlog-4.8.0-py2.py3-none-any.whl", hash = "sha256:3dd15cb27e8119a24c1a7b5c93f9f3b455855e0f73993b1c25921b2f646f1dcd"},
+    {file = "colorlog-4.8.0.tar.gz", hash = "sha256:59b53160c60902c405cdec28d38356e09d40686659048893e026ecbd589516b1"},
+]
+
+[package.dependencies]
+colorama = {version = "*", markers = "sys_platform == \"win32\""}
+
+[[package]]
 name = "cryptography"
 version = "42.0.7"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
@@ -340,6 +354,19 @@ sdist = ["build"]
 ssh = ["bcrypt (>=3.1.5)"]
 test = ["certifi", "pretend", "pytest (>=6.2.0)", "pytest-benchmark", "pytest-cov", "pytest-xdist"]
 test-randomorder = ["pytest-randomly"]
+
+[[package]]
+name = "dacite"
+version = "1.8.1"
+description = "Simple creation of data classes from dictionaries."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "dacite-1.8.1-py3-none-any.whl", hash = "sha256:cc31ad6fdea1f49962ea42db9421772afe01ac5442380d9a99fcf3d188c61afe"},
+]
+
+[package.extras]
+dev = ["black", "coveralls", "mypy", "pre-commit", "pylint", "pytest (>=5)", "pytest-benchmark", "pytest-cov"]
 
 [[package]]
 name = "dataclasses"
@@ -952,6 +979,27 @@ files = [
 windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
+name = "pysen"
+version = "0.11.0"
+description = "Python linting made easy. Also a casual yet honorific way to address individuals who have entered an organization prior to you."
+optional = false
+python-versions = "*"
+files = [
+    {file = "pysen-0.11.0-py3-none-any.whl", hash = "sha256:d4e81e12f9f1b4cf25df0399d10b0201a9a4bae18846fe0e279179b657daf015"},
+    {file = "pysen-0.11.0.tar.gz", hash = "sha256:b9ea6c67289360f7bd9c95f8c79f603a775decb9342d2635dc40fcda92dfa53a"},
+]
+
+[package.dependencies]
+colorlog = ">=4.0.0,<5.0.0"
+dacite = ">=1.1.0,<2.0.0"
+GitPython = ">=3.0.0,<4.0.0"
+tomlkit = ">=0.5.11,<1.0.0"
+unidiff = ">=0.6.0,<1.0.0"
+
+[package.extras]
+lint = ["black (>=19.10b0,<=22.10)", "flake8 (>=3.7,<5)", "flake8-bugbear", "isort (>=4.3,<5.2.0)", "mypy (>=0.770,<0.800)"]
+
+[[package]]
 name = "python-dateutil"
 version = "2.9.0.post0"
 description = "Extensions to the standard Python datetime module"
@@ -1399,6 +1447,17 @@ tzdata = {version = "*", markers = "platform_system == \"Windows\""}
 devenv = ["check-manifest", "pytest (>=4.3)", "pytest-cov", "pytest-mock (>=3.3)", "zest.releaser"]
 
 [[package]]
+name = "unidiff"
+version = "0.7.5"
+description = "Unified diff parsing/metadata extraction library."
+optional = false
+python-versions = "*"
+files = [
+    {file = "unidiff-0.7.5-py2.py3-none-any.whl", hash = "sha256:c93bf2265cc1ba2a520e415ab05da587370bc2a3ae9e0414329f54f0c2fc09e8"},
+    {file = "unidiff-0.7.5.tar.gz", hash = "sha256:2e5f0162052248946b9f0970a40e9e124236bf86c82b70821143a6fc1dea2574"},
+]
+
+[[package]]
 name = "urllib3"
 version = "2.2.1"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
@@ -1542,4 +1601,4 @@ test = ["big-O", "jaraco.functools", "jaraco.itertools", "jaraco.test", "more-it
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.11"
-content-hash = "40dd634add7ecabb72d4af2064a37b3f06738298e2d0cde2510a01bdd43cdc42"
+content-hash = "1b0c75e8296f190ba27bbfac31ac81e0e21430daad2c5c622bf392233307e500"
