@@ -1,6 +1,7 @@
 import os
 
 import tweepy
+from data_models import TweetData
 
 
 class TwitterAPI:
@@ -28,11 +29,11 @@ class TwitterAPI:
         self.access_token = access_token
         self.access_token_secret = access_token_secret
 
-    def post_tweet(self, tweet: dict) -> tuple[bool, int]:
+    def post_tweet(self, tweet: TweetData) -> tuple[bool, int]:
         """Post the tweet.
 
         Args:
-            tweet (dict): Text and image data of the tweet.
+            tweet (TweetData): Text and image data of the tweet.
 
         Returns:
             bool: True if successful, false otherwise.
@@ -44,14 +45,14 @@ class TwitterAPI:
         client = self._client()
 
         try:
-            if tweet["images"]:
+            if tweet.images:
                 media_ids = [
                     api.media_upload(os.path.join(self.tweets_data_dir, "img", file_name)).media_id_string
-                    for file_name in tweet["images"]
+                    for file_name in tweet.images
                 ]
-                client.create_tweet(text=tweet["text"], media_ids=media_ids)
+                client.create_tweet(text=tweet.text, media_ids=media_ids)
             else:
-                client.create_tweet(text=tweet["text"])
+                client.create_tweet(text=tweet.text)
         except tweepy.errors.HTTPException as e:
             import traceback
 

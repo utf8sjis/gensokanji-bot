@@ -5,7 +5,7 @@ import time
 
 import config
 from api import BotDatabase, TwitterAPI
-from data_models import PostedData
+from data_models import PostedData, TweetData
 from utils import get_current_datetime
 
 
@@ -53,7 +53,7 @@ class Bot:
             is_success, api_code = twitter_api.post_tweet(self.tweets[candidate_index])
 
             if is_success:
-                posted_ids.append(self.tweets[candidate_index]["id"])
+                posted_ids.append(self.tweets[candidate_index].id)
                 bot_database.update_posted_data(PostedData(total=len(posted_ids), ids=posted_ids))
                 break
             else:
@@ -65,7 +65,7 @@ class Bot:
                     self._output_log("[ERROR] Twitter API: code {}".format(api_code))
                 time.sleep(10)
 
-    def _read_tweets(self) -> list[dict]:
+    def _read_tweets(self) -> list[TweetData]:
         """Load regular tweets data.
 
         Returns:
@@ -77,17 +77,19 @@ class Bot:
             reader = csv.reader(f, delimiter="\t")
             header = next(reader)
 
-            tweets = []
+            tweets: list[TweetData] = []
             for row in reader:
-                tweet = {"images": []}
+                tweet: TweetData = TweetData()
                 for key, value in zip(header, row):
                     if key == "text":
-                        tweet[key] = value.replace("\\n", "\n")
+                        tweet.text = value.replace("\\n", "\n")
                     elif key in ["img1", "img2", "img3", "img4"]:
                         if value:
-                            tweet["images"].append(value)
+                            tweet.images.append(value)
+                    elif key == "id":
+                        tweet.id = value
                     else:
-                        tweet[key] = value
+                        raise ValueError("Invalid key: {}".format(key))
                 tweets.append(tweet)
 
         return tweets
@@ -102,7 +104,7 @@ class Bot:
             list: Indices in `self.tweets` for unposted tweets.
 
         """
-        return [index for index, tweet in enumerate(self.tweets) if tweet["id"] not in posted_ids]
+        return [index for index, tweet in enumerate(self.tweets) if tweet.id not in posted_ids]
 
     def _output_log(self, text: str) -> None:
         """Output log.
