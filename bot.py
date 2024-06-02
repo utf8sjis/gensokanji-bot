@@ -92,7 +92,7 @@ class Bot:
 
         return tweets
 
-    def _get_unposted_indices(self, posted_ids: list[int]) -> list[int]:
+    def _get_unposted_indices(self, posted_ids: list[str]) -> list[int]:
         """Get unposted tweets data.
 
         Args:
