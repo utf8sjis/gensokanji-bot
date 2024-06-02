@@ -41,13 +41,13 @@ class TwitterAPI:
                 (https://developer.twitter.com/en/support/twitter-api/error-troubleshooting).
 
         """
-        api = self._api()
+        twitter_api = self._api()
         client = self._client()
 
         try:
             if tweet.images:
                 media_ids = [
-                    api.media_upload(os.path.join(self.tweets_data_dir, "img", file_name)).media_id_string
+                    twitter_api.media_upload(os.path.join(self.tweets_data_dir, "img", file_name)).media_id_string
                     for file_name in tweet.images
                 ]
                 client.create_tweet(text=tweet.text, media_ids=media_ids)

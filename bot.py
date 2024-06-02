@@ -4,7 +4,8 @@ import random
 import time
 from typing import Final
 
-from api import BotDatabase, TwitterAPI
+from api.database import BotDatabase
+from api.twitter import TwitterAPI
 from data_models import PostedData, TweetData
 from utils import get_current_datetime
 
