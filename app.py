@@ -10,13 +10,13 @@ scheduler = APScheduler()
 
 
 @app.route("/")
-def hello_world():
+def hello_world() -> str:
     return "Hello, World!"
 
 
 @scheduler.task("cron", id="do_job", minute=30)
 # @scheduler.task('interval', id='do_job', minutes=5)
-def job():
+def job() -> None:
     bot = Bot(TWEETS_DATA_DIR)
     bot.post_regular_tweet()
 
