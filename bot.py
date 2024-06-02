@@ -2,10 +2,11 @@ import csv
 import os
 import random
 import time
-from datetime import datetime, timedelta, timezone
 
 import config
 from api import BotDatabase, TwitterAPI
+from data_models import PostedData
+from utils import get_current_datetime
 
 
 class Bot:
@@ -35,7 +36,7 @@ class Bot:
 
         while True:
             # Get candidates for tweets to post.
-            posted_ids = bot_database.get_data()["posted_data"]["ids"]
+            posted_ids = bot_database.get_posted_data().ids
             candidate_indices = self._get_unposted_indices(posted_ids)
 
             if candidate_indices:
@@ -44,7 +45,7 @@ class Bot:
                 # If there are no candidates, initialize data on tweets already posted
                 # and reload them (next loop).
                 self._output_log("tweets have come full circle")
-                bot_database.update_data(self._make_new_data([]))
+                bot_database.update_posted_data(PostedData(total=0, ids=[]))
 
         while True:
             # Post one of the candidates at random.
@@ -53,7 +54,7 @@ class Bot:
 
             if is_success:
                 posted_ids.append(self.tweets[candidate_index]["id"])
-                bot_database.update_data(self._make_new_data(posted_ids))
+                bot_database.update_posted_data(PostedData(total=len(posted_ids), ids=posted_ids))
                 break
             else:
                 if api_code == 187:
@@ -103,23 +104,6 @@ class Bot:
         """
         return [index for index, tweet in enumerate(self.tweets) if tweet["id"] not in posted_ids]
 
-    def _make_new_data(self, posted_ids: list[int]) -> dict:
-        """Generate new posted data.
-
-        Args:
-            posted_ids (list): List of IDs of tweets already posted.
-
-        Returns:
-            dict: Data on current date and time and tweets already posted.
-
-        """
-        posted_data = {
-            "total": len(posted_ids),
-            "ids": posted_ids,
-        }
-        new_data = {"updated_at": str(self._get_current_datetime()), "posted_data": posted_data}
-        return new_data
-
     def _output_log(self, text: str) -> None:
         """Output log.
 
@@ -127,13 +111,4 @@ class Bot:
             text (str): Log message.
 
         """
-        print("{} {}\n".format(self._get_current_datetime(), text))
-
-    def _get_current_datetime(self) -> datetime:
-        """Get current date and time
-
-        Returns:
-            datetime: Current date and time (Japan Standard Time).
-
-        """
-        return datetime.now(timezone(timedelta(hours=9)))
+        print("{} {}\n".format(get_current_datetime(), text))

@@ -1,4 +1,6 @@
 import supabase
+from data_models import PostedData
+from utils import get_current_datetime
 
 
 class BotDatabase:
@@ -13,27 +15,28 @@ class BotDatabase:
         self.api_url = api_url
         self.api_key = api_key
 
-    def get_data(self) -> dict:
-        """Get data from the database.
+    def get_posted_data(self) -> PostedData:
+        """Get posted data from the database.
 
         Returns:
-            dict: Data such as last updated date and time, tweets
-                already posted, etc.
+            PostedData: Data on tweets already posted
 
         """
         supabase = self._connect()
-        record = supabase.table("bot_data").select("*").eq("id", 1).execute()
-        data = record.data[0]
-        return data
+        records = supabase.table("bot_data").select("*").eq("id", 1).execute()
+        return PostedData(**records.data[0]["posted_data"])
 
-    def update_data(self, data: dict) -> None:
-        """Update data in the database.
+    def update_posted_data(self, posted_data: PostedData) -> None:
+        """Update posted data in the database.
 
         Args:
-            data (dict): Data such as last updated date and time,
-                tweets already posted, etc.
+            posted_data PostedData: Data on tweets already posted
 
         """
+        data = {
+            "updated_at": str(get_current_datetime()),
+            "posted_data": posted_data.model_dump(),
+        }
         supabase = self._connect()
         supabase.table("bot_data").update(data).eq("id", 1).execute()
 
