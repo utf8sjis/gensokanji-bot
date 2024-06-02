@@ -1,9 +1,11 @@
 from bot import Bot
+from dotenv import load_dotenv
 from flask import Flask
 from flask_apscheduler import APScheduler
 
 TWEETS_DATA_DIR = "data"
 
+load_dotenv(override=True)
 
 app = Flask(__name__)
 scheduler = APScheduler()

@@ -2,8 +2,8 @@ import csv
 import os
 import random
 import time
+from typing import Final
 
-import config
 from api import BotDatabase, TwitterAPI
 from data_models import PostedData, TweetData
 from utils import get_current_datetime
@@ -19,7 +19,26 @@ class Bot:
             tweets_data_dir (str): Path to the directory of tweets data.
 
         """
-        self.tweets_data_dir = tweets_data_dir
+        self.tweets_data_dir: Final = tweets_data_dir
+
+        self.twitter_api_key: Final = os.getenv("TWITTER_API_KEY", "")
+        self.twitter_api_key_secret: Final = os.getenv("TWITTER_API_KEY_SECRET", "")
+        self.twitter_access_token: Final = os.getenv("TWITTER_ACCESS_TOKEN", "")
+        self.twitter_access_token_secret: Final = os.getenv("TWITTER_ACCESS_TOKEN_SECRET", "")
+        self.database_url: Final = os.getenv("DATABASE_URL", "")
+        self.database_key: Final = os.getenv("DATABASE_KEY", "")
+
+        if not all(
+            [
+                self.twitter_api_key,
+                self.twitter_api_key_secret,
+                self.twitter_access_token,
+                self.twitter_access_token_secret,
+                self.database_url,
+                self.database_key,
+            ]
+        ):
+            raise ValueError("Environment variables are not set.")
 
         self.tweets = self._read_tweets()
 
@@ -27,12 +46,12 @@ class Bot:
         """Post a regular tweet."""
         twitter_api = TwitterAPI(
             self.tweets_data_dir,
-            config.TWITTER_API_KEY,
-            config.TWITTER_API_KEY_SECRET,
-            config.TWITTER_ACCESS_TOKEN,
-            config.TWITTER_ACCESS_TOKEN_SECRET,
+            self.twitter_api_key,
+            self.twitter_api_key_secret,
+            self.twitter_access_token,
+            self.twitter_access_token_secret,
         )
-        bot_database = BotDatabase(config.DATABASE_URL, config.DATABASE_KEY)
+        bot_database = BotDatabase(self.database_url, self.database_key)
 
         while True:
             # Get candidates for tweets to post.
