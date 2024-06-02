@@ -1,8 +1,8 @@
-from supabase import create_client
+import supabase
 
 
 class BotDatabase:
-    def __init__(self, api_url, api_key):
+    def __init__(self, api_url: str, api_key: str) -> None:
         """Operate the bot's database.
 
         Args:
@@ -13,7 +13,7 @@ class BotDatabase:
         self.api_url = api_url
         self.api_key = api_key
 
-    def get_data(self):
+    def get_data(self) -> dict:
         """Get data from the database.
 
         Returns:
@@ -26,7 +26,7 @@ class BotDatabase:
         data = record.data[0]
         return data
 
-    def update_data(self, data):
+    def update_data(self, data: dict) -> None:
         """Update data in the database.
 
         Args:
@@ -37,6 +37,6 @@ class BotDatabase:
         supabase = self._connect()
         supabase.table("bot_data").update(data).eq("id", 1).execute()
 
-    def _connect(self):
+    def _connect(self) -> supabase.Client:
         """Connect to the database."""
-        return create_client(self.api_url, self.api_key)
+        return supabase.create_client(self.api_url, self.api_key)

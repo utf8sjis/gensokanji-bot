@@ -4,7 +4,14 @@ import tweepy
 
 
 class TwitterAPI:
-    def __init__(self, tweets_data_dir, api_key, api_key_secret, access_token, access_token_secret):
+    def __init__(
+        self,
+        tweets_data_dir: str,
+        api_key: str,
+        api_key_secret: str,
+        access_token: str,
+        access_token_secret: str,
+    ) -> None:
         """Operate using Twitter API.
 
         Args:
@@ -21,7 +28,7 @@ class TwitterAPI:
         self.access_token = access_token
         self.access_token_secret = access_token_secret
 
-    def post_tweet(self, tweet):
+    def post_tweet(self, tweet: dict) -> tuple[bool, int]:
         """Post the tweet.
 
         Args:
@@ -56,7 +63,7 @@ class TwitterAPI:
 
         return True, -1
 
-    def _api(self):
+    def _api(self) -> tweepy.API:
         """Get Twitter API v1.1 interface.
 
         Returns:
@@ -67,7 +74,7 @@ class TwitterAPI:
         auth.set_access_token(self.access_token, self.access_token_secret)
         return tweepy.API(auth, wait_on_rate_limit=True)
 
-    def _client(self):
+    def _client(self) -> tweepy.Client:
         """Get Twitter API v2 client.
 
         Returns:

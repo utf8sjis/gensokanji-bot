@@ -9,7 +9,7 @@ from api import BotDatabase, TwitterAPI
 
 
 class Bot:
-    def __init__(self, tweets_data_dir):
+    def __init__(self, tweets_data_dir: str) -> None:
         """Bot functions.
 
         Currently, only the function to post tweets regularly is registered.
@@ -22,7 +22,7 @@ class Bot:
 
         self.tweets = self._read_tweets()
 
-    def post_regular_tweet(self):
+    def post_regular_tweet(self) -> None:
         """Post a regular tweet."""
         twitter_api = TwitterAPI(
             self.tweets_data_dir,
@@ -64,7 +64,7 @@ class Bot:
                     self._output_log("[ERROR] Twitter API: code {}".format(api_code))
                 time.sleep(10)
 
-    def _read_tweets(self):
+    def _read_tweets(self) -> list[dict]:
         """Load regular tweets data.
 
         Returns:
@@ -91,7 +91,7 @@ class Bot:
 
         return tweets
 
-    def _get_unposted_indices(self, posted_ids):
+    def _get_unposted_indices(self, posted_ids: list[int]) -> list[int]:
         """Get unposted tweets data.
 
         Args:
@@ -103,7 +103,7 @@ class Bot:
         """
         return [index for index, tweet in enumerate(self.tweets) if tweet["id"] not in posted_ids]
 
-    def _make_new_data(self, posted_ids):
+    def _make_new_data(self, posted_ids: list[int]) -> dict:
         """Generate new posted data.
 
         Args:
@@ -120,7 +120,7 @@ class Bot:
         new_data = {"updated_at": str(self._get_current_datetime()), "posted_data": posted_data}
         return new_data
 
-    def _output_log(self, text):
+    def _output_log(self, text: str) -> None:
         """Output log.
 
         Args:
@@ -129,7 +129,7 @@ class Bot:
         """
         print("{} {}\n".format(self._get_current_datetime(), text))
 
-    def _get_current_datetime(self):
+    def _get_current_datetime(self) -> datetime:
         """Get current date and time
 
         Returns:
