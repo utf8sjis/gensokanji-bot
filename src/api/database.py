@@ -1,4 +1,5 @@
 import supabase
+
 from data_models import PostedData
 from utils import get_current_datetime
 

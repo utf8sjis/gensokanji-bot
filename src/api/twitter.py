@@ -1,6 +1,7 @@
 import os
 
 import tweepy
+
 from data_models import TweetData
 
 
