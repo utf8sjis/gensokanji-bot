@@ -1,8 +1,9 @@
-from bot import Bot
-from constants import DATA_DIR
 from dotenv import load_dotenv
 from flask import Flask
 from flask_apscheduler import APScheduler
+
+from bot import Bot
+from constants import DATA_DIR
 
 load_dotenv(override=True)
 

@@ -1,7 +1,13 @@
-.PHONY: lint format
-
-lint:
-	poetry run pysen run lint
+.PHONY: format lint verify-all
 
 format:
-	poetry run pysen run format
+	poetry run isort .
+	poetry run black .
+
+lint:
+	poetry run pflake8 .
+	poetry run mypy .
+
+verify-all:
+	make format
+	make lint
