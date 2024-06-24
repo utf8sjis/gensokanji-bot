@@ -8,6 +8,10 @@ lint:
 	poetry run pflake8 .
 	poetry run mypy .
 
+test:
+	poetry run pytest .
+
 verify-all:
 	make format
 	make lint
+	make test

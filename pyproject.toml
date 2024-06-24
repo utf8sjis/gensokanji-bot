@@ -14,6 +14,8 @@ flask = "~3.0"
 flask-apscheduler = "~1.13"
 gunicorn = "~22.0"
 pydantic = "~1.10"
+pytest = "^8.2.2"
+pytest-mock = "^3.14.0"
 
 [tool.poetry.group.dev.dependencies]
 pyproject-flake8 = "^7.0.0"
@@ -24,7 +26,7 @@ isort = "^5.13.2"
 [tool.flake8]
 max-line-length = 120
 extend-ignore = ["E203", "W503"]
-exclude = [".venv", ".git", "__pycache__",]
+exclude = [".venv", ".git", "__pycache__"]
 max-complexity = 10
 
 [tool.mypy]
@@ -36,6 +38,7 @@ no_implicit_optional = true
 warn_return_any = true
 warn_unused_ignores = true
 warn_redundant_casts = true
+exclude = ["tests"]
 
 [tool.black]
 line-length = 120
@@ -45,6 +48,10 @@ profile = "black"
 line_length = 120
 multi_line_output = 3
 include_trailing_comma = true
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+testpaths = ["tests"]
 
 [build-system]
 requires = ["poetry-core"]
