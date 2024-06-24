@@ -1,4 +1,4 @@
-.PHONY: format lint verify-all
+.PHONY: format lint test verify-all
 
 format:
 	poetry run isort .
