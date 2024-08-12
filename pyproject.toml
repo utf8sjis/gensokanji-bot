@@ -14,14 +14,14 @@ flask = "~3.0"
 flask-apscheduler = "~1.13"
 gunicorn = "~22.0"
 pydantic = "~1.10"
-pytest = "^8.2.2"
-pytest-mock = "^3.14.0"
 
 [tool.poetry.group.dev.dependencies]
 pyproject-flake8 = "^7.0.0"
 mypy = "^1.10.0"
 black = "^24.4.2"
 isort = "^5.13.2"
+pytest = "^8.2.2"
+pytest-mock = "^3.14.0"
 
 [tool.flake8]
 max-line-length = 120
