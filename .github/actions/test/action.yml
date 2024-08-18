@@ -1,0 +1,14 @@
+name: Test
+description: Run tests
+runs:
+  using: composite
+  steps:
+    - name: Install dependencies
+      shell: bash
+      run: poetry install --with dev --no-interaction
+    - name: Lint
+      shell: bash
+      run: make lint
+    - name: Test
+      shell: bash
+      run: make test
