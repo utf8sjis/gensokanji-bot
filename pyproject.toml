@@ -22,6 +22,7 @@ black = "^24.4.2"
 isort = "^5.13.2"
 pytest = "^8.2.2"
 pytest-mock = "^3.14.0"
+types-pyyaml = "^6.0.12.20240808"
 
 [tool.flake8]
 max-line-length = 120
