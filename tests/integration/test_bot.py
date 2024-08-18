@@ -5,13 +5,13 @@ import pytest
 from api.database import BotDatabase
 from api.twitter import TwitterAPI
 from bot import Bot
-from data_models import PostedData, TweetData
+from data_models import PostedData, TweetDataItem
 
 _RANDOM_CHOICE_INDEX = -1
 _TWEET_DATA_LIST = [
-    TweetData(id="test001", text="テスト1", images=["test1.png"]),
-    TweetData(id="test002", text="テスト2", images=["test2.png"]),
-    TweetData(id="test003", text="テスト3", images=["test3.png"]),
+    TweetDataItem(id="test001", text="テスト1", images=["test1.png"]),
+    TweetDataItem(id="test002", text="テスト2", images=["test2.png"]),
+    TweetDataItem(id="test003", text="テスト3", images=["test3.png"]),
 ]
 
 
@@ -56,7 +56,7 @@ class TestBot:
         bot_instance.post_regular_tweet()
 
         # Then:
-        post_tweet.assert_called_once_with(TweetData(id="test002", text="テスト2", images=["test2.png"]))
+        post_tweet.assert_called_once_with(TweetDataItem(id="test002", text="テスト2", images=["test2.png"]))
         update_posted_data.assert_called_once_with(PostedData(total=2, ids=["test003", "test002"]))
 
     @staticmethod
@@ -71,7 +71,7 @@ class TestBot:
         bot_instance.post_regular_tweet()
 
         # Then:
-        post_tweet.assert_called_once_with(TweetData(id="test003", text="テスト3", images=["test3.png"]))
+        post_tweet.assert_called_once_with(TweetDataItem(id="test003", text="テスト3", images=["test3.png"]))
         update_posted_data.assert_has_calls(
             [call(PostedData(total=0, ids=[])), call(PostedData(total=1, ids=["test003"]))], any_order=False
         )

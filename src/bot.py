@@ -1,23 +1,25 @@
-import csv
 import os
 import random
 import time
+from pathlib import Path
 from typing import Final
+
+import yaml
 
 from api.database import BotDatabase
 from api.twitter import TwitterAPI
-from data_models import PostedData, TweetData
+from data_models import PostedData, TweetData, TweetDataItem
 from utils import get_current_datetime
 
 
 class Bot:
-    def __init__(self, tweets_data_dir: str) -> None:
+    def __init__(self, tweets_data_dir: Path) -> None:
         """Bot functions.
 
         Currently, only the function to post tweets regularly is registered.
 
         Args:
-            tweets_data_dir (str): Path to the directory of tweets data.
+            tweets_data_dir (Path): Path to the directory of tweets data.
 
         """
         self.tweets_data_dir: Final = tweets_data_dir
@@ -85,34 +87,17 @@ class Bot:
                     self._output_log("[ERROR] Twitter API: code {}".format(api_code))
                 time.sleep(10)
 
-    def _read_tweets(self) -> list[TweetData]:
+    def _read_tweets(self) -> list[TweetDataItem]:
         """Load regular tweets data.
 
         Returns:
             list: List of regular tweets (text and image data).
 
         """
-        tweets_data_path = os.path.join(self.tweets_data_dir, "tweets.tsv")
-        with open(tweets_data_path, encoding="utf-8", newline="") as f:
-            reader = csv.reader(f, delimiter="\t")
-            header = next(reader)
+        with open(self.tweets_data_dir / "tweets.yml") as f:
+            tweets_data = TweetData(**yaml.safe_load(f))
 
-            tweets: list[TweetData] = []
-            for row in reader:
-                tweet: TweetData = TweetData()
-                for key, value in zip(header, row):
-                    if key == "text":
-                        tweet.text = value.replace("\\n", "\n")
-                    elif key in ["img1", "img2", "img3", "img4"]:
-                        if value:
-                            tweet.images.append(value)
-                    elif key == "id":
-                        tweet.id = value
-                    else:
-                        raise ValueError("Invalid key: {}".format(key))
-                tweets.append(tweet)
-
-        return tweets
+        return tweets_data.tweets
 
     def _get_unposted_indices(self, posted_ids: list[str]) -> list[int]:
         """Get unposted tweets data.

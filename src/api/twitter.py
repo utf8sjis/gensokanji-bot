@@ -1,14 +1,14 @@
-import os
+from pathlib import Path
 
 import tweepy
 
-from data_models import TweetData
+from data_models import TweetDataItem
 
 
 class TwitterAPI:
     def __init__(
         self,
-        tweets_data_dir: str,
+        tweets_data_dir: Path,
         api_key: str,
         api_key_secret: str,
         access_token: str,
@@ -17,7 +17,7 @@ class TwitterAPI:
         """Operate using Twitter API.
 
         Args:
-            tweets_data_dir (str): Path to the directory of tweets data.
+            tweets_data_dir (Path): Path to the directory of tweets data.
             api_key (str): Twitter API customer key.
             api_key_secret (str): Twitter API customer key (secret).
             access_token (str): Twitter API authentication token.
@@ -30,11 +30,11 @@ class TwitterAPI:
         self.access_token = access_token
         self.access_token_secret = access_token_secret
 
-    def post_tweet(self, tweet: TweetData) -> tuple[bool, int]:
+    def post_tweet(self, tweet: TweetDataItem) -> tuple[bool, int]:
         """Post the tweet.
 
         Args:
-            tweet (TweetData): Text and image data of the tweet.
+            tweet (TweetDataItem): Text and image data of the tweet.
 
         Returns:
             bool: True if successful, false otherwise.
@@ -48,7 +48,7 @@ class TwitterAPI:
         try:
             if tweet.images:
                 media_ids = [
-                    twitter_api.media_upload(os.path.join(self.tweets_data_dir, "img", file_name)).media_id_string
+                    twitter_api.media_upload(self.tweets_data_dir / "images" / file_name).media_id_string
                     for file_name in tweet.images
                 ]
                 client.create_tweet(text=tweet.text, media_ids=media_ids)
