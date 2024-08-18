@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "gensokanji-bot"
+version = "0.1.0"
+description = ""
+authors = ["utf8sjis <89941856+utf8sjis@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "~3.11"
+tweepy = "~4.14"
+supabase = "~0.7"
+flask = "~3.0"
+flask-apscheduler = "~1.13"
+gunicorn = "~22.0"
+pydantic = "~1.10"
+
+[tool.poetry.group.dev.dependencies]
+pyproject-flake8 = "^7.0.0"
+mypy = "^1.10.0"
+black = "^24.4.2"
+isort = "^5.13.2"
+pytest = "^8.2.2"
+pytest-mock = "^3.14.0"
+
+[tool.flake8]
+max-line-length = 120
+extend-ignore = ["E203", "W503"]
+exclude = [".venv", ".git", "__pycache__"]
+max-complexity = 10
+
+[tool.mypy]
+show_error_context = true
+show_column_numbers = true
+ignore_missing_imports = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+warn_return_any = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+exclude = ["tests"]
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+testpaths = ["tests"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,19 @@
+name: Set up
+description: Set up python and install poetry
+inputs:
+  python-version:
+    description: Python version to use
+    required: true
+  poetry-version:
+    description: Poetry version to use
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Set up python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+    - name: Install poetry
+      shell: bash
+      run: pip install poetry==${{ inputs.poetry-version }}

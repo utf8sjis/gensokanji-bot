@@ -2,10 +2,18 @@ import os
 
 import tweepy
 
+from data_models import TweetData
 
-class TwitterAPI():
-    def __init__(self, tweets_data_dir, api_key, api_key_secret,
-                 access_token, access_token_secret):
+
+class TwitterAPI:
+    def __init__(
+        self,
+        tweets_data_dir: str,
+        api_key: str,
+        api_key_secret: str,
+        access_token: str,
+        access_token_secret: str,
+    ) -> None:
         """Operate using Twitter API.
 
         Args:
@@ -22,11 +30,11 @@ class TwitterAPI():
         self.access_token = access_token
         self.access_token_secret = access_token_secret
 
-    def post_tweet(self, tweet):
+    def post_tweet(self, tweet: TweetData) -> tuple[bool, int]:
         """Post the tweet.
 
         Args:
-            tweet (dict): Text and image data of the tweet.
+            tweet (TweetData): Text and image data of the tweet.
 
         Returns:
             bool: True if successful, false otherwise.
@@ -34,20 +42,21 @@ class TwitterAPI():
                 (https://developer.twitter.com/en/support/twitter-api/error-troubleshooting).
 
         """
-        api = self._api()
+        twitter_api = self._api()
         client = self._client()
 
         try:
-            if tweet['images']:
+            if tweet.images:
                 media_ids = [
-                    api.media_upload(os.path.join(
-                        self.tweets_data_dir, 'img', file_name)).media_id_string
-                    for file_name in tweet['images']]
-                client.create_tweet(text=tweet['text'], media_ids=media_ids)
+                    twitter_api.media_upload(os.path.join(self.tweets_data_dir, "img", file_name)).media_id_string
+                    for file_name in tweet.images
+                ]
+                client.create_tweet(text=tweet.text, media_ids=media_ids)
             else:
-                client.create_tweet(text=tweet['text'])
+                client.create_tweet(text=tweet.text)
         except tweepy.errors.HTTPException as e:
             import traceback
+
             traceback.print_exc()
             if e.api_codes:
                 return False, e.api_codes[0]
@@ -56,7 +65,7 @@ class TwitterAPI():
 
         return True, -1
 
-    def _api(self):
+    def _api(self) -> tweepy.API:
         """Get Twitter API v1.1 interface.
 
         Returns:
@@ -67,7 +76,7 @@ class TwitterAPI():
         auth.set_access_token(self.access_token, self.access_token_secret)
         return tweepy.API(auth, wait_on_rate_limit=True)
 
-    def _client(self):
+    def _client(self) -> tweepy.Client:
         """Get Twitter API v2 client.
 
         Returns:
@@ -75,8 +84,8 @@ class TwitterAPI():
 
         """
         return tweepy.Client(
-            consumer_key = self.api_key,
-            consumer_secret = self.api_key_secret,
-            access_token = self.access_token,
-            access_token_secret = self.access_token_secret
+            consumer_key=self.api_key,
+            consumer_secret=self.api_key_secret,
+            access_token=self.access_token,
+            access_token_secret=self.access_token_secret,
         )
