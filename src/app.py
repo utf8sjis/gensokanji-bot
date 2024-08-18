@@ -1,11 +1,8 @@
-from dotenv import load_dotenv
 from flask import Flask
 from flask_apscheduler import APScheduler
 
 from bot import Bot
 from constants import DATA_DIR
-
-load_dotenv(override=True)
 
 app = Flask(__name__)
 scheduler = APScheduler()
@@ -16,8 +13,8 @@ def hello_world() -> str:
     return "Hello, World!"
 
 
-@scheduler.task("cron", id="do_job", minute=30)
-def job() -> None:
+@scheduler.task("cron", id="do_bot_job", minute=30)
+def bot_job() -> None:
     bot = Bot(DATA_DIR)
     bot.post_regular_tweet()
 
