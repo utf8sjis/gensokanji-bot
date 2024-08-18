@@ -4,8 +4,6 @@ from unittest.mock import patch
 
 import pytest
 
-from app import app
-
 
 @pytest.fixture(scope="session", autouse=True)
 def mock_env_vars():
@@ -21,12 +19,6 @@ def mock_env_vars():
         },
     ):
         yield
-
-
-@pytest.fixture
-def app_client():
-    with app.test_client() as client:
-        yield client
 
 
 @pytest.fixture(autouse=True)

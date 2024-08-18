@@ -1,5 +1,17 @@
+import pytest
+
+from app import app
+
+
+@pytest.fixture
+def app_client():
+    with app.test_client() as client:
+        yield client
+
+
 class TestApp:
-    def test_hello_world(self, app_client):
+    @staticmethod
+    def test_hello_world(app_client):
         # When:
         response = app_client.get("/")
 
