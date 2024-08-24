@@ -16,6 +16,11 @@ def tweets():
 
 class TestData:
     @staticmethod
+    def test_tweet_id_uniqueness(tweets: list[TweetDataItem]):
+        tweet_ids = [tweet.id for tweet in tweets]
+        assert len(tweet_ids) == len(set(tweet_ids))
+
+    @staticmethod
     def test_tweet_validation(tweets: list[TweetDataItem]):
         for tweet in tweets:
             parsed_result = parse_tweet(tweet.text)
