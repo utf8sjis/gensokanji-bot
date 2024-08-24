@@ -1,4 +1,4 @@
-.PHONY: format lint test verify-all
+.PHONY: format lint test verify-all validate-tweets
 
 format:
 	poetry run isort .
@@ -15,3 +15,6 @@ verify-all:
 	make format
 	make lint
 	make test
+
+validate-tweets:
+	poetry run python scripts/tweet_validator.py
