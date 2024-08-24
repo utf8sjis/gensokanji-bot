@@ -23,6 +23,12 @@ class TestData:
                 raise AssertionError(f"Tweet {tweet.id} is invalid.")
 
     @staticmethod
+    def test_image_count(tweets: list[TweetDataItem]):
+        for tweet in tweets:
+            if tweet.images:
+                assert len(tweet.images) <= 4
+
+    @staticmethod
     def test_image_existence(tweets: list[TweetDataItem]):
         for tweet in tweets:
             if tweet.images:
