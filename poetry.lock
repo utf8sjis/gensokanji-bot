@@ -1693,6 +1693,17 @@ tqdm = ">=4.14"
 urllib3 = ">=1.26.0"
 
 [[package]]
+name = "twitter-text-parser"
+version = "3.0.0"
+description = "A library to parse or validate Twitter texts properly"
+optional = false
+python-versions = ">=3.7,<4.0"
+files = [
+    {file = "twitter_text_parser-3.0.0-py3-none-any.whl", hash = "sha256:b36bd22e147db2234e79c73b021f10c3073e8c54f22b68c31696239b6917cdd3"},
+    {file = "twitter_text_parser-3.0.0.tar.gz", hash = "sha256:9426e4fb9393c8c1adfb36ff5d91495ff4524782e85f80748f6ae0bc1efffcda"},
+]
+
+[[package]]
 name = "types-pyyaml"
 version = "6.0.12.20240808"
 description = "Typing stubs for PyYAML"
@@ -1886,4 +1897,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.11"
-content-hash = "1e18dd3e5fc71a848799be0f037199803a11e2ef54b58f96eb7ed883147908b1"
+content-hash = "fa34b7249e5f9bc57ce69e975bafab3dfa5f0ed303cccf0b6ba59b36b1351b22"
