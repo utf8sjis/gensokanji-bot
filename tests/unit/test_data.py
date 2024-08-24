@@ -20,4 +20,11 @@ class TestData:
         for tweet in tweets:
             parsed_result = parse_tweet(tweet.text)
             if not parsed_result.valid:
-                raise ValueError(f"Tweet {tweet.id} is invalid.")
+                raise AssertionError(f"Tweet {tweet.id} is invalid.")
+
+    @staticmethod
+    def test_image_existence(tweets: list[TweetDataItem]):
+        for tweet in tweets:
+            if tweet.images:
+                for image in tweet.images:
+                    assert (DATA_DIR / "images" / image).exists()
