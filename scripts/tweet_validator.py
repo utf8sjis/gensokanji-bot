@@ -18,6 +18,7 @@ with open(DATA_DIR / "tweets.yml") as f:
     tweets_data = TweetData(**yaml.safe_load(f))
     invalid_ids = []
     excess_image_count_ids = []
+    no_image_file_names = []
     for tweet in tweets_data.tweets:
         parsed_result = parse_tweet(tweet.text)
 
@@ -41,10 +42,21 @@ with open(DATA_DIR / "tweets.yml") as f:
         else:
             image_count_color = ""
 
+        if tweet.images:
+            for image in tweet.images:
+                if not (DATA_DIR / "images" / image).exists():
+                    no_image_file_names.append(image)
+                    images_color = Fore.RED
+                    break
+            else:
+                images_color = ""
+        else:
+            images_color = ""
+
         id_sec = f"id: {tweet.id:<7}"
         percent = f"{percent_color}{parsed_result.permillage / 10:>6}%{Style.RESET_ALL}"
         image_count = f"{image_count_color}{len(tweet.images) if tweet.images else 0} image(s){Style.RESET_ALL}"
-        images = f"{'(' + ', '.join(tweet.images) + ')' if tweet.images else ''}"
+        images = f"{images_color}{'(' + ', '.join(tweet.images) + ')' if tweet.images else ''}{Style.RESET_ALL}"
 
         filled_length = int(BAR_LENGTH * parsed_result.permillage // 1000)
         fill = "#" * filled_length
@@ -67,3 +79,6 @@ with open(DATA_DIR / "tweets.yml") as f:
 
     print(f"{Fore.RED if excess_image_count_ids else Fore.GREEN}excess number of images: {len(excess_image_count_ids)}")
     print(f"- ids: {excess_image_count_ids}\n" if excess_image_count_ids else "", end="")
+
+    print(f"{Fore.RED if no_image_file_names else Fore.GREEN}no image files: {len(no_image_file_names)}")
+    print(f"- file names: {no_image_file_names}\n" if no_image_file_names else "", end="")
