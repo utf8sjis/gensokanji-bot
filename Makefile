@@ -17,4 +17,4 @@ verify-all:
 	make test
 
 validate-tweets:
-	poetry run python scripts/tweet_validator.py
+	PYTHONPATH="src" poetry run python scripts/tweet_validator.py

@@ -1,7 +1,6 @@
 from pathlib import Path
 
 import colorama
-import script_setup  # noqa: F401
 import yaml
 from colorama import Fore, Style
 from pydantic import BaseModel
