@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR = os.path.join(BASE_DIR, "data")
+BASE_DIR = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DATA_DIR = BASE_DIR / "data"
