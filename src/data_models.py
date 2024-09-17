@@ -6,7 +6,11 @@ class PostedData(BaseModel):
     ids: list[str]
 
 
-class TweetData(BaseModel):
+class TweetDataItem(BaseModel):
     id: str = ""
     text: str = ""
-    images: list[str] = Field(default_factory=list)
+    images: list[str] | None = Field(default_factory=list)
+
+
+class TweetData(BaseModel):
+    tweets: list[TweetDataItem]
