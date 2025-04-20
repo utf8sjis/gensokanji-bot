@@ -1,5 +1,5 @@
 from app import scheduler
-from constants import DATA_DIR
+from constants import BOT_JOB_ID, DATA_DIR
 
 
 class TestScheduler:
@@ -9,7 +9,7 @@ class TestScheduler:
         bot_init = mocker.patch("app.Bot.__init__", return_value=None)
         bot_post_regular_tweet = mocker.patch("app.Bot.post_regular_tweet")
 
-        bot_job = scheduler.get_job("do_bot_job").func
+        bot_job = scheduler.get_job(BOT_JOB_ID).func
 
         assert bot_job is not None
 
