@@ -1,9 +1,8 @@
 [tool.poetry]
 name = "gensokanji-bot"
 version = "0.1.0"
-description = ""
 authors = ["utf8sjis <89941856+utf8sjis@users.noreply.github.com>"]
-readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "~3.11"
