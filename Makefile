@@ -1,27 +1,31 @@
-.PHONY: validate-tweets format lint test verify docker-build docker-run docker-stop docker-stats docker-clean
+.PHONY: validate-tweets run format lint test verify docker-build docker-run docker-stop docker-stats docker-clean
 
 export PROJECT_NAME=gensokanji-bot
 export IMAGE_NAME=$(PROJECT_NAME)
 export CONTAINER_NAME=$(PROJECT_NAME)
 export PYTHONPATH=./src
+export ENVFILE_PATH=.env
 
 # tools
 
 validate-tweets:
-	PYTHONPATH=$(PYTHONPATH) poetry run python scripts/tweet_validator.py
+	PYTHONPATH=$(PYTHONPATH) uv run python scripts/tweet_validator.py
 
 # development
 
+run:
+	uv run gunicorn -b 0.0.0.0:8000 app:app
+
 format:
-	poetry run isort .
-	poetry run black .
+	uv run isort .
+	uv run black .
 
 lint:
-	poetry run pflake8 .
-	poetry run mypy .
+	uv run pflake8 .
+	uv run mypy .
 
 test:
-	poetry run pytest .
+	uv run pytest .
 
 verify:
 	make format

@@ -4,12 +4,12 @@ WORKDIR /app
 
 ENV PYTHONPATH=./src
 
-COPY pyproject.toml poetry.lock ./
+COPY pyproject.toml uv.lock ./
 RUN python -m pip install --no-cache-dir --upgrade pip && \
-    python -m pip install --no-cache-dir poetry && \
-    poetry install
+    python -m pip install --no-cache-dir uv && \
+    uv sync
 
 COPY src ./src
 COPY data ./data
 
-CMD ["poetry", "run", "gunicorn", "-b", "0.0.0.0:8000", "app:app"]
+CMD ["uv", "run", "gunicorn", "-b", "0.0.0.0:8000", "app:app"]
