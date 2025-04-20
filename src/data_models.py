@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 
 class PostedData(BaseModel):
@@ -7,9 +7,9 @@ class PostedData(BaseModel):
 
 
 class TweetDataItem(BaseModel):
-    id: str = ""
-    text: str = ""
-    images: list[str] | None = Field(default_factory=list)
+    id: str
+    text: str
+    images: list[str]
 
 
 class TweetData(BaseModel):

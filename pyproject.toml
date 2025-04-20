@@ -1,29 +1,32 @@
-[tool.poetry]
+[project]
 name = "gensokanji-bot"
 version = "0.1.0"
-authors = ["utf8sjis <89941856+utf8sjis@users.noreply.github.com>"]
+requires-python = "~=3.11.9"
 package-mode = false
+dependencies = [
+    "flask~=3.0",
+    "flask-apscheduler~=1.13",
+    "gunicorn~=23.0",
+    "python-dotenv~=1.1",
+    "pyyaml~=6.0",
+    "supabase~=0.7",  # TODO: Resolve scheduler not starting issue with supabase v1.0 and above.
+    "tweepy~=4.14",
+]
 
-[tool.poetry.dependencies]
-python = "~3.11"
-tweepy = "~4.14"
-supabase = "~0.7"
-flask = "~3.0"
-flask-apscheduler = "~1.13"
-gunicorn = "~22.0"
-pydantic = "~1.10"
-pyyaml = "^6.0.2"
-
-[tool.poetry.group.dev.dependencies]
-pyproject-flake8 = "^7.0.0"
-mypy = "^1.10.0"
-black = "^24.4.2"
-isort = "^5.13.2"
-pytest = "^8.2.2"
-pytest-mock = "^3.14.0"
-types-pyyaml = "^6.0.12.20240808"
-twitter-text-parser = "^3.0.0"
-colorama = "^0.4.6"
+[dependency-groups]
+dev = [
+    "black~=25.1",
+    "colorama~=0.4",
+    "isort~=6.0",
+    "mypy~=1.10",
+    "pydantic~=1.10",
+    "pyproject-flake8~=7.0",
+    "pytest~=8.2",
+    "pytest-mock~=3.14",
+    "setuptools~=78.1",
+    "twitter-text-parser~=3.0",
+    "types-pyyaml~=6.0",
+]
 
 [tool.flake8]
 max-line-length = 120
@@ -54,7 +57,3 @@ include_trailing_comma = true
 [tool.pytest.ini_options]
 pythonpath = "src"
 testpaths = ["tests"]
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"

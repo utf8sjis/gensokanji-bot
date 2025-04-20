@@ -48,20 +48,17 @@ class TweetValidator:
             percent_color = Fore.GREEN
             bar_color = ""
 
-        if tweet.images and len(tweet.images) > 4:
+        if len(tweet.images) > 4:
             image_count_color = Fore.RED
             self.excess_image_count_ids.append(tweet.id)
         else:
             image_count_color = ""
 
-        if tweet.images:
-            for image in tweet.images:
-                if not (DATA_DIR / "images" / image).exists():
-                    self.no_image_file_names.append(image)
-                    images_color = Fore.RED
-                    break
-            else:
-                images_color = ""
+        for image in tweet.images:
+            if not (DATA_DIR / "images" / image).exists():
+                self.no_image_file_names.append(image)
+                images_color = Fore.RED
+                break
         else:
             images_color = ""
 
@@ -76,7 +73,7 @@ class TweetValidator:
 
             id_sec = f"id: {tweet.id:<7}"
             percent = f"{color.percent}{parsed_result.permillage / 10:>6}%{Style.RESET_ALL}"
-            image_count = f"{color.image_count}{len(tweet.images) if tweet.images else 0} image(s){Style.RESET_ALL}"
+            image_count = f"{color.image_count}{len(tweet.images)} image(s){Style.RESET_ALL}"
             images = f"{color.images}{'(' + ', '.join(tweet.images) + ')' if tweet.images else ''}{Style.RESET_ALL}"
 
             filled_length = int(BAR_LENGTH * parsed_result.permillage // 1000)
