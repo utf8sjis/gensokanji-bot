@@ -30,12 +30,10 @@ class TestData:
     @staticmethod
     def test_image_count(tweets: list[TweetDataItem]):
         for tweet in tweets:
-            if tweet.images:
-                assert len(tweet.images) <= 4
+            assert len(tweet.images) <= 4
 
     @staticmethod
     def test_image_existence(tweets: list[TweetDataItem]):
         for tweet in tweets:
-            if tweet.images:
-                for image in tweet.images:
-                    assert (DATA_DIR / "images" / image).exists()
+            for image in tweet.images:
+                assert (DATA_DIR / "images" / image).exists()

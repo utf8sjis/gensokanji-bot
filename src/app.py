@@ -23,7 +23,7 @@ def hello_world() -> str:
     return "Hello, World!"
 
 
-@scheduler.task("cron", id="do_bot_job", minute=30)
+@scheduler.task("cron", id="do_bot_job", minute=58)
 def bot_job() -> None:
     bot = Bot(DATA_DIR)
     bot.post_regular_tweet()
