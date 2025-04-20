@@ -5,7 +5,7 @@ runs:
   steps:
     - name: Install dependencies
       shell: bash
-      run: poetry install --with dev --no-interaction
+      run: uv sync --dev
     - name: Lint
       shell: bash
       run: make lint

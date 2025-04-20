@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up python and install poetry
+      - name: Set up python and install uv
         uses: ./.github/actions/setup
         with:
           python-version: 3.11
-          poetry-version: 1.8.3
+          uv-version: 0.6.14
       - name: Run tests
         uses: ./.github/actions/test

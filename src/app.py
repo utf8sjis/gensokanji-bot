@@ -1,8 +1,18 @@
+import os
+
 from flask import Flask
 from flask_apscheduler import APScheduler
 
 from bot import Bot
 from constants import DATA_DIR
+
+ENV = os.getenv("ENV", "development")
+
+if ENV == "development":
+    from dotenv import load_dotenv
+
+    load_dotenv(override=True)
+
 
 app = Flask(__name__)
 scheduler = APScheduler()
