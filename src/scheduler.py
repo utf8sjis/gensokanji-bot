@@ -2,6 +2,7 @@ import threading
 import time
 
 import schedule
+from loguru import logger
 
 from bot import Bot
 from constants import DATA_DIR
@@ -26,3 +27,4 @@ def run_schedule() -> None:
 def start_scheduler() -> None:
     setup_schedule()
     threading.Thread(target=run_schedule, daemon=True).start()
+    logger.info("Scheduler started")

@@ -1,7 +1,9 @@
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
 import supabase
 
 from data_models import PostedData
-from utils import get_current_datetime
 
 
 class BotDatabase:
@@ -35,8 +37,8 @@ class BotDatabase:
 
         """
         data = {
-            "updated_at": str(get_current_datetime()),
-            "posted_data": posted_data.dict(),
+            "updated_at": str(datetime.now(ZoneInfo("Asia/Tokyo"))),
+            "posted_data": posted_data.model_dump(),
         }
         supabase = self._connect()
         supabase.table("bot_data").update(data).eq("id", 1).execute()
