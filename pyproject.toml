@@ -11,7 +11,7 @@ dependencies = [
     "python-dotenv~=1.1",
     "pyyaml~=6.0",
     "schedule~=1.2.2",
-    "supabase~=0.7", # TODO: Resolve scheduler not starting issue with supabase v1.0 and above.
+    "supabase~=2.15.0",
     "tweepy~=4.14",
 ]
 
@@ -21,7 +21,7 @@ dev = [
     "colorama~=0.4",
     "isort~=6.0",
     "mypy~=1.10",
-    "pydantic~=1.10",
+    "pydantic~=2.11.3",
     "pyproject-flake8~=7.0",
     "pytest~=8.2",
     "pytest-mock~=3.14",
