@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import tweepy
+from loguru import logger
 
 from data_models import TweetDataItem
 
@@ -30,7 +31,7 @@ class TwitterAPI:
         self.access_token = access_token
         self.access_token_secret = access_token_secret
 
-    def post_tweet(self, tweet: TweetDataItem) -> tuple[bool, int]:
+    def post_tweet(self, tweet: TweetDataItem) -> bool:
         """Post the tweet.
 
         Args:
@@ -38,32 +39,26 @@ class TwitterAPI:
 
         Returns:
             bool: True if successful, false otherwise.
-            int: -1 if successful, otherwise Twitter API error code.
-                (https://developer.twitter.com/en/support/twitter-api/error-troubleshooting).
 
         """
         twitter_api = self._api()
         client = self._client()
 
         try:
+            media_ids = None
             if tweet.images:
                 media_ids = [
                     twitter_api.media_upload(self.tweets_data_dir / "images" / file_name).media_id_string
                     for file_name in tweet.images
                 ]
-                client.create_tweet(text=tweet.text, media_ids=media_ids)
-            else:
-                client.create_tweet(text=tweet.text)
-        except tweepy.errors.HTTPException as e:
-            import traceback
+            client.create_tweet(text=tweet.text, media_ids=media_ids)
+            logger.info(f"Success to post tweet {tweet.id}")
+            return True
 
-            traceback.print_exc()
-            if e.api_codes:
-                return False, e.api_codes[0]
-            else:
-                return False, -1
-
-        return True, -1
+        except tweepy.HTTPException as e:
+            logger.error(f"Failed to post tweet {tweet.id}")
+            logger.error(f"Error: {e}")
+            return False
 
     def _api(self) -> tweepy.API:
         """Get Twitter API v1.1 interface.
