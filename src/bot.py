@@ -4,11 +4,11 @@ from pathlib import Path
 from typing import Final
 
 import yaml
+from loguru import logger
 
 from api.database import BotDatabase
 from api.twitter import TwitterAPI
 from data_models import PostedData, TweetData, TweetDataItem
-from utils import get_current_datetime
 
 
 class Bot:
@@ -65,7 +65,7 @@ class Bot:
             else:
                 # If there are no candidates, initialize data on tweets already posted
                 # and reload them (next loop).
-                self._output_log("tweets have come full circle")
+                logger.info("Tweets have come full circle")
                 bot_database.update_posted_data(PostedData(total=0, ids=[]))
 
         # Post one of the candidates at random.
@@ -73,6 +73,7 @@ class Bot:
         if twitter_api.post_tweet(self.tweets[candidate_index]):
             posted_ids.append(self.tweets[candidate_index].id)
             bot_database.update_posted_data(PostedData(total=len(posted_ids), ids=posted_ids))
+            logger.info(f"{len(posted_ids)}/{len(self.tweets)} tweets posted")
 
     def _read_tweets(self) -> list[TweetDataItem]:
         """Load regular tweets data.
@@ -97,12 +98,3 @@ class Bot:
 
         """
         return [index for index, tweet in enumerate(self.tweets) if tweet.id not in posted_ids]
-
-    def _output_log(self, text: str) -> None:
-        """Output log.
-
-        Args:
-            text (str): Log message.
-
-        """
-        print("{} {}\n".format(get_current_datetime(), text))
