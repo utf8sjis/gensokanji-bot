@@ -1,6 +1,5 @@
 import os
 import random
-import time
 from pathlib import Path
 from typing import Final
 
@@ -69,23 +68,11 @@ class Bot:
                 self._output_log("tweets have come full circle")
                 bot_database.update_posted_data(PostedData(total=0, ids=[]))
 
-        while True:
-            # Post one of the candidates at random.
-            candidate_index = random.choice(candidate_indices)
-            is_success, api_code = twitter_api.post_tweet(self.tweets[candidate_index])
-
-            if is_success:
-                posted_ids.append(self.tweets[candidate_index].id)
-                bot_database.update_posted_data(PostedData(total=len(posted_ids), ids=posted_ids))
-                break
-            else:
-                if api_code == 187:
-                    self._output_log("[ERROR] Twitter API: code {} - status is a duplicate".format(api_code))
-                elif api_code == 186:
-                    self._output_log("[ERROR] Twitter API: code {} - tweet needs to be a bit shorter".format(api_code))
-                else:
-                    self._output_log("[ERROR] Twitter API: code {}".format(api_code))
-                time.sleep(10)
+        # Post one of the candidates at random.
+        candidate_index = random.choice(candidate_indices)
+        if twitter_api.post_tweet(self.tweets[candidate_index]):
+            posted_ids.append(self.tweets[candidate_index].id)
+            bot_database.update_posted_data(PostedData(total=len(posted_ids), ids=posted_ids))
 
     def _read_tweets(self) -> list[TweetDataItem]:
         """Load regular tweets data.
