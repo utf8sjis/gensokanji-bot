@@ -14,8 +14,11 @@ def job() -> None:
 
 
 def setup_schedule() -> None:
-    # Scheduled at 30 minutes past each hour
-    schedule.every().hour.at(":30").do(job)
+    # Scheduled at 7:00 AM to 11:00 PM every day
+    # Since November 2024, the daily post cap has been set to 17
+    time_strs = [f"{hour:02d}:00" for hour in range(7, 24)]
+    for time_str in time_strs:
+        schedule.every().day.at(time_str).do(job)
 
 
 def run_schedule() -> None:
