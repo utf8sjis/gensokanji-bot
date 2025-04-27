@@ -3,6 +3,7 @@ import time
 
 import schedule
 from loguru import logger
+from pytz import timezone
 
 from bot import Bot
 from constants import DATA_DIR
@@ -18,7 +19,7 @@ def setup_schedule() -> None:
     # Since November 2024, the daily post cap has been set to 17
     time_strs = [f"{hour:02d}:00" for hour in range(7, 24)]
     for time_str in time_strs:
-        schedule.every().day.at(time_str).do(job)
+        schedule.every().day.at(time_str, timezone("Asia/Tokyo")).do(job)
 
 
 def run_schedule() -> None:
