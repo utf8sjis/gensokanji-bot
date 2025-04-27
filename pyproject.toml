@@ -27,6 +27,7 @@ dev = [
     "pytest-mock~=3.14",
     "setuptools~=78.1",
     "twitter-text-parser~=3.0",
+    "types-pytz==2025.2.0.20250326",
     "types-pyyaml~=6.0",
 ]
 
