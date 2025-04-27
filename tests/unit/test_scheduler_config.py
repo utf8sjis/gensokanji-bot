@@ -13,6 +13,7 @@ class TestSchedulerConfig:
         # Then:
         jobs = list(schedule.jobs)
 
-        assert len(jobs) == 1
+        assert len(jobs) == 17
         assert jobs[0].job_func.func == scheduler.job
-        assert jobs[0].at_time.minute == 30
+        assert jobs[0].at_time.hour == 7
+        assert jobs[-1].at_time.hour == 23
