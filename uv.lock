@@ -266,6 +266,7 @@ dev = [
     { name = "pytest-mock" },
     { name = "setuptools" },
     { name = "twitter-text-parser" },
+    { name = "types-colorama" },
     { name = "types-pytz" },
     { name = "types-pyyaml" },
 ]
@@ -296,6 +297,7 @@ dev = [
     { name = "pytest-mock", specifier = "~=3.14" },
     { name = "setuptools", specifier = "~=78.1" },
     { name = "twitter-text-parser", specifier = "~=3.0" },
+    { name = "types-colorama", specifier = "~=0.4" },
     { name = "types-pytz", specifier = "==2025.2.0.20250326" },
     { name = "types-pyyaml", specifier = "~=6.0" },
 ]
@@ -965,6 +967,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/a6/e6/332b2a4a8e29c773274099e0fa92fb68d72cd276b0e7f960780bc7898881/twitter_text_parser-3.0.0.tar.gz", hash = "sha256:9426e4fb9393c8c1adfb36ff5d91495ff4524782e85f80748f6ae0bc1efffcda", size = 61664 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/49/10/7ef9bd301d70cb92a35eee7d38a6378c8b327dc16bdac3089386bd5f3231/twitter_text_parser-3.0.0-py3-none-any.whl", hash = "sha256:b36bd22e147db2234e79c73b021f10c3073e8c54f22b68c31696239b6917cdd3", size = 69912 },
+]
+
+[[package]]
+name = "types-colorama"
+version = "0.4.15.20240311"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/59/73/0fb0b9fe4964b45b2a06ed41b60c352752626db46aa0fb70a49a9e283a75/types-colorama-0.4.15.20240311.tar.gz", hash = "sha256:a28e7f98d17d2b14fb9565d32388e419f4108f557a7d939a66319969b2b99c7a", size = 5608 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b7/83/6944b4fa01efb2e63ac62b791a8ddf0fee358f93be9f64b8f152648ad9d3/types_colorama-0.4.15.20240311-py3-none-any.whl", hash = "sha256:6391de60ddc0db3f147e31ecb230006a6823e81e380862ffca1e4695c13a0b8e", size = 5840 },
 ]
 
 [[package]]
