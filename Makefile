@@ -17,11 +17,11 @@ run:
 	uv run gunicorn -b 0.0.0.0:8000 app:app
 
 format:
-	uv run isort .
-	uv run black .
+	uv run ruff format .
 
 lint:
-	uv run pflake8 .
+	uv run ruff format . --check --diff
+	uv run ruff check .
 	uv run mypy .
 
 test:
