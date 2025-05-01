@@ -1,4 +1,3 @@
-import os
 import random
 from pathlib import Path
 from typing import Final
@@ -8,6 +7,7 @@ from loguru import logger
 
 from api.database import BotDatabase
 from api.twitter import TwitterAPI
+from config import get_settings
 from data_models import PostedData, TweetData, TweetDataItem
 
 
@@ -22,38 +22,13 @@ class Bot:
 
         """
         self.tweets_data_dir: Final = tweets_data_dir
-
-        self.twitter_api_key: Final = os.getenv("TWITTER_API_KEY", "")
-        self.twitter_api_key_secret: Final = os.getenv("TWITTER_API_KEY_SECRET", "")
-        self.twitter_access_token: Final = os.getenv("TWITTER_ACCESS_TOKEN", "")
-        self.twitter_access_token_secret: Final = os.getenv("TWITTER_ACCESS_TOKEN_SECRET", "")
-        self.database_url: Final = os.getenv("DATABASE_URL", "")
-        self.database_key: Final = os.getenv("DATABASE_KEY", "")
-
-        if not all(
-            [
-                self.twitter_api_key,
-                self.twitter_api_key_secret,
-                self.twitter_access_token,
-                self.twitter_access_token_secret,
-                self.database_url,
-                self.database_key,
-            ]
-        ):
-            raise ValueError("Environment variables are not set.")
-
         self.tweets = self._read_tweets()
 
     def post_regular_tweet(self) -> None:
         """Post a regular tweet."""
-        twitter_api = TwitterAPI(
-            self.tweets_data_dir,
-            self.twitter_api_key,
-            self.twitter_api_key_secret,
-            self.twitter_access_token,
-            self.twitter_access_token_secret,
-        )
-        bot_database = BotDatabase(self.database_url, self.database_key)
+        settings = get_settings()
+        twitter_api = TwitterAPI(self.tweets_data_dir, settings)
+        bot_database = BotDatabase(settings)
 
         while True:
             # Get candidates for tweets to post.
@@ -97,4 +72,5 @@ class Bot:
             list: Indices in `self.tweets` for unposted tweets.
 
         """
+        return [index for index, tweet in enumerate(self.tweets) if tweet.id not in posted_ids]
         return [index for index, tweet in enumerate(self.tweets) if tweet.id not in posted_ids]
