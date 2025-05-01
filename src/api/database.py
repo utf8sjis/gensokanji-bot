@@ -3,20 +3,20 @@ from zoneinfo import ZoneInfo
 
 import supabase
 
+from config import Settings
 from data_models import PostedData
 
 
 class BotDatabase:
-    def __init__(self, api_url: str, api_key: str) -> None:
+    def __init__(self, settings: Settings) -> None:
         """Operate the bot's database.
 
         Args:
-            api_url (str): URL for the supabase project.
-            api_key (str): API key for the supabase project.
+            settings (Settings): Settings object containing supabase credentials.
 
         """
-        self.api_url = api_url
-        self.api_key = api_key
+        self.api_url = settings.database_url
+        self.api_key = settings.database_key
 
     def get_posted_data(self) -> PostedData:
         """Get posted data from the database.

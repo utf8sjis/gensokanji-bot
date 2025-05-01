@@ -3,6 +3,7 @@ from pathlib import Path
 import tweepy
 from loguru import logger
 
+from config import Settings
 from data_models import TweetDataItem
 
 
@@ -10,26 +11,20 @@ class TwitterAPI:
     def __init__(
         self,
         tweets_data_dir: Path,
-        api_key: str,
-        api_key_secret: str,
-        access_token: str,
-        access_token_secret: str,
+        settings: Settings,
     ) -> None:
         """Operate using Twitter API.
 
         Args:
             tweets_data_dir (Path): Path to the directory of tweets data.
-            api_key (str): Twitter API customer key.
-            api_key_secret (str): Twitter API customer key (secret).
-            access_token (str): Twitter API authentication token.
-            access_token_secret (str): Twitter API authentication token (secret).
+            settings (Settings): Settings object containing Twitter API credentials.
 
         """
         self.tweets_data_dir = tweets_data_dir
-        self.api_key = api_key
-        self.api_key_secret = api_key_secret
-        self.access_token = access_token
-        self.access_token_secret = access_token_secret
+        self.api_key = settings.twitter_api_key
+        self.api_key_secret = settings.twitter_api_key_secret
+        self.access_token = settings.twitter_access_token
+        self.access_token_secret = settings.twitter_access_token_secret
 
     def post_tweet(self, tweet: TweetDataItem) -> bool:
         """Post the tweet.
