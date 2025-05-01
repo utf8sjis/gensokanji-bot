@@ -73,4 +73,3 @@ class Bot:
 
         """
         return [index for index, tweet in enumerate(self.tweets) if tweet.id not in posted_ids]
-        return [index for index, tweet in enumerate(self.tweets) if tweet.id not in posted_ids]
