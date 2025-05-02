@@ -4,7 +4,7 @@ import pytest
 
 from api.database import BotDatabase
 from api.twitter import TwitterAPI
-from bot import Bot
+from bot.bot import Bot
 from data_models import PostedData, TweetDataItem
 
 _RANDOM_CHOICE_INDEX = -1
@@ -23,7 +23,7 @@ def random_choice():
 
 @pytest.fixture()
 def bot_instance(mocker):
-    read_tweets = mocker.patch("bot.Bot._read_tweets")
+    read_tweets = mocker.patch("bot.bot.Bot._read_tweets")
     read_tweets.return_value = _TWEET_DATA_LIST
     return Bot("")
 

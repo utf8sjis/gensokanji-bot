@@ -5,7 +5,8 @@ import schedule
 from loguru import logger
 from pytz import timezone
 
-from bot import Bot
+from bot.bot import Bot
+from bot.sync_tweets import sync_tweets
 from constants import DATA_DIR
 
 
@@ -29,6 +30,7 @@ def run_schedule() -> None:
 
 
 def start_scheduler() -> None:
+    sync_tweets()
     setup_schedule()
     threading.Thread(target=run_schedule, daemon=True).start()
     logger.info("Scheduler started")
