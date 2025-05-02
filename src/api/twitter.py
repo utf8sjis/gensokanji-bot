@@ -47,11 +47,11 @@ class TwitterAPI:
                     for file_name in tweet.images
                 ]
             client.create_tweet(text=tweet.text, media_ids=media_ids)
-            logger.info(f"Success to post tweet {tweet.id}")
+            logger.info(f"✅ Success to post tweet {tweet.id}")
             return True
 
         except tweepy.HTTPException as e:
-            logger.error(f"Failed to post tweet {tweet.id}")
+            logger.error(f"🚨 Failed to post tweet {tweet.id}")
             logger.error(f"Error: {e}")
             return False
 
