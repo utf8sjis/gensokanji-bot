@@ -1,77 +1,201 @@
-from unittest.mock import call, patch
+from unittest.mock import patch
 
 import pytest
 
-from api.database import BotDatabase
-from api.twitter import TwitterAPI
-from bot import Bot
-from data_models import PostedData, TweetDataItem
+from api_clients.database_api import DatabaseAPI
+from api_clients.twitter_api import TwitterAPI
+from bot.bot import Bot
+from models.tweet import TweetItem
 
 _RANDOM_CHOICE_INDEX = -1
-_TWEET_DATA_LIST = [
-    TweetDataItem(id="test001", text="テスト1", images=["test1.png"]),
-    TweetDataItem(id="test002", text="テスト2", images=["test2.png"]),
-    TweetDataItem(id="test003", text="テスト3", images=["test3.png"]),
+
+_TWEETS = [
+    TweetItem(
+        id="test001",
+        type="regular",
+        group="test",
+        text="テスト1",
+        image_paths=["test1.png"],
+    ),
+    TweetItem(
+        id="test002",
+        type="regular",
+        group="test",
+        text="テスト2",
+        image_paths=["test2.png"],
+    ),
+    TweetItem(
+        id="test003",
+        type="regular",
+        group="test",
+        text="テスト3",
+        image_paths=["test3.png"],
+    ),
 ]
 
 
 @pytest.fixture(autouse=True)
+def mock_database_api():
+    with patch.object(DatabaseAPI, "__init__", return_value=None) as mock:
+        yield mock
+
+
+@pytest.fixture()
+def mock_get_unposted_tweet_ids():
+    with patch.object(DatabaseAPI, "get_unposted_tweet_ids") as mock:
+        yield mock
+
+
+@pytest.fixture()
+def mock_get_tweet():
+    with patch.object(
+        DatabaseAPI,
+        "get_tweet",
+        side_effect=lambda x: next(tweet for tweet in _TWEETS if tweet.id == x),
+    ) as mock:
+        yield mock
+
+
+@pytest.fixture()
+def mock_post_tweet():
+    with patch.object(TwitterAPI, "post_tweet") as mock:
+        yield mock
+
+
+@pytest.fixture()
+def mock_flag_tweet_as_posted():
+    with patch.object(DatabaseAPI, "flag_tweet_as_posted") as mock:
+        yield mock
+
+
+@pytest.fixture()
+def mock_reset_posted_flag():
+    with patch.object(DatabaseAPI, "reset_posted_flag") as mock:
+        yield mock
+
+
+@pytest.fixture(autouse=True)
 def random_choice():
-    with patch("random.choice", lambda x: x[_RANDOM_CHOICE_INDEX] if x else None) as mock:
-        yield mock
-
-
-@pytest.fixture()
-def bot_instance(mocker):
-    read_tweets = mocker.patch("bot.Bot._read_tweets")
-    read_tweets.return_value = _TWEET_DATA_LIST
-    return Bot("")
-
-
-@pytest.fixture()
-def post_tweet():
-    with patch.object(TwitterAPI, "post_tweet", return_value=(True, -1)) as mock:
-        yield mock
-
-
-@pytest.fixture()
-def get_posted_data():
-    with patch.object(BotDatabase, "get_posted_data") as mock:
-        yield mock
-
-
-@pytest.fixture()
-def update_posted_data():
-    with patch.object(BotDatabase, "update_posted_data") as mock:
+    with patch("random.choice", lambda x: x[_RANDOM_CHOICE_INDEX]) as mock:
         yield mock
 
 
 class TestBot:
     @staticmethod
-    def test_post_regular_tweet(bot_instance, post_tweet, get_posted_data, update_posted_data):
+    def test_post_regular_tweet(
+        mock_get_unposted_tweet_ids,
+        mock_reset_posted_flag,
+        mock_get_tweet,
+        mock_post_tweet,
+        mock_flag_tweet_as_posted,
+    ):
         # Given:
-        get_posted_data.return_value = PostedData(total=1, ids=["test003"])
+        mock_get_unposted_tweet_ids.return_value = ["test001", "test002"]
+        mock_post_tweet.return_value = True
 
         # When:
-        bot_instance.post_regular_tweet()
+        Bot().post_regular_tweet()
 
         # Then:
-        post_tweet.assert_called_once_with(TweetDataItem(id="test002", text="テスト2", images=["test2.png"]))
-        update_posted_data.assert_called_once_with(PostedData(total=2, ids=["test003", "test002"]))
+        mock_get_unposted_tweet_ids.assert_called_once()
+        mock_reset_posted_flag.assert_not_called()
+        mock_get_tweet.assert_called_once_with("test002")
+        mock_post_tweet.assert_called_once_with(
+            TweetItem(
+                id="test002",
+                type="regular",
+                group="test",
+                text="テスト2",
+                image_paths=["test2.png"],
+            )
+        )
+        mock_flag_tweet_as_posted.assert_called_once_with("test002")
 
     @staticmethod
-    def test_new_cycle_tweet(bot_instance, post_tweet, get_posted_data, update_posted_data):
+    def test_post_regular_tweet_not_found(
+        mock_get_unposted_tweet_ids,
+        mock_reset_posted_flag,
+        mock_get_tweet,
+        mock_post_tweet,
+        mock_flag_tweet_as_posted,
+    ):
         # Given:
-        get_posted_data.side_effect = [
-            PostedData(total=len(_TWEET_DATA_LIST), ids=[tweet_data.id for tweet_data in _TWEET_DATA_LIST]),
-            PostedData(total=0, ids=[]),  # If there are no candidates, initialize data on tweets already posted
-        ]
+        mock_get_unposted_tweet_ids.return_value = ["test001", "test002"]
+        mock_get_tweet.side_effect = None
+        mock_get_tweet.return_value = None
 
         # When:
-        bot_instance.post_regular_tweet()
+        Bot().post_regular_tweet()
 
         # Then:
-        post_tweet.assert_called_once_with(TweetDataItem(id="test003", text="テスト3", images=["test3.png"]))
-        update_posted_data.assert_has_calls(
-            [call(PostedData(total=0, ids=[])), call(PostedData(total=1, ids=["test003"]))], any_order=False
+        mock_get_unposted_tweet_ids.assert_called_once()
+        mock_reset_posted_flag.assert_not_called()
+        mock_get_tweet.assert_called_once_with("test002")
+        # If the tweet is not found, do not post anything.
+        mock_post_tweet.assert_not_called()
+        mock_flag_tweet_as_posted.assert_not_called()
+
+    @staticmethod
+    def test_post_regular_tweet_failure(
+        mock_get_unposted_tweet_ids,
+        mock_reset_posted_flag,
+        mock_get_tweet,
+        mock_post_tweet,
+        mock_flag_tweet_as_posted,
+    ):
+        # Given:
+        mock_get_unposted_tweet_ids.return_value = ["test001", "test002"]
+        mock_post_tweet.return_value = False
+
+        # When:
+        Bot().post_regular_tweet()
+
+        # Then:
+        mock_get_unposted_tweet_ids.assert_called_once()
+        mock_reset_posted_flag.assert_not_called()
+        mock_get_tweet.assert_called_once_with("test002")
+        mock_post_tweet.assert_called_once_with(
+            TweetItem(
+                id="test002",
+                type="regular",
+                group="test",
+                text="テスト2",
+                image_paths=["test2.png"],
+            )
         )
+        # The tweet is not flagged as posted since posting failed.
+        mock_flag_tweet_as_posted.assert_not_called()
+
+    @staticmethod
+    def test_post_regular_tweet_with_new_cycle(
+        mock_get_unposted_tweet_ids,
+        mock_reset_posted_flag,
+        mock_get_tweet,
+        mock_post_tweet,
+        mock_flag_tweet_as_posted,
+    ):
+        # Given:
+        # If all tweets have been posted, reset the posted flag for all tweets.
+        mock_get_unposted_tweet_ids.side_effect = [
+            [],
+            ["test001", "test002", "test003"],
+        ]
+        mock_post_tweet.return_value = True
+
+        # When:
+        Bot().post_regular_tweet()
+
+        # Then:
+        assert mock_get_unposted_tweet_ids.call_count == 2
+        mock_reset_posted_flag.assert_called_once()
+        mock_get_tweet.assert_called_once_with("test003")
+        mock_post_tweet.assert_called_once_with(
+            TweetItem(
+                id="test003",
+                type="regular",
+                group="test",
+                text="テスト3",
+                image_paths=["test3.png"],
+            )
+        )
+        mock_flag_tweet_as_posted.assert_called_once_with("test003")

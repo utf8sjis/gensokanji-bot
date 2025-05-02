@@ -5,12 +5,12 @@ import schedule
 from loguru import logger
 from pytz import timezone
 
-from bot import Bot
-from constants import DATA_DIR
+from bot.bot import Bot
+from bot.sync_tweets import sync_tweets
 
 
-def job() -> None:
-    bot = Bot(DATA_DIR)
+def bot_job() -> None:
+    bot = Bot()
     bot.post_regular_tweet()
 
 
@@ -19,7 +19,7 @@ def setup_schedule() -> None:
     # Since November 2024, the daily post cap has been set to 17
     time_strs = [f"{hour:02d}:00" for hour in range(7, 24)]
     for time_str in time_strs:
-        schedule.every().day.at(time_str, timezone("Asia/Tokyo")).do(job)
+        schedule.every().day.at(time_str, timezone("Asia/Tokyo")).do(bot_job)
 
 
 def run_schedule() -> None:
@@ -29,6 +29,7 @@ def run_schedule() -> None:
 
 
 def start_scheduler() -> None:
+    sync_tweets()
     setup_schedule()
     threading.Thread(target=run_schedule, daemon=True).start()
     logger.info("Scheduler started")

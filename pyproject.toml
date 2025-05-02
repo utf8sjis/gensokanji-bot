@@ -31,9 +31,6 @@ dev = [
     "types-pyyaml~=6.0",
 ]
 
-[tool.ruff]
-line-length = 120
-
 [[tool.mypy.overrides]]
 module = ["twitter_text", "tweepy"]
 ignore_missing_imports = true
