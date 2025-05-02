@@ -12,4 +12,4 @@ RUN python -m pip install --no-cache-dir --upgrade pip && \
 COPY src ./src
 COPY data ./data
 
-CMD ["uv", "run", "gunicorn", "-b", "0.0.0.0:8000", "app:app"]
+CMD ["uv", "run", "gunicorn", "-b", "0.0.0.0:8000", "wsgi:app"]
