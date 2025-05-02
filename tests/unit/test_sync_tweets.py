@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
-from api.database import BotDatabase
+from api_clients.database_api import DatabaseAPI
 from bot.sync_tweets import sync_tweets
 from models.tweet import TweetItem
 
@@ -70,6 +70,12 @@ DB_TWEETS = [
 
 
 @pytest.fixture(autouse=True)
+def mock_database_api():
+    with patch.object(DatabaseAPI, "__init__", return_value=None) as mock:
+        yield mock
+
+
+@pytest.fixture(autouse=True)
 def mock_get_all_tweets_from_file():
     with patch(
         "bot.sync_tweets.get_all_tweets_from_file", return_value=FILE_TWEETS
@@ -79,19 +85,19 @@ def mock_get_all_tweets_from_file():
 
 @pytest.fixture(autouse=True)
 def mock_get_all_tweets():
-    with patch.object(BotDatabase, "get_all_tweets", return_value=DB_TWEETS) as mock:
+    with patch.object(DatabaseAPI, "get_all_tweets", return_value=DB_TWEETS) as mock:
         yield mock
 
 
 @pytest.fixture()
 def mock_delete_tweets():
-    with patch.object(BotDatabase, "delete_tweets") as mock:
+    with patch.object(DatabaseAPI, "delete_tweets") as mock:
         yield mock
 
 
 @pytest.fixture()
 def mock_update_tweets():
-    with patch.object(BotDatabase, "update_tweets") as mock:
+    with patch.object(DatabaseAPI, "update_tweets") as mock:
         yield mock
 
 

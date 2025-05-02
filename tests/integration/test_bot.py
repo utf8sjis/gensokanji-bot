@@ -2,8 +2,8 @@ from unittest.mock import patch
 
 import pytest
 
-from api.database import BotDatabase
-from api.twitter import TwitterAPI
+from api_clients.database_api import DatabaseAPI
+from api_clients.twitter_api import TwitterAPI
 from bot.bot import Bot
 from models.tweet import TweetItem
 
@@ -34,16 +34,22 @@ _TWEETS = [
 ]
 
 
+@pytest.fixture(autouse=True)
+def mock_database_api():
+    with patch.object(DatabaseAPI, "__init__", return_value=None) as mock:
+        yield mock
+
+
 @pytest.fixture()
 def mock_get_unposted_tweet_ids():
-    with patch.object(BotDatabase, "get_unposted_tweet_ids") as mock:
+    with patch.object(DatabaseAPI, "get_unposted_tweet_ids") as mock:
         yield mock
 
 
 @pytest.fixture()
 def mock_get_tweet():
     with patch.object(
-        BotDatabase,
+        DatabaseAPI,
         "get_tweet",
         side_effect=lambda x: next(tweet for tweet in _TWEETS if tweet.id == x),
     ) as mock:
@@ -58,13 +64,13 @@ def mock_post_tweet():
 
 @pytest.fixture()
 def mock_flag_tweet_as_posted():
-    with patch.object(BotDatabase, "flag_tweet_as_posted") as mock:
+    with patch.object(DatabaseAPI, "flag_tweet_as_posted") as mock:
         yield mock
 
 
 @pytest.fixture()
 def mock_reset_posted_flag():
-    with patch.object(BotDatabase, "reset_posted_flag") as mock:
+    with patch.object(DatabaseAPI, "reset_posted_flag") as mock:
         yield mock
 
 

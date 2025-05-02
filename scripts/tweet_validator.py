@@ -21,7 +21,7 @@ class Color(BaseModel):
 
 
 class TweetValidator:
-    def __init__(self):
+    def __init__(self) -> None:
         self.tweets = get_all_tweets_from_file()
         self.invalid_ids: list[str] = []
         self.excess_image_count_ids: list[str] = []
@@ -63,7 +63,7 @@ class TweetValidator:
             images=images_color,
         )
 
-    def _display_tweets(self):
+    def _display_tweets(self) -> None:
         print("=== tweets ===")
 
         for tweet in self.tweets:
@@ -96,7 +96,7 @@ class TweetValidator:
 
             print(f"{id_sec}{percent} |{bar}| {image_count} {images}")
 
-    def _display_summary(self):
+    def _display_summary(self) -> None:
         print("=== summary ===")
 
         print(f"total: {len(self.tweets)}")
@@ -139,7 +139,7 @@ class TweetValidator:
             end="",
         )
 
-    def display_result(self):
+    def display_result(self) -> None:
         self._display_tweets()
         self._display_summary()
 
