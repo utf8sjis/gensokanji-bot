@@ -47,7 +47,9 @@ class Bot:
         candidate_index = random.choice(candidate_indices)
         if twitter_api.post_tweet(self.tweets[candidate_index]):
             posted_ids.append(self.tweets[candidate_index].id)
-            bot_database.update_posted_data(PostedData(total=len(posted_ids), ids=posted_ids))
+            bot_database.update_posted_data(
+                PostedData(total=len(posted_ids), ids=posted_ids)
+            )
             logger.info(f"{len(posted_ids)}/{len(self.tweets)} tweets posted")
 
     def _read_tweets(self) -> list[TweetDataItem]:
@@ -72,4 +74,8 @@ class Bot:
             list: Indices in `self.tweets` for unposted tweets.
 
         """
-        return [index for index, tweet in enumerate(self.tweets) if tweet.id not in posted_ids]
+        return [
+            index
+            for index, tweet in enumerate(self.tweets)
+            if tweet.id not in posted_ids
+        ]

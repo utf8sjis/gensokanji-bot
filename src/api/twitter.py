@@ -43,7 +43,9 @@ class TwitterAPI:
             media_ids = None
             if tweet.images:
                 media_ids = [
-                    twitter_api.media_upload(self.tweets_data_dir / "images" / file_name).media_id_string
+                    twitter_api.media_upload(
+                        self.tweets_data_dir / "images" / file_name
+                    ).media_id_string
                     for file_name in tweet.images
                 ]
             client.create_tweet(text=tweet.text, media_ids=media_ids)

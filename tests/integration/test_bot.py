@@ -17,7 +17,9 @@ _TWEET_DATA_LIST = [
 
 @pytest.fixture(autouse=True)
 def random_choice():
-    with patch("random.choice", lambda x: x[_RANDOM_CHOICE_INDEX] if x else None) as mock:
+    with patch(
+        "random.choice", lambda x: x[_RANDOM_CHOICE_INDEX] if x else None
+    ) as mock:
         yield mock
 
 
@@ -48,7 +50,9 @@ def update_posted_data():
 
 class TestBot:
     @staticmethod
-    def test_post_regular_tweet(bot_instance, post_tweet, get_posted_data, update_posted_data):
+    def test_post_regular_tweet(
+        bot_instance, post_tweet, get_posted_data, update_posted_data
+    ):
         # Given:
         get_posted_data.return_value = PostedData(total=1, ids=["test003"])
 
@@ -56,22 +60,39 @@ class TestBot:
         bot_instance.post_regular_tweet()
 
         # Then:
-        post_tweet.assert_called_once_with(TweetDataItem(id="test002", text="テスト2", images=["test2.png"]))
-        update_posted_data.assert_called_once_with(PostedData(total=2, ids=["test003", "test002"]))
+        post_tweet.assert_called_once_with(
+            TweetDataItem(id="test002", text="テスト2", images=["test2.png"])
+        )
+        update_posted_data.assert_called_once_with(
+            PostedData(total=2, ids=["test003", "test002"])
+        )
 
     @staticmethod
-    def test_new_cycle_tweet(bot_instance, post_tweet, get_posted_data, update_posted_data):
+    def test_new_cycle_tweet(
+        bot_instance, post_tweet, get_posted_data, update_posted_data
+    ):
         # Given:
         get_posted_data.side_effect = [
-            PostedData(total=len(_TWEET_DATA_LIST), ids=[tweet_data.id for tweet_data in _TWEET_DATA_LIST]),
-            PostedData(total=0, ids=[]),  # If there are no candidates, initialize data on tweets already posted
+            PostedData(
+                total=len(_TWEET_DATA_LIST),
+                ids=[tweet_data.id for tweet_data in _TWEET_DATA_LIST],
+            ),
+            PostedData(
+                total=0, ids=[]
+            ),  # If there are no candidates, initialize data on tweets already posted
         ]
 
         # When:
         bot_instance.post_regular_tweet()
 
         # Then:
-        post_tweet.assert_called_once_with(TweetDataItem(id="test003", text="テスト3", images=["test3.png"]))
+        post_tweet.assert_called_once_with(
+            TweetDataItem(id="test003", text="テスト3", images=["test3.png"])
+        )
         update_posted_data.assert_has_calls(
-            [call(PostedData(total=0, ids=[])), call(PostedData(total=1, ids=["test003"]))], any_order=False
+            [
+                call(PostedData(total=0, ids=[])),
+                call(PostedData(total=1, ids=["test003"])),
+            ],
+            any_order=False,
         )

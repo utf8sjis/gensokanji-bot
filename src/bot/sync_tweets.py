@@ -29,7 +29,10 @@ def _get_changes(
 
 
 def _update_database(
-    bot_db: BotDatabase, deleted_tweet_ids: list[str], new_tweets: list[TweetItem], updated_tweets: list[TweetItem]
+    bot_db: BotDatabase,
+    deleted_tweet_ids: list[str],
+    new_tweets: list[TweetItem],
+    updated_tweets: list[TweetItem],
 ):
     if deleted_tweet_ids:
         bot_db.delete_tweets(deleted_tweet_ids)

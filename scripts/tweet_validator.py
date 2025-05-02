@@ -56,7 +56,12 @@ class TweetValidator:
         else:
             images_color = ""
 
-        return Color(percent=percent_color, bar=bar_color, image_count=image_count_color, images=images_color)
+        return Color(
+            percent=percent_color,
+            bar=bar_color,
+            image_count=image_count_color,
+            images=images_color,
+        )
 
     def _display_tweets(self) -> None:
         print("=== tweets ===")
@@ -66,9 +71,23 @@ class TweetValidator:
             color = self._validate_tweet(tweet, parsed_result)
 
             id_sec = f"id: {tweet.id:<7}"
-            percent = f"{color.percent}{parsed_result.permillage / 10:>6}%{Style.RESET_ALL}"
-            image_count = f"{color.image_count}{len(tweet.image_paths)} image(s){Style.RESET_ALL}"
-            images = f"{color.images}{'(' + ', '.join(tweet.image_paths) + ')' if tweet.image_paths else ''}{Style.RESET_ALL}"
+            percent = (
+                color.percent + f"{parsed_result.permillage / 10:>6}%" + Style.RESET_ALL
+            )
+            image_count = (
+                color.image_count
+                + f"{len(tweet.image_paths)} image(s)"
+                + Style.RESET_ALL
+            )
+            images = (
+                color.images
+                + (
+                    ("(" + ", ".join(tweet.image_paths) + ")")
+                    if tweet.image_paths
+                    else ""
+                )
+                + Style.RESET_ALL
+            )
 
             filled_length = int(BAR_LENGTH * parsed_result.permillage // 1000)
             fill = "#" * filled_length
@@ -83,7 +102,9 @@ class TweetValidator:
         print(f"total: {len(self.tweets)}")
 
         tweet_ids = [tweet.id for tweet in self.tweets]
-        duplicate_ids = set(tweet_id for tweet_id in tweet_ids if tweet_ids.count(tweet_id) > 1)
+        duplicate_ids = set(
+            tweet_id for tweet_id in tweet_ids if tweet_ids.count(tweet_id) > 1
+        )
         print(
             f"{Fore.RED}id uniqueness: NG"
             if len(tweet_ids) != len(set(tweet_ids))
@@ -95,13 +116,28 @@ class TweetValidator:
         print(f"{invalid_tweets_color}invalid tweets: {len(self.invalid_ids)}")
         print(f"- ids: {self.invalid_ids}\n" if self.invalid_ids else "", end="")
 
-        excess_image_count_color = Fore.RED if self.excess_image_count_ids else Fore.GREEN
-        print(f"{excess_image_count_color}excess number of images: {len(self.excess_image_count_ids)}")
-        print(f"- ids: {self.excess_image_count_ids}\n" if self.excess_image_count_ids else "", end="")
+        excess_image_count_color = (
+            Fore.RED if self.excess_image_count_ids else Fore.GREEN
+        )
+        print(
+            f"{excess_image_count_color}excess number of images: "
+            f"{len(self.excess_image_count_ids)}",
+        )
+        print(
+            f"- ids: {self.excess_image_count_ids}\n"
+            if self.excess_image_count_ids
+            else "",
+            end="",
+        )
 
         no_image_files_color = Fore.RED if self.no_image_file_names else Fore.GREEN
         print(f"{no_image_files_color}no image files: {len(self.no_image_file_names)}")
-        print(f"- file names: {self.no_image_file_names}\n" if self.no_image_file_names else "", end="")
+        print(
+            f"- file names: {self.no_image_file_names}\n"
+            if self.no_image_file_names
+            else "",
+            end="",
+        )
 
     def display_result(self) -> None:
         self._display_tweets()

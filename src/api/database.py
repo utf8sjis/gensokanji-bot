@@ -51,7 +51,11 @@ class BotDatabase:
             list[TweetItem]: List of all tweets in the database.
         """
         supabase = self._connect()
-        records = supabase.table(self.tweets_table).select("id", "type", "group", "text", "image_paths").execute()
+        records = (
+            supabase.table(self.tweets_table)
+            .select("id", "type", "group", "text", "image_paths")
+            .execute()
+        )
         return [TweetItem(**record) for record in records.data]
 
     def delete_tweets(self, ids: list[str]):
