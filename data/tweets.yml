@@ -1,1105 +1,1423 @@
-tweets:
-  - id: main001
-    images:
-      - main001.png
-    text: |-
-      1 H 氫、氢：水素
-      宇宙で最初に作られ、宇宙で最も多く存在する元素。
-      燃料電池自動車の商用化を皮切りにCO2を出さないクリーンな次世代エネルギーとして注目を集める。
-      体内の約6割を占める水の構成元素であるのはもちろんのこと、水素結合はDNAの二重らせん構造を形成するなど生命との関わりも深い。
-  - id: main002
-    images:
-      - main002.png
-    text: |-
-      2 He 氦：ヘリウム
-      風船の封入ガスや変声ガスとしておなじみの元素。
-      空気よりも軽く不活性なことから飛行船などの揚力ガスに使われる。
-      全物質の中で最も沸点が低く、液体ヘリウムは極低温環境を必要とする超伝導技術で冷却材に使われるほか、粘性がなくなり壁をもはい上がる超流動という特技を持つ。
-  - id: main003
-    images:
-      - main003.png
-    text: |-
-      3 Li 鋰、锂：リチウム
-      リチウムイオン電池で有名なアルカリ金属元素。最大のイオン化傾向と原子半径の小ささから高い電圧と蓄電量を実現する。
-      また、金属の中で最も軽く、その比重は鉄の約1/15で水にも浮く。
-      初めて鉱物界から発見された元素であり、その名はギリシャ語の石(lithos)からつけられた。
-  - id: main004
-    images:
-      - main004.png
-    text: |-
-      4 Be 鈹、铍：ベリリウム
-      工業利用に優れた特性を持ち、例えばベリリウム銅は銅の高い電気伝導性、熱伝導性に強度とバネ性を兼ね備える導電バネとして利用される。
-      しかし加工の際に出るベリリウムの粉末が深刻な肺疾患を引き起こす強い毒性を持ち、これが出世の足かせとなっている悲しき元素である。
-  - id: main005
-    images:
-      - main005.png
-    text: |-
-      5 B 硼：ホウ素
-      ゴキブリを脱水状態にし退治するホウ酸団子や、スライムを作るときに使うホウ砂の主成分。
-      ホウ素は耐火性に優れており、酸化ホウ素を添加したガラス（ホウケイ酸ガラス）は急激な温度変化に強く細工もしやすいためフラスコやビーカーなどに使われている。
-  - id: main006
-    images:
-      - main006.png
-    text: |-
-      6 C 碳：炭素
-      黒鉛、ダイヤモンド、フラーレン、カーボンナノチューブなど多くの同素体があり、有機化学の主役にして生命、生活を支える重要な元素である。
-      軽くて丈夫で熱に強く弾性に富む炭素繊維は、釣り竿やラケットなどのレジャー・スポーツ用品から、航空機や宇宙船の構造材まで幅広く活躍する。
-  - id: main007
-    images:
-      - main007.png
-    text: |-
-      7 N 氮：窒素
-      空気の約8割を占める元素。アミノ酸など生物に必須な多くの物質に含まれ、そのやり取りによって地球上には大きな窒素循環ができている。
-      一方、ダイナマイトに使われるニトログリセリンやTNTなどの弾薬、酸性雨の原因となる窒素酸化物(NOx)に含まれるなど、さまざまな顔を持っている。
-  - id: main008
-    images:
-      - main008.png
-    text: |-
-      8 O 氧：酸素
-      「燃える」といったらこの元素。空気の約2割を占め、呼吸や水分に関わる生命維持に必要不可欠な存在である。
-      また、酸素原子が3つ結合したオゾンは成層圏にオゾン層を形成し、私たちを紫外線から守っている。
-      ちなみに液体酸素は常磁性を持ち、磁石に引き寄せられる。
-  - id: main009
-    images:
-      - main009.png
-    text: |-
-      9 F 氟：フッ素
-      虫歯を防ぐフッ素入り歯磨き粉や、焦げつきを抑えるフッ素樹脂コーティングのフライパンなどで利用されている元素。
-      一方単体は反応性が非常に高く、フッ化キセノンなど不活性な貴ガスとも化合物をつくってしまうほか、フッ化水素の水溶液はガラスをも溶かし取り扱いは困難を極める。
-  - id: main010
-    images:
-      - main010.png
-    text: |-
-      10 Ne 氖：ネオン
-      赤いネオンサインの中身。赤以外の色は他の貴ガスを封入することによって出している。
-      ネオンは液体と気体の体積差が非常に大きいという特徴を持ち、液体ネオンは気化すると約1400倍にも膨らむことから輸送や貯蔵に有利で、宇宙や深海などで酸素と混ぜて人工空気として使われている。
-  - id: main011
-    images:
-      - main011.png
-    text: |-
-      11 Na 鈉、钠：ナトリウム
-      食塩（塩化Na）や重曹（炭酸水素Na）、うまみ成分のグルタミン酸Naなど、食卓に縁のあるアルカリ金属元素。ミネラルとしても知られるが過剰摂取は高血圧の原因に。
-      黄色い光を発するナトリウム灯は光が散乱しにくく目にも優しいことから高速道路などの照明に使われている。
-  - id: main012
-    images:
-      - main012.png
-    text: |-
-      12 Mg 鎂、镁：マグネシウム
-      軽くて硬く、航空機や自動車、ノートPCの筐体などに利用される一方、肥料の苦土（酸化Mg）やにがり（塩化Mg）に含まれていたり、水の硬度にMg濃度が関係していたりと何かと苦みに縁がある。
-      また、葉緑体に含まれるクロロフィルの中心に存在し、光合成の重役を担っている。
-  - id: main013
-    images:
-      - main013.png
-    text: |-
-      13 Al 鋁、铝：アルミニウム
-      地殻中に酸素、ケイ素に次いで豊富に存在する元素。
-      今では馴染みがあるが、製法確立前は非常に貴重で1855年のパリ万博では宝石類と並べて展示されていた。
-      電気伝導性の高さから送電線に使われるほか、軽くて強度のある合金のジュラルミンは車両などに広く利用される。
-  - id: main014
-    images:
-      - main014.png
-    text: |-
-      14 Si 矽、硅：ケイ素
-      シリコンとして知られる半導体界の主役の元素。単体は金属光沢を持つが硬くてもろい。
-      地殻中に豊富に存在し、石英や長石などのケイ酸塩鉱物として産出する。つまり石はだいたいケイ素。
-      ガラスや乾燥剤のシリカゲル、グリースやゴムとして使われるシリコーンの主成分である。
-  - id: main015
-    images:
-      - main015.png
-    text: |-
-      15 P 磷：リン
-      白リン（黄リン）、赤リン、黒リンなど多くの同素体を持つ元素。白リンは毒性が強い一方、黒リンは安定。赤リンは260度まで発火せずマッチの摩擦面などに使われる。
-      肥料の三要素の一つであるリン酸や生体内のエネルギー源であるATPに含まれ、生物にとって不可欠な存在である。
-  - id: main016
-    images:
-      - main016.png
-    text: |-
-      16 S 硫：硫黄
-      昔から知られた元素で、温泉近くでは析出した硫黄の黄色をよく見かける。有名な腐卵臭（硫化水素）が硫黄を含むのはもちろん、タマネギやニンニクの臭いも硫黄化合物由来。
-      ゴムの弾性を増す加硫剤として使われるほか、さまざまな用途を持つ硫酸は生産量世界最大の化学薬品である。
-  - id: main017
-    images:
-      - main017.png
-    text: |-
-      17 Cl 氯：塩素
-      黄緑色をした気体の元素。刺激臭があり有毒で、第一次世界大戦では毒ガスに使われていた。水溶液には殺菌作用があり、水道水やプールの水に添加されているのは有名。
-      塩素の有機化合物であるポリ塩化ビニルは硬軟自在で耐水性、耐酸・アルカリ性に優れ配管や包装材に利用されている。
-  - id: main018
-    images:
-      - main018.png
-    text: |-
-      18 Ar 氬、氩：アルゴン
-      空気中に約1%含まれる貴ガス元素。その存在比は窒素、酸素に次ぐ第3位であり単離も容易なため、もはや「希ガス」ではないのも納得がいく。
-      最大の用途はアーク溶接中のシールドガスで、その不活性な性質を活かし溶融金属の空気との反応を抑えている。
-  - id: main019
-    images:
-      - main019.png
-    text: |-
-      19 K 鉀、钾：カリウム
-      アルカリ金属に属する元素。植物にとって必須な元素で肥料の三要素の一つであるほか、生物にとっても必須なミネラルであり、細胞内はKイオンが多い一方細胞外はNaイオンが多いという不均衡性によるイオンの往来が神経伝達や筋肉収縮などの重要な身体の機能に結びついている。
-  - id: main020
-    images:
-      - main020.png
-    text: |-
-      20 Ca 鈣、钙：カルシウム
-      アルカリ土類金属に属する元素。丈夫な骨をつくるのに重要なミネラルである。欠乏すると骨に含まれるCaが血液へ流れ出し、骨がスカスカになる骨粗鬆症に陥る。
-      また、石灰石（炭酸Ca）はセメントの材料であるほか、石灰岩や大理石は石材として使われ建築との関係も深い。
-  - id: main021
-    images:
-      - main021.png
-    text: |-
-      21 Sc 鈧、钪：スカンジウム
-      原子番号は小さいものの、含有量の高い鉱石が少なく非常に高価ゆえに認知度が低い希土類元素。
-      光源にヨウ化スカンジウムを使用したメタルハライドランプ（水銀灯の一種）は太陽光に近い強い光をつくることができ、野球場などの夜間照明に使われている。
-  - id: main022
-    images:
-      - main022.png
-    text: |-
-      22 Ti 鈦、钛：チタン
-      軽くて丈夫で耐食性に優れ、加工もしやすいことから、現代ではアルミニウムに並んで重要な役割を担っている。
-      二酸化チタンは白色の顔料として使われるほか、紫外線があたると活性酸素を発生させ有機物（汚れ）を分解する触媒としての特徴を持ち、トイレの壁などに使われている。
-  - id: main023
-    images:
-      - main023.png
-    text: |-
-      23 V 釩、钒：バナジウム
-      バナジウム鋼は引っ張りに強くビルの構造材や橋梁に利用されているほか、その硬さからドライバーやドリルなどにも使われている。
-      また、バナジウムは糖の代謝を調節するインスリンとよく似た働きをすることがわかっており、実際に糖尿病が改善された例が報告されている。
-  - id: main024
-    images:
-      - main024.png
-    text: |-
-      24 Cr 鉻、铬：クロム
-      耐食性に優れることからシンクなどにめっきとして使われているほか、鉄との合金であるステンレス鋼にも利用される。
-      また、3価クロムは人体に必須であるのに対し、6価クロムは猛毒であるという何ともツンデレな元素である。
-  - id: main025
-    images:
-      - main025.png
-    text: |-
-      25 Mn 錳、锰：マンガン
-      過酸化水素水を酸素と水素に分解する触媒として、二酸化マンガンがお馴染み。マンガン乾電池やアルカリ乾電池に使われている。
-      また、マンガンを鉄に添加したマンガン鋼は衝撃や摩耗に強く、鉄道のレールなどに利用されている。
-  - id: main026
-    images:
-      - main026.png
-    text: |-
-      26 Fe 鐵、铁：鉄
-      建築、車両、機械、生活用品などいろいろなところで使われる、最も身近な元素のひとつ。鉄器時代を経て、今日までの人類の発展には語らざるを得ない重要な元素である。
-      また、私たちの体の中でも酸素を運ぶヘモグロビンなどで重要な働きをしている。
-  - id: main027
-    images:
-      - main027.png
-    text: |-
-      27 Co 鈷、钴：コバルト
-      顔料のコバルトブルーが有名。シリカゲルの青さもこのコバルトの色で、湿気の吸収具合を示す指示薬として使われる。
-      また、目薬の桃色もコバルト由来で、ビタミンB12の一種、シアノコバラミンに錯体として含まれている。
-  - id: main028
-    images:
-      - main028.png
-    text: |-
-      28 Ni 鎳、镍：ニッケル
-      五十円、百円硬貨は銅とニッケルの合金の白銅である。
-      昔、紅砒ニッケル鉱は銅の鉱石と瓜二つなゆえに間違えられることが多く、当時それをクッフェルニッケル（銅の悪魔）と呼んでいた。これが名前の由来である。
-  - id: main029
-    images:
-      - main029.png
-    text: |-
-      29 Cu 銅、铜：銅
-      紀元前約9000年前はるか古代から人類と共にしてきた元素。銅とスズの合金である青銅は比較的低い温度でも溶けやすいため、当時の技術でも加工が容易だった。
-      最大の用途は電線で、電導率は銀に次いで高く、かつ銀よりずっと安価である。
-  - id: main030
-    images:
-      - main030.png
-    text: |-
-      30 Zn 鋅、锌：亜鉛
-      トタン屋根などに使われる亜鉛めっきや、金管楽器などに使われる銅との合金である真鍮などに用途がある。
-      味を感じる舌の味蕾（みらい）にも存在していて、亜鉛が不足すると味覚障害を生じる。
-  - id: main031
-    images:
-      - main031.png
-    text: |-
-      31 Ga 鎵、镓：ガリウム
-      暑い夏になると勝手にとけだすほど融点が低い珍しい元素。
-      もっとも有名な用途は発光ダイオード（LED）の材料で、赤色、緑色にはガリウムリン、青色には窒化ガリウムが使われている。ちなみにブルーレイの青色レーザーもこれあっての技術である。
-  - id: main032
-    images:
-      - main032.png
-    text: |-
-      32 Ge 鍺、锗：ゲルマニウム
-      初期の半導体界を切り拓いた元素。性質の優れたケイ素の登場までは半導体界の主役だった。
-      現在よく使われているメンデレーエフの周期表の正確さを示すことになる、初めて予言され、発見された元素でもある。
-  - id: main033
-    images:
-      - main033.png
-    text: |-
-      33 As 砷：ヒ素
-      古くから毒物として暗殺などに使われてきた元素で、特に亜ヒ酸は強い毒性を持つことで知られている。
-      その一方、ガリウムヒ素は高性能な半導体としてさまざまな部品に使われているほか、亜ヒ酸自体も2004年に急性前骨髄球性白血病の治療薬として認定されるなど近年の活躍が目覚ましい。
-  - id: main034
-    images:
-      - main034.png
-    text: |-
-      34 Se 硒：セレン
-      名称は、周期表において下に位置するテルルの由来が地球なのに対して、ギリシャ神話の月の女神「セレネ」に因んで付けられた。
-      用途としては夜間撮影用カメラの撮像管に使われていて、非晶質セレンが感度の良い画像の入手を助けている。
-  - id: main035
-    images:
-      - main035.png
-    text: |-
-      35 Br 溴：臭素
-      常温で液体の非金属元素。その名のとおり単体はクサい。
-      英名はBromineで、スターやアイドルを写したブロマイドの語源である。写真の感光剤として臭化銀が使われたことからこう呼ばれるようになった。
-  - id: main036
-    images:
-      - main036.png
-    text: |-
-      36 Kr 氪：クリプトン
-      スーパーマンの故郷の星ではなく、音声合成ソフトのライブラリ販売会社でもなく、希ガスの元素である。
-      フィラメントの昇華を防ぐためにクリプトンを封入したクリプトン電球や、放電による発光を利用したカメラのフラッシュなどに用途がある。
-  - id: main037
-    images:
-      - main037.png
-    text: |-
-      37 Rb 銣、铷：ルビジウム
-      アルカリ金属に属する元素。ルビジウム原子時計は時間を定義するセシウム原子時計よりは性能は劣るが、比較的安価で小型であるため実用的に広く用いられる。
-      また、岩石中の放射性Rb-87と崩壊生成物Sr-87の比を測ることにより年代測定が行われている。
-  - id: main038
-    images:
-      - main038.png
-    text: |-
-      38 Sr 鍶、锶：ストロンチウム
-      炎色反応の赤色から花火や発煙筒に使われる元素。
-      核実験等で放出される放射性同位体Sr-90は同族のカルシウムと似た挙動をし骨に蓄積されがんなどの原因となるとされている一方、この性質を利用してより半減期の短い他の同位体を使った放射線治療も行われている。
-  - id: main039
-    images:
-      - main039.png
-    text: |-
-      39 Y 釔、钇：イットリウム
-      用途としてはYAGレーザーが有名。固体レーザーとして医療や産業など幅広い分野で用いられている。
-      また、1987年に発見されたイットリウム系超伝導体は安価な液体窒素による冷却でも超伝導現象を示したため実用化が期待され、研究の火付け役となった。
-  - id: main040
-    images:
-      - main040.png
-    text: |-
-      40 Zr 鋯、锆：ジルコニウム
-      模造ダイヤモンドのキュービックジルコニアで有名。ジルコニアはZrの酸化物で、加熱して得られるセラミックは人工の歯やナイフの刃に使われる。
-      また原子炉において、核分裂の連鎖反応に必要な中性子を吸収しにくい性質から燃料棒にも使われている。
-  - id: main041
-    images:
-      - main041.png
-    text: |-
-      41 Nb 鈮、铌：ニオブ
-      ニオブ合金は耐熱性が高く、ロケットのエンジンなどの耐熱部品に使われている。あの月面着陸を果たしたアポロ15号の司令船のエンジンノズルにも使われていた。
-      主にコルンブ石から産出され、かつての名称コロンビウムはこれが由来である。
-  - id: main042
-    images:
-      - main042.png
-    text: |-
-      42 Mo 鉬、钼：モリブデン
-      モリブデン鋼は硬く腐食もしにくいことから、強度の必要な工具類などに使われている。
-      一方人体に必須な元素でもあり、尿酸を生成するキサンチンオキシダーゼなど多くの酵素に含まれ、重要な役割を担っている。
-  - id: main043
-    images:
-      - main043.png
-    text: |-
-      43 Tc 鎝、锝、鍀：テクネチウム
-      その名のとおり人工的に作られた最初の元素である。同位体がすべて放射性であり、自然界にはほとんど存在しない。
-      Tc-99mは核医学を支える重要な存在で、体内に投与し、発される放射線をとらえて患部を見つける画像診断に使われている。
-  - id: main044
-    images:
-      - main044.png
-    text: |-
-      44 Ru 釕、钌：ルテニウム
-  - id: main045
-    images:
-      - main045.png
-    text: |-
-      45 Rh 銠、铑：ロジウム
-  - id: main046
-    images:
-      - main046.png
-    text: |-
-      46 Pd 鈀、钯：パラジウム
-  - id: main047
-    images:
-      - main047.png
-    text: |-
-      47 Ag 銀、银：銀
-  - id: main048
-    images:
-      - main048.png
-    text: |-
-      48 Cd 鎘、镉：カドミウム
-  - id: main049
-    images:
-      - main049.png
-    text: |-
-      49 In 銦、铟：インジウム
-  - id: main050
-    images:
-      - main050.png
-    text: |-
-      50 Sn 錫、锡：スズ
-  - id: main051
-    images:
-      - main051.png
-    text: |-
-      51 Sb 銻、锑：アンチモン
-  - id: main052
-    images:
-      - main052.png
-    text: |-
-      52 Te 碲：テルル
-  - id: main053
-    images:
-      - main053.png
-    text: |-
-      53 I 碘：ヨウ素
-  - id: main054
-    images:
-      - main054.png
-    text: |-
-      54 Xe 氙：キセノン
-  - id: main055
-    images:
-      - main055.png
-    text: |-
-      55 Cs 銫、铯：セシウム
-  - id: main056
-    images:
-      - main056.png
-    text: |-
-      56 Ba 鋇、钡：バリウム
-  - id: main057
-    images:
-      - main057.png
-    text: |-
-      57 La 鑭、镧：ランタン
-  - id: main058
-    images:
-      - main058.png
-    text: |-
-      58 Ce 鈰、铈：セリウム
-  - id: main059
-    images:
-      - main059.png
-    text: |-
-      59 Pr 鐠、镨：プラセオジム
-  - id: main060
-    images:
-      - main060.png
-    text: |-
-      60 Nd 釹、钕：ネオジム
-  - id: main061
-    images:
-      - main061.png
-    text: |-
-      61 Pm 鉕、钷：プロメチウム
-  - id: main062
-    images:
-      - main062.png
-    text: |-
-      62 Sm 釤、钐：サマリウム
-  - id: main063
-    images:
-      - main063.png
-    text: |-
-      63 Eu 銪、铕：ユウロピウム
-  - id: main064
-    images:
-      - main064.png
-    text: |-
-      64 Gd 釓、钆：ガドリニウム
-  - id: main065
-    images:
-      - main065.png
-    text: |-
-      65 Tb 鋱、铽：テルビウム
-  - id: main066
-    images:
-      - main066.png
-    text: |-
-      66 Dy 鏑、镝：ジスプロシウム
-  - id: main067
-    images:
-      - main067.png
-    text: |-
-      67 Ho 鈥、钬：ホルミウム
-  - id: main068
-    images:
-      - main068.png
-    text: |-
-      68 Er 鉺、铒：エルビウム
-  - id: main069
-    images:
-      - main069.png
-    text: |-
-      69 Tm 銩、铥：ツリウム
-  - id: main070
-    images:
-      - main070.png
-    text: |-
-      70 Yb 鐿、镱：イッテルビウム
-  - id: main071
-    images:
-      - main071.png
-    text: |-
-      71 Lu 鎦、镥、鑥：ルテチウム
-  - id: main072
-    images:
-      - main072.png
-    text: |-
-      72 Hf 鉿、铪：ハフニウム
-  - id: main073
-    images:
-      - main073.png
-    text: |-
-      73 Ta 鉭、钽：タンタル
-  - id: main074
-    images:
-      - main074.png
-    text: |-
-      74 W 鎢、钨：タングステン
-  - id: main075
-    images:
-      - main075.png
-    text: |-
-      75 Re 錸、铼：レニウム
-  - id: main076
-    images:
-      - main076.png
-    text: |-
-      76 Os 鋨、锇：オスミウム
-  - id: main077
-    images:
-      - main077.png
-    text: |-
-      77 Ir 銥、铱：イリジウム
-  - id: main078
-    images:
-      - main078.png
-    text: |-
-      78 Pt 鉑、铂：白金
-  - id: main079
-    images:
-      - main079.png
-    text: |-
-      79 Au 金：金
-  - id: main080
-    images:
-      - main080.png
-    text: |-
-      80 Hg 汞：水銀
-  - id: main081
-    images:
-      - main081.png
-    text: |-
-      81 Tl 鉈、铊：タリウム
-  - id: main082
-    images:
-      - main082.png
-    text: |-
-      82 Pb 鉛、铅：鉛
-  - id: main083
-    images:
-      - main083.png
-    text: |-
-      83 Bi 鉍、铋：ビスマス
-  - id: main084
-    images:
-      - main084.png
-    text: |-
-      84 Po 釙、钋：ポロニウム
-  - id: main085
-    images:
-      - main085.png
-    text: |-
-      85 At 砈、砹：アスタチン
-  - id: main086
-    images:
-      - main086.png
-    text: |-
-      86 Rn 氡：ラドン
-  - id: main087
-    images:
-      - main087.png
-    text: |-
-      87 Fr 鍅、钫、鈁：フランシウム
-  - id: main088
-    images:
-      - main088.png
-    text: |-
-      88 Ra 鐳、镭：ラジウム
-  - id: main089
-    images:
-      - main089.png
-    text: |-
-      89 Ac 錒、锕：アクチニウム
-  - id: main090
-    images:
-      - main090.png
-    text: |-
-      90 Th 釷、钍：トリウム
-  - id: main091
-    images:
-      - main091.png
-    text: |-
-      91 Pa 鏷、镤：プロトアクチニウム
-  - id: main092
-    images:
-      - main092.png
-    text: |-
-      92 U 鈾、铀：ウラン
-  - id: main093
-    images:
-      - main093.png
-    text: |-
-      93 Np 錼、镎、鎿：ネプツニウム
-  - id: main094
-    images:
-      - main094.png
-    text: |-
-      94 Pu 鈽、钚、鈈：プルトニウム
-  - id: main095
-    images:
-      - main095.png
-    text: |-
-      95 Am 鋂、镅、鎇：アメリシウム
-  - id: main096
-    images:
-      - main096.png
-    text: |-
-      96 Cm 鋦、锔：キュリウム
-  - id: main097
-    images:
-      - main097.png
-    text: |-
-      97 Bk 鉳、锫、錇：バークリウム
-  - id: main098
-    images:
-      - main098.png
-    text: |-
-      98 Cf 鉲、锎、鐦：カリホルニウム
-  - id: main099
-    images:
-      - main099.png
-    text: |-
-      99 Es 鑀、锿、鎄：アインスタイニウム
-  - id: main100
-    images:
-      - main100.png
-    text: |-
-      100 Fm 鐨、镄：フェルミウム
-  - id: main101
-    images:
-      - main101.png
-    text: |-
-      101 Md 鍆、钔：メンデレビウム
-  - id: main102
-    images:
-      - main102.png
-    text: |-
-      102 No 鍩、锘：ノーベリウム
-  - id: main103
-    images:
-      - main103.png
-    text: |-
-      103 Lr 鐒、铹：ローレンシウム
-  - id: main104
-    images:
-      - main104.png
-    text: |-
-      104 Rf 鑪、𬬻：ラザホージウム
-  - id: main105
-    images:
-      - main105.png
-    text: |-
-      105 Db 𨧀、𬭊：ドブニウム
-  - id: main106
-    images:
-      - main106.png
-    text: |-
-      106 Sg 𨭎、𬭳：シーボーギウム
-  - id: main107
-    images:
-      - main107.png
-    text: |-
-      107 Bh 𨨏、𬭛：ボーリウム
-  - id: main108
-    images:
-      - main108.png
-    text: |-
-      108 Hs 𨭆、𬭶：ハッシウム
-  - id: main109
-    images:
-      - main109.png
-    text: |-
-      109 Mt 䥑、鿏：マイトネリウム
-  - id: main110
-    images:
-      - main110.png
-    text: |-
-      110 Ds 鐽、𫟼：ダームスタチウム
-  - id: main111
-    images:
-      - main111.png
-    text: |-
-      111 Rg 錀、𬬭：レントゲニウム
-  - id: main112
-    images:
-      - main112.png
-    text: |-
-      112 Cn 鎶、鿔：コペルニシウム
-  - id: main113
-    images:
-      - main113.png
-    text: |-
-      113 Nh 鉨、鿭：ニホニウム
-      日本発、アジア初の快挙となる新元素発見。日本の理研が命名権を獲得し、我が国名「日本国」よりNihoniumと命名した。当botのアイコンもこれである。ちなみにニーハオの「你」から分かるよう、音訳新字である。（鈤ではない）
-  - id: main114
-    images:
-      - main114.png
-    text: |-
-      114 Fl 鈇、𫓧：フレロビウム
-  - id: main115
-    images:
-      - main115.png
-    text: |-
-      115 Mc 鏌、镆：モスコビウム
-      名称の由来はロシア連邦の首都モスクワから。漢字の由来は中国語でモスクワを表す「莫斯科」からである。
-  - id: main116
-    images:
-      - main116.png
-    text: |-
-      116 Lv 鉝、𫟷：リバモリウム
-  - id: main117
-    images:
-      - main117.png
-    text: |-
-      117 Ts 鿬：テネシン
-      名称の由来はアメリカ合衆国のテネシー州から。漢字の由来は中国語でテネシーを表す「田納西」からである。
+- id: main001
+  type: regular
+  group: main
+  text: |-
+    1 H 氫、氢：水素
+    宇宙で最初に作られ、宇宙で最も多く存在する元素。
+    燃料電池自動車の商用化を皮切りにCO2を出さないクリーンな次世代エネルギーとして注目を集める。
+    体内の約6割を占める水の構成元素であるのはもちろんのこと、水素結合はDNAの二重らせん構造を形成するなど生命との関わりも深い。
+  image_paths:
+    - main001.png
+- id: main002
+  type: regular
+  group: main
+  text: |-
+    2 He 氦：ヘリウム
+    風船の封入ガスや変声ガスとしておなじみの元素。
+    空気よりも軽く不活性なことから飛行船などの揚力ガスに使われる。
+    全物質の中で最も沸点が低く、液体ヘリウムは極低温環境を必要とする超伝導技術で冷却材に使われるほか、粘性がなくなり壁をもはい上がる超流動という特技を持つ。
+  image_paths:
+    - main002.png
+- id: main003
+  type: regular
+  group: main
+  text: |-
+    3 Li 鋰、锂：リチウム
+    リチウムイオン電池で有名なアルカリ金属元素。最大のイオン化傾向と原子半径の小ささから高い電圧と蓄電量を実現する。
+    また、金属の中で最も軽く、その比重は鉄の約1/15で水にも浮く。
+    初めて鉱物界から発見された元素であり、その名はギリシャ語の石(lithos)からつけられた。
+  image_paths:
+    - main003.png
+- id: main004
+  type: regular
+  group: main
+  text: |-
+    4 Be 鈹、铍：ベリリウム
+    工業利用に優れた特性を持ち、例えばベリリウム銅は銅の高い電気伝導性、熱伝導性に強度とバネ性を兼ね備える導電バネとして利用される。
+    しかし加工の際に出るベリリウムの粉末が深刻な肺疾患を引き起こす強い毒性を持ち、これが出世の足かせとなっている悲しき元素である。
+  image_paths:
+    - main004.png
+- id: main005
+  type: regular
+  group: main
+  text: |-
+    5 B 硼：ホウ素
+    ゴキブリを脱水状態にし退治するホウ酸団子や、スライムを作るときに使うホウ砂の主成分。
+    ホウ素は耐火性に優れており、酸化ホウ素を添加したガラス（ホウケイ酸ガラス）は急激な温度変化に強く細工もしやすいためフラスコやビーカーなどに使われている。
+  image_paths:
+    - main005.png
+- id: main006
+  type: regular
+  group: main
+  text: |-
+    6 C 碳：炭素
+    黒鉛、ダイヤモンド、フラーレン、カーボンナノチューブなど多くの同素体があり、有機化学の主役にして生命、生活を支える重要な元素である。
+    軽くて丈夫で熱に強く弾性に富む炭素繊維は、釣り竿やラケットなどのレジャー・スポーツ用品から、航空機や宇宙船の構造材まで幅広く活躍する。
+  image_paths:
+    - main006.png
+- id: main007
+  type: regular
+  group: main
+  text: |-
+    7 N 氮：窒素
+    空気の約8割を占める元素。アミノ酸など生物に必須な多くの物質に含まれ、そのやり取りによって地球上には大きな窒素循環ができている。
+    一方、ダイナマイトに使われるニトログリセリンやTNTなどの弾薬、酸性雨の原因となる窒素酸化物(NOx)に含まれるなど、さまざまな顔を持っている。
+  image_paths:
+    - main007.png
+- id: main008
+  type: regular
+  group: main
+  text: |-
+    8 O 氧：酸素
+    「燃える」といったらこの元素。空気の約2割を占め、呼吸や水分に関わる生命維持に必要不可欠な存在である。
+    また、酸素原子が3つ結合したオゾンは成層圏にオゾン層を形成し、私たちを紫外線から守っている。
+    ちなみに液体酸素は常磁性を持ち、磁石に引き寄せられる。
+  image_paths:
+    - main008.png
+- id: main009
+  type: regular
+  group: main
+  text: |-
+    9 F 氟：フッ素
+    虫歯を防ぐフッ素入り歯磨き粉や、焦げつきを抑えるフッ素樹脂コーティングのフライパンなどで利用されている元素。
+    一方単体は反応性が非常に高く、フッ化キセノンなど不活性な貴ガスとも化合物をつくってしまうほか、フッ化水素の水溶液はガラスをも溶かし取り扱いは困難を極める。
+  image_paths:
+    - main009.png
+- id: main010
+  type: regular
+  group: main
+  text: |-
+    10 Ne 氖：ネオン
+    赤いネオンサインの中身。赤以外の色は他の貴ガスを封入することによって出している。
+    ネオンは液体と気体の体積差が非常に大きいという特徴を持ち、液体ネオンは気化すると約1400倍にも膨らむことから輸送や貯蔵に有利で、宇宙や深海などで酸素と混ぜて人工空気として使われている。
+  image_paths:
+    - main010.png
+- id: main011
+  type: regular
+  group: main
+  text: |-
+    11 Na 鈉、钠：ナトリウム
+    食塩（塩化Na）や重曹（炭酸水素Na）、うまみ成分のグルタミン酸Naなど、食卓に縁のあるアルカリ金属元素。ミネラルとしても知られるが過剰摂取は高血圧の原因に。
+    黄色い光を発するナトリウム灯は光が散乱しにくく目にも優しいことから高速道路などの照明に使われている。
+  image_paths:
+    - main011.png
+- id: main012
+  type: regular
+  group: main
+  text: |-
+    12 Mg 鎂、镁：マグネシウム
+    軽くて硬く、航空機や自動車、ノートPCの筐体などに利用される一方、肥料の苦土（酸化Mg）やにがり（塩化Mg）に含まれていたり、水の硬度にMg濃度が関係していたりと何かと苦みに縁がある。
+    また、葉緑体に含まれるクロロフィルの中心に存在し、光合成の重役を担っている。
+  image_paths:
+    - main012.png
+- id: main013
+  type: regular
+  group: main
+  text: |-
+    13 Al 鋁、铝：アルミニウム
+    地殻中に酸素、ケイ素に次いで豊富に存在する元素。
+    今では馴染みがあるが、製法確立前は非常に貴重で1855年のパリ万博では宝石類と並べて展示されていた。
+    電気伝導性の高さから送電線に使われるほか、軽くて強度のある合金のジュラルミンは車両などに広く利用される。
+  image_paths:
+    - main013.png
+- id: main014
+  type: regular
+  group: main
+  text: |-
+    14 Si 矽、硅：ケイ素
+    シリコンとして知られる半導体界の主役の元素。単体は金属光沢を持つが硬くてもろい。
+    地殻中に豊富に存在し、石英や長石などのケイ酸塩鉱物として産出する。つまり石はだいたいケイ素。
+    ガラスや乾燥剤のシリカゲル、グリースやゴムとして使われるシリコーンの主成分である。
+  image_paths:
+    - main014.png
+- id: main015
+  type: regular
+  group: main
+  text: |-
+    15 P 磷：リン
+    白リン（黄リン）、赤リン、黒リンなど多くの同素体を持つ元素。白リンは毒性が強い一方、黒リンは安定。赤リンは260度まで発火せずマッチの摩擦面などに使われる。
+    肥料の三要素の一つであるリン酸や生体内のエネルギー源であるATPに含まれ、生物にとって不可欠な存在である。
+  image_paths:
+    - main015.png
+- id: main016
+  type: regular
+  group: main
+  text: |-
+    16 S 硫：硫黄
+    昔から知られた元素で、温泉近くでは析出した硫黄の黄色をよく見かける。有名な腐卵臭（硫化水素）が硫黄を含むのはもちろん、タマネギやニンニクの臭いも硫黄化合物由来。
+    ゴムの弾性を増す加硫剤として使われるほか、さまざまな用途を持つ硫酸は生産量世界最大の化学薬品である。
+  image_paths:
+    - main016.png
+- id: main017
+  type: regular
+  group: main
+  text: |-
+    17 Cl 氯：塩素
+    黄緑色をした気体の元素。刺激臭があり有毒で、第一次世界大戦では毒ガスに使われていた。水溶液には殺菌作用があり、水道水やプールの水に添加されているのは有名。
+    塩素の有機化合物であるポリ塩化ビニルは硬軟自在で耐水性、耐酸・アルカリ性に優れ配管や包装材に利用されている。
+  image_paths:
+    - main017.png
+- id: main018
+  type: regular
+  group: main
+  text: |-
+    18 Ar 氬、氩：アルゴン
+    空気中に約1%含まれる貴ガス元素。その存在比は窒素、酸素に次ぐ第3位であり単離も容易なため、もはや「希ガス」ではないのも納得がいく。
+    最大の用途はアーク溶接中のシールドガスで、その不活性な性質を活かし溶融金属の空気との反応を抑えている。
+  image_paths:
+    - main018.png
+- id: main019
+  type: regular
+  group: main
+  text: |-
+    19 K 鉀、钾：カリウム
+    アルカリ金属に属する元素。植物にとって必須な元素で肥料の三要素の一つであるほか、生物にとっても必須なミネラルであり、細胞内はKイオンが多い一方細胞外はNaイオンが多いという不均衡性によるイオンの往来が神経伝達や筋肉収縮などの重要な身体の機能に結びついている。
+  image_paths:
+    - main019.png
+- id: main020
+  type: regular
+  group: main
+  text: |-
+    20 Ca 鈣、钙：カルシウム
+    アルカリ土類金属に属する元素。丈夫な骨をつくるのに重要なミネラルである。欠乏すると骨に含まれるCaが血液へ流れ出し、骨がスカスカになる骨粗鬆症に陥る。
+    また、石灰石（炭酸Ca）はセメントの材料であるほか、石灰岩や大理石は石材として使われ建築との関係も深い。
+  image_paths:
+    - main020.png
+- id: main021
+  type: regular
+  group: main
+  text: |-
+    21 Sc 鈧、钪：スカンジウム
+    原子番号は小さいものの、含有量の高い鉱石が少なく非常に高価ゆえに認知度が低い希土類元素。
+    光源にヨウ化スカンジウムを使用したメタルハライドランプ（水銀灯の一種）は太陽光に近い強い光をつくることができ、野球場などの夜間照明に使われている。
+  image_paths:
+    - main021.png
+- id: main022
+  type: regular
+  group: main
+  text: |-
+    22 Ti 鈦、钛：チタン
+    軽くて丈夫で耐食性に優れ、加工もしやすいことから、現代ではアルミニウムに並んで重要な役割を担っている。
+    二酸化チタンは白色の顔料として使われるほか、紫外線があたると活性酸素を発生させ有機物（汚れ）を分解する触媒としての特徴を持ち、トイレの壁などに使われている。
+  image_paths:
+    - main022.png
+- id: main023
+  type: regular
+  group: main
+  text: |-
+    23 V 釩、钒：バナジウム
+    バナジウム鋼は引っ張りに強くビルの構造材や橋梁に利用されているほか、その硬さからドライバーやドリルなどにも使われている。
+    また、バナジウムは糖の代謝を調節するインスリンとよく似た働きをすることがわかっており、実際に糖尿病が改善された例が報告されている。
+  image_paths:
+    - main023.png
+- id: main024
+  type: regular
+  group: main
+  text: |-
+    24 Cr 鉻、铬：クロム
+    耐食性に優れることからシンクなどにめっきとして使われているほか、鉄との合金であるステンレス鋼にも利用される。
+    また、3価クロムは人体に必須であるのに対し、6価クロムは猛毒であるという何ともツンデレな元素である。
+  image_paths:
+    - main024.png
+- id: main025
+  type: regular
+  group: main
+  text: |-
+    25 Mn 錳、锰：マンガン
+    過酸化水素水を酸素と水素に分解する触媒として、二酸化マンガンがお馴染み。マンガン乾電池やアルカリ乾電池に使われている。
+    また、マンガンを鉄に添加したマンガン鋼は衝撃や摩耗に強く、鉄道のレールなどに利用されている。
+  image_paths:
+    - main025.png
+- id: main026
+  type: regular
+  group: main
+  text: |-
+    26 Fe 鐵、铁：鉄
+    建築、車両、機械、生活用品などいろいろなところで使われる、最も身近な元素のひとつ。鉄器時代を経て、今日までの人類の発展には語らざるを得ない重要な元素である。
+    また、私たちの体の中でも酸素を運ぶヘモグロビンなどで重要な働きをしている。
+  image_paths:
+    - main026.png
+- id: main027
+  type: regular
+  group: main
+  text: |-
+    27 Co 鈷、钴：コバルト
+    顔料のコバルトブルーが有名。シリカゲルの青さもこのコバルトの色で、湿気の吸収具合を示す指示薬として使われる。
+    また、目薬の桃色もコバルト由来で、ビタミンB12の一種、シアノコバラミンに錯体として含まれている。
+  image_paths:
+    - main027.png
+- id: main028
+  type: regular
+  group: main
+  text: |-
+    28 Ni 鎳、镍：ニッケル
+    五十円、百円硬貨は銅とニッケルの合金の白銅である。
+    昔、紅砒ニッケル鉱は銅の鉱石と瓜二つなゆえに間違えられることが多く、当時それをクッフェルニッケル（銅の悪魔）と呼んでいた。これが名前の由来である。
+  image_paths:
+    - main028.png
+- id: main029
+  type: regular
+  group: main
+  text: |-
+    29 Cu 銅、铜：銅
+    紀元前約9000年前はるか古代から人類と共にしてきた元素。銅とスズの合金である青銅は比較的低い温度でも溶けやすいため、当時の技術でも加工が容易だった。
+    最大の用途は電線で、電導率は銀に次いで高く、かつ銀よりずっと安価である。
+  image_paths:
+    - main029.png
+- id: main030
+  type: regular
+  group: main
+  text: |-
+    30 Zn 鋅、锌：亜鉛
+    トタン屋根などに使われる亜鉛めっきや、金管楽器などに使われる銅との合金である真鍮などに用途がある。
+    味を感じる舌の味蕾（みらい）にも存在していて、亜鉛が不足すると味覚障害を生じる。
+  image_paths:
+    - main030.png
+- id: main031
+  type: regular
+  group: main
+  text: |-
+    31 Ga 鎵、镓：ガリウム
+    暑い夏になると勝手にとけだすほど融点が低い珍しい元素。
+    もっとも有名な用途は発光ダイオード（LED）の材料で、赤色、緑色にはガリウムリン、青色には窒化ガリウムが使われている。ちなみにブルーレイの青色レーザーもこれあっての技術である。
+  image_paths:
+    - main031.png
+- id: main032
+  type: regular
+  group: main
+  text: |-
+    32 Ge 鍺、锗：ゲルマニウム
+    初期の半導体界を切り拓いた元素。性質の優れたケイ素の登場までは半導体界の主役だった。
+    現在よく使われているメンデレーエフの周期表の正確さを示すことになる、初めて予言され、発見された元素でもある。
+  image_paths:
+    - main032.png
+- id: main033
+  type: regular
+  group: main
+  text: |-
+    33 As 砷：ヒ素
+    古くから毒物として暗殺などに使われてきた元素で、特に亜ヒ酸は強い毒性を持つことで知られている。
+    その一方、ガリウムヒ素は高性能な半導体としてさまざまな部品に使われているほか、亜ヒ酸自体も2004年に急性前骨髄球性白血病の治療薬として認定されるなど近年の活躍が目覚ましい。
+  image_paths:
+    - main033.png
+- id: main034
+  type: regular
+  group: main
+  text: |-
+    34 Se 硒：セレン
+    名称は、周期表において下に位置するテルルの由来が地球なのに対して、ギリシャ神話の月の女神「セレネ」に因んで付けられた。
+    用途としては夜間撮影用カメラの撮像管に使われていて、非晶質セレンが感度の良い画像の入手を助けている。
+  image_paths:
+    - main034.png
+- id: main035
+  type: regular
+  group: main
+  text: |-
+    35 Br 溴：臭素
+    常温で液体の非金属元素。その名のとおり単体はクサい。
+    英名はBromineで、スターやアイドルを写したブロマイドの語源である。写真の感光剤として臭化銀が使われたことからこう呼ばれるようになった。
+  image_paths:
+    - main035.png
+- id: main036
+  type: regular
+  group: main
+  text: |-
+    36 Kr 氪：クリプトン
+    スーパーマンの故郷の星ではなく、音声合成ソフトのライブラリ販売会社でもなく、希ガスの元素である。
+    フィラメントの昇華を防ぐためにクリプトンを封入したクリプトン電球や、放電による発光を利用したカメラのフラッシュなどに用途がある。
+  image_paths:
+    - main036.png
+- id: main037
+  type: regular
+  group: main
+  text: |-
+    37 Rb 銣、铷：ルビジウム
+    アルカリ金属に属する元素。ルビジウム原子時計は時間を定義するセシウム原子時計よりは性能は劣るが、比較的安価で小型であるため実用的に広く用いられる。
+    また、岩石中の放射性Rb-87と崩壊生成物Sr-87の比を測ることにより年代測定が行われている。
+  image_paths:
+    - main037.png
+- id: main038
+  type: regular
+  group: main
+  text: |-
+    38 Sr 鍶、锶：ストロンチウム
+    炎色反応の赤色から花火や発煙筒に使われる元素。
+    核実験等で放出される放射性同位体Sr-90は同族のカルシウムと似た挙動をし骨に蓄積されがんなどの原因となるとされている一方、この性質を利用してより半減期の短い他の同位体を使った放射線治療も行われている。
+  image_paths:
+    - main038.png
+- id: main039
+  type: regular
+  group: main
+  text: |-
+    39 Y 釔、钇：イットリウム
+    用途としてはYAGレーザーが有名。固体レーザーとして医療や産業など幅広い分野で用いられている。
+    また、1987年に発見されたイットリウム系超伝導体は安価な液体窒素による冷却でも超伝導現象を示したため実用化が期待され、研究の火付け役となった。
+  image_paths:
+    - main039.png
+- id: main040
+  type: regular
+  group: main
+  text: |-
+    40 Zr 鋯、锆：ジルコニウム
+    模造ダイヤモンドのキュービックジルコニアで有名。ジルコニアはZrの酸化物で、加熱して得られるセラミックは人工の歯やナイフの刃に使われる。
+    また原子炉において、核分裂の連鎖反応に必要な中性子を吸収しにくい性質から燃料棒にも使われている。
+  image_paths:
+    - main040.png
+- id: main041
+  type: regular
+  group: main
+  text: |-
+    41 Nb 鈮、铌：ニオブ
+    ニオブ合金は耐熱性が高く、ロケットのエンジンなどの耐熱部品に使われている。あの月面着陸を果たしたアポロ15号の司令船のエンジンノズルにも使われていた。
+    主にコルンブ石から産出され、かつての名称コロンビウムはこれが由来である。
+  image_paths:
+    - main041.png
+- id: main042
+  type: regular
+  group: main
+  text: |-
+    42 Mo 鉬、钼：モリブデン
+    モリブデン鋼は硬く腐食もしにくいことから、強度の必要な工具類などに使われている。
+    一方人体に必須な元素でもあり、尿酸を生成するキサンチンオキシダーゼなど多くの酵素に含まれ、重要な役割を担っている。
+  image_paths:
+    - main042.png
+- id: main043
+  type: regular
+  group: main
+  text: |-
+    43 Tc 鎝、锝、鍀：テクネチウム
+    その名のとおり人工的に作られた最初の元素である。同位体がすべて放射性であり、自然界にはほとんど存在しない。
+    Tc-99mは核医学を支える重要な存在で、体内に投与し、発される放射線をとらえて患部を見つける画像診断に使われている。
+  image_paths:
+    - main043.png
+- id: main044
+  type: regular
+  group: main
+  text: |-
+    44 Ru 釕、钌：ルテニウム
+  image_paths:
+    - main044.png
+- id: main045
+  type: regular
+  group: main
+  text: |-
+    45 Rh 銠、铑：ロジウム
+  image_paths:
+    - main045.png
+- id: main046
+  type: regular
+  group: main
+  text: |-
+    46 Pd 鈀、钯：パラジウム
+  image_paths:
+    - main046.png
+- id: main047
+  type: regular
+  group: main
+  text: |-
+    47 Ag 銀、银：銀
+  image_paths:
+    - main047.png
+- id: main048
+  type: regular
+  group: main
+  text: |-
+    48 Cd 鎘、镉：カドミウム
+  image_paths:
+    - main048.png
+- id: main049
+  type: regular
+  group: main
+  text: |-
+    49 In 銦、铟：インジウム
+  image_paths:
+    - main049.png
+- id: main050
+  type: regular
+  group: main
+  text: |-
+    50 Sn 錫、锡：スズ
+  image_paths:
+    - main050.png
+- id: main051
+  type: regular
+  group: main
+  text: |-
+    51 Sb 銻、锑：アンチモン
+  image_paths:
+    - main051.png
+- id: main052
+  type: regular
+  group: main
+  text: |-
+    52 Te 碲：テルル
+  image_paths:
+    - main052.png
+- id: main053
+  type: regular
+  group: main
+  text: |-
+    53 I 碘：ヨウ素
+  image_paths:
+    - main053.png
+- id: main054
+  type: regular
+  group: main
+  text: |-
+    54 Xe 氙：キセノン
+  image_paths:
+    - main054.png
+- id: main055
+  type: regular
+  group: main
+  text: |-
+    55 Cs 銫、铯：セシウム
+  image_paths:
+    - main055.png
+- id: main056
+  type: regular
+  group: main
+  text: |-
+    56 Ba 鋇、钡：バリウム
+  image_paths:
+    - main056.png
+- id: main057
+  type: regular
+  group: main
+  text: |-
+    57 La 鑭、镧：ランタン
+  image_paths:
+    - main057.png
+- id: main058
+  type: regular
+  group: main
+  text: |-
+    58 Ce 鈰、铈：セリウム
+  image_paths:
+    - main058.png
+- id: main059
+  type: regular
+  group: main
+  text: |-
+    59 Pr 鐠、镨：プラセオジム
+  image_paths:
+    - main059.png
+- id: main060
+  type: regular
+  group: main
+  text: |-
+    60 Nd 釹、钕：ネオジム
+  image_paths:
+    - main060.png
+- id: main061
+  type: regular
+  group: main
+  text: |-
+    61 Pm 鉕、钷：プロメチウム
+  image_paths:
+    - main061.png
+- id: main062
+  type: regular
+  group: main
+  text: |-
+    62 Sm 釤、钐：サマリウム
+  image_paths:
+    - main062.png
+- id: main063
+  type: regular
+  group: main
+  text: |-
+    63 Eu 銪、铕：ユウロピウム
+  image_paths:
+    - main063.png
+- id: main064
+  type: regular
+  group: main
+  text: |-
+    64 Gd 釓、钆：ガドリニウム
+  image_paths:
+    - main064.png
+- id: main065
+  type: regular
+  group: main
+  text: |-
+    65 Tb 鋱、铽：テルビウム
+  image_paths:
+    - main065.png
+- id: main066
+  type: regular
+  group: main
+  text: |-
+    66 Dy 鏑、镝：ジスプロシウム
+  image_paths:
+    - main066.png
+- id: main067
+  type: regular
+  group: main
+  text: |-
+    67 Ho 鈥、钬：ホルミウム
+  image_paths:
+    - main067.png
+- id: main068
+  type: regular
+  group: main
+  text: |-
+    68 Er 鉺、铒：エルビウム
+  image_paths:
+    - main068.png
+- id: main069
+  type: regular
+  group: main
+  text: |-
+    69 Tm 銩、铥：ツリウム
+  image_paths:
+    - main069.png
+- id: main070
+  type: regular
+  group: main
+  text: |-
+    70 Yb 鐿、镱：イッテルビウム
+  image_paths:
+    - main070.png
+- id: main071
+  type: regular
+  group: main
+  text: |-
+    71 Lu 鎦、镥、鑥：ルテチウム
+  image_paths:
+    - main071.png
+- id: main072
+  type: regular
+  group: main
+  text: |-
+    72 Hf 鉿、铪：ハフニウム
+  image_paths:
+    - main072.png
+- id: main073
+  type: regular
+  group: main
+  text: |-
+    73 Ta 鉭、钽：タンタル
+  image_paths:
+    - main073.png
+- id: main074
+  type: regular
+  group: main
+  text: |-
+    74 W 鎢、钨：タングステン
+  image_paths:
+    - main074.png
+- id: main075
+  type: regular
+  group: main
+  text: |-
+    75 Re 錸、铼：レニウム
+  image_paths:
+    - main075.png
+- id: main076
+  type: regular
+  group: main
+  text: |-
+    76 Os 鋨、锇：オスミウム
+  image_paths:
+    - main076.png
+- id: main077
+  type: regular
+  group: main
+  text: |-
+    77 Ir 銥、铱：イリジウム
+  image_paths:
+    - main077.png
+- id: main078
+  type: regular
+  group: main
+  text: |-
+    78 Pt 鉑、铂：白金
+  image_paths:
+    - main078.png
+- id: main079
+  type: regular
+  group: main
+  text: |-
+    79 Au 金：金
+  image_paths:
+    - main079.png
+- id: main080
+  type: regular
+  group: main
+  text: |-
+    80 Hg 汞：水銀
+  image_paths:
+    - main080.png
+- id: main081
+  type: regular
+  group: main
+  text: |-
+    81 Tl 鉈、铊：タリウム
+  image_paths:
+    - main081.png
+- id: main082
+  type: regular
+  group: main
+  text: |-
+    82 Pb 鉛、铅：鉛
+  image_paths:
+    - main082.png
+- id: main083
+  type: regular
+  group: main
+  text: |-
+    83 Bi 鉍、铋：ビスマス
+  image_paths:
+    - main083.png
+- id: main084
+  type: regular
+  group: main
+  text: |-
+    84 Po 釙、钋：ポロニウム
+  image_paths:
+    - main084.png
+- id: main085
+  type: regular
+  group: main
+  text: |-
+    85 At 砈、砹：アスタチン
+  image_paths:
+    - main085.png
+- id: main086
+  type: regular
+  group: main
+  text: |-
+    86 Rn 氡：ラドン
+  image_paths:
+    - main086.png
+- id: main087
+  type: regular
+  group: main
+  text: |-
+    87 Fr 鍅、钫、鈁：フランシウム
+  image_paths:
+    - main087.png
+- id: main088
+  type: regular
+  group: main
+  text: |-
+    88 Ra 鐳、镭：ラジウム
+  image_paths:
+    - main088.png
+- id: main089
+  type: regular
+  group: main
+  text: |-
+    89 Ac 錒、锕：アクチニウム
+  image_paths:
+    - main089.png
+- id: main090
+  type: regular
+  group: main
+  text: |-
+    90 Th 釷、钍：トリウム
+  image_paths:
+    - main090.png
+- id: main091
+  type: regular
+  group: main
+  text: |-
+    91 Pa 鏷、镤：プロトアクチニウム
+  image_paths:
+    - main091.png
+- id: main092
+  type: regular
+  group: main
+  text: |-
+    92 U 鈾、铀：ウラン
+  image_paths:
+    - main092.png
+- id: main093
+  type: regular
+  group: main
+  text: |-
+    93 Np 錼、镎、鎿：ネプツニウム
+  image_paths:
+    - main093.png
+- id: main094
+  type: regular
+  group: main
+  text: |-
+    94 Pu 鈽、钚、鈈：プルトニウム
+  image_paths:
+    - main094.png
+- id: main095
+  type: regular
+  group: main
+  text: |-
+    95 Am 鋂、镅、鎇：アメリシウム
+  image_paths:
+    - main095.png
+- id: main096
+  type: regular
+  group: main
+  text: |-
+    96 Cm 鋦、锔：キュリウム
+  image_paths:
+    - main096.png
+- id: main097
+  type: regular
+  group: main
+  text: |-
+    97 Bk 鉳、锫、錇：バークリウム
+  image_paths:
+    - main097.png
+- id: main098
+  type: regular
+  group: main
+  text: |-
+    98 Cf 鉲、锎、鐦：カリホルニウム
+  image_paths:
+    - main098.png
+- id: main099
+  type: regular
+  group: main
+  text: |-
+    99 Es 鑀、锿、鎄：アインスタイニウム
+  image_paths:
+    - main099.png
+- id: main100
+  type: regular
+  group: main
+  text: |-
+    100 Fm 鐨、镄：フェルミウム
+  image_paths:
+    - main100.png
+- id: main101
+  type: regular
+  group: main
+  text: |-
+    101 Md 鍆、钔：メンデレビウム
+  image_paths:
+    - main101.png
+- id: main102
+  type: regular
+  group: main
+  text: |-
+    102 No 鍩、锘：ノーベリウム
+  image_paths:
+    - main102.png
+- id: main103
+  type: regular
+  group: main
+  text: |-
+    103 Lr 鐒、铹：ローレンシウム
+  image_paths:
+    - main103.png
+- id: main104
+  type: regular
+  group: main
+  text: |-
+    104 Rf 鑪、𬬻：ラザホージウム
+  image_paths:
+    - main104.png
+- id: main105
+  type: regular
+  group: main
+  text: |-
+    105 Db 𨧀、𬭊：ドブニウム
+  image_paths:
+    - main105.png
+- id: main106
+  type: regular
+  group: main
+  text: |-
+    106 Sg 𨭎、𬭳：シーボーギウム
+  image_paths:
+    - main106.png
+- id: main107
+  type: regular
+  group: main
+  text: |-
+    107 Bh 𨨏、𬭛：ボーリウム
+  image_paths:
+    - main107.png
+- id: main108
+  type: regular
+  group: main
+  text: |-
+    108 Hs 𨭆、𬭶：ハッシウム
+  image_paths:
+    - main108.png
+- id: main109
+  type: regular
+  group: main
+  text: |-
+    109 Mt 䥑、鿏：マイトネリウム
+  image_paths:
+    - main109.png
+- id: main110
+  type: regular
+  group: main
+  text: |-
+    110 Ds 鐽、𫟼：ダームスタチウム
+  image_paths:
+    - main110.png
+- id: main111
+  type: regular
+  group: main
+  text: |-
+    111 Rg 錀、𬬭：レントゲニウム
+  image_paths:
+    - main111.png
+- id: main112
+  type: regular
+  group: main
+  text: |-
+    112 Cn 鎶、鿔：コペルニシウム
+  image_paths:
+    - main112.png
+- id: main113
+  type: regular
+  group: main
+  text: |-
+    113 Nh 鉨、鿭：ニホニウム
+    日本発、アジア初の快挙となる新元素発見。日本の理研が命名権を獲得し、我が国名「日本国」よりNihoniumと命名した。当botのアイコンもこれである。ちなみにニーハオの「你」から分かるよう、音訳新字である。（鈤ではない）
+  image_paths:
+    - main113.png
+- id: main114
+  type: regular
+  group: main
+  text: |-
+    114 Fl 鈇、𫓧：フレロビウム
+  image_paths:
+    - main114.png
+- id: main115
+  type: regular
+  group: main
+  text: |-
+    115 Mc 鏌、镆：モスコビウム
+    名称の由来はロシア連邦の首都モスクワから。漢字の由来は中国語でモスクワを表す「莫斯科」からである。
+  image_paths:
+    - main115.png
+- id: main116
+  type: regular
+  group: main
+  text: |-
+    116 Lv 鉝、𫟷：リバモリウム
+  image_paths:
+    - main116.png
+- id: main117
+  type: regular
+  group: main
+  text: |-
+    117 Ts 鿬：テネシン
+    名称の由来はアメリカ合衆国のテネシー州から。漢字の由来は中国語でテネシーを表す「田納西」からである。
 
-      決して石田ではない。
-  - id: main118
-    images:
-      - main118.png
-    text: |-
-      118 Og 鿫：オガネソン
-      名称の由来はロシアの物理学者ユーリイ・オガネシアンから。漢字の由来は中国語表記「奥加涅相」からである。ちなみにオガネシアンさんはご存命で、存命中に元素名となったのはシーボーギウムに次いで2回目。
-  - id: subs001
-    images: []
-    text: |-
-      元素の漢字小噺【鑪：Rf】
-      元素としてはラザホージウムを表すが、もとはいろりやふいごを表す漢字で、炉（爐）に通じる。
-      日本では「たたら」とも訓読し、日本の伝統的な製鉄法であるたたら製鉄では、ふいごで粘土製の炉に風を送り込んで砂鉄を木炭で還元し、鉄を作っていた。
-  - id: subs002
-    images: []
-    text: |-
-      元素の漢字小噺【鏑：Dy】
-      鏑は元素としてはジスプロシウムを表すが、もとは「かぶら」を意味する漢字である。
-      鏑矢は、カブ形の穴のあいた空洞の球を先に付けた矢のこと。射ると空気を切って響きを出し、主に矢合わせに使った。
-      流鏑馬（やぶさめ）にも出てくる漢字である。
-  - id: subs003
-    images: []
-    text: |-
-      元素の漢字小噺【鉈：Tl】
-      元素としてはタリウムを表すが、よく見るとこれは薪を割るときに使う「なた」と同じ漢字である。なたリウムである。
-      元素以外の意味で漢検に出題される漢字のひとつでもあり、他にもコバルトの鈷、ジスプロシウムの鏑、ラザホージウムの鑪がある。
-  - id: subs004
-    images: []
-    text: |-
-      元素の漢字小噺【鈷：Co】
-      元素としてはコバルトを表すが、独鈷（とっこ）という煩悩を破るとされるインドの護身用の仏具の名にも使われる漢字。
-      独鈷は両端の尖った短い棒状をしていて、先端のまたの数により三鈷や五鈷などの種類がある。
-      ちなみに漢検では準1級に配当。
-  - id: subs005
-    images: []
-    text: |-
-      元素の漢字小噺【硅：Si】
-      ケイ素は中国大陸では「硅」、台湾や香港では「矽」と書き、異なっている。
-      実は、大陸も昔はsiliconの音訳、矽[xī]を使っていたが、同音の錫や硒との混乱を嫌い、後に日本の珪素（硅素）より硅[guī]に改めたという。
-      漢字一字にも欠点あり。
-  - id: subs006
-    images: []
-    text: |-
-      元素の漢字小噺【鎿：Np】
-      鎿はネプツニウムを表す漢字。
-      つくりの拿はひく、とらえるという意味を持つが、構成部分を見てみると合＋手。とてもわかりやすい。つまり会意字である。
-      鎿は音訳字で拿の意味は持たないが、そんな繋がりをたどるのも漢字の楽しみ方のひとつだ。
-  - id: subs007
-    images: []
-    text: |-
-      元素の漢字小噺【鉕：Pm】
-      プロメチウムを表す鉕のつくりは巨ではなく叵だ。
-      叵は「できない」という意味を持つ漢字であるが、字源は「可」の鏡文字。これだけでワクワクしてくるが、さらに叵の読みハは、フカ（不可）がつづまった言葉であるという。漢字は本当に面白い。
-  - id: subs008
-    images: []
-    text: |-
-      元素の漢字小噺【鎢：W】
-      鎢はタングステンを表す漢字である。
-      鎢は音訳字で、つくりの烏[wū]は音を表すが、これはtungsten（タングステン）からではなく、別名のwolfram（ウォルフラム）から。元素記号のWもこちら由来である。
-  - id: subs009
-    images: []
-    text: |-
-      元素の漢字小噺【鍅：Fr】
-      「鍅」はフランシウムを表す台湾での漢字。フランシウムの名の由来はフランス。フランスは中国語で「法国」だ。
-      お！なら中国語でアメリカは「美国」だからこの「鎂」はアメリシウムだな！
-      残念。それはマグネシウムである。
-  - id: radc001
-    images: []
-    text: |-
-      ～部首の規則～
-      中国では元素の命名に規則があり、その元素の常温での状態によって、
-      金部：固体金属（鐵など）
-      石部：固体非金属（硫など）
-      气部：気体（氟など）
-      水部：液体（溴と汞のみ）
-      の4つの部首のいずれかが付く。調べなくとも性質が見てわかるすぐれもの。
-  - id: radc002
-    images: []
-    text: |-
-      部首の規則【金部】
-      常温で固体の金属元素は、鐵（鉄）や鋰（リチウム）、鈾（ウラン）など、「金（かね・かねへん）」が部首となる。金の部首ももちろん金。
-      簡体字では偏で「钅」の形となる。
-  - id: radc003
-    images: []
-    text: |-
-      部首の規則【石部】
-      常温で固体の非金属元素は、硫（硫黄）や碲（テルル）など、「石（いしへん）」が部首となる。
-      炭素の「碳」とリンの「磷」は伝統的な字（炭と燐）から部首の規則にのっとって新たに作られた数少ない漢字である。
-  - id: radc004
-    images: []
-    text: |-
-      部首の規則【气部】
-      常温で気体の元素は、氧（酸素）や氟（フッ素）など、「气（きがまえ）」が部首となる。
-      气部が部首の漢字が他と比べて少ないせいか、漢和辞典で气部を引くと元素の漢字たちのほぼ独占状態となっている。
-  - id: radc005
-    images: []
-    text: |-
-      部首の規則【水部】
-      水部が部首となる漢字は、常温で液体の元素である臭素の「溴」と水銀の「汞」の2つのみ。
-      一方、周期表で水銀の下に位置し液体の金属と推測されているコペルニシウムの漢字は「鎶」で、部首はかねへん。
-  - id: comp001
-    images:
-      - comp001.jpg
-    text: |-
-      化合物の名称【無機化合物-1】
-      一般的に知られる「〜化…」や「〜酸…」というような化合物はほとんど日本と表し方は同じで、例えば二酸化炭素は「二氧化碳」、過マンガン酸カリウムは「高錳酸鉀」と表す。
-  - id: comp002
-    images:
-      - comp002.jpg
-    text: |-
-      化合物の名称【無機化合物-2】
-      例えばシアンは「氰」、アンモニウムは「銨」など、化合する物質単位として扱われる原子団には、元素の漢字とは別の新しい漢字が当てられていて、青酸カリは「氰酸鉀」、塩化アンモニウムは「氯化銨」と表す。
-  - id: comp003
-    images:
-      - comp003.jpg
-    text: |-
-      化合物の名称【有機化合物】
-      有機化合物の元素の漢字にはそれぞれその構造や含まれる元素の種類によって火部、艸部、酉部、肉部、口部の5つの部首が割り当てられていて、その炭素数を十干（甲乙丙…）を用いて表す。
-  - id: comp004
-    images:
-      - comp004.jpg
-    text: |-
-      化合物の名称【有機化合物「火部」】
-      脂肪族化合物は火部を部首にして、アルカンは「烷」、アルケンは「烯」、アルキンは「炔」を付け、炭素数を十干（甲乙丙…）を用いて表す。
-      例えばエチレンは「乙烯」、シクロヘキサンは「環己烷」である。
-  - id: comp005
-    images:
-      - comp005.jpg
-    text: |-
-      化合物の名称【有機化合物「艸部」】
-      ベンゼンを代表とする炭素と水素のみの芳香族化合物は艸部（艹）を部首にして表す。
-      例えばベンゼンは「苯」、ナフタレン「萘」、アントラセンは「蒽」で、パラジクロロベンゼンは「對二氯苯」である。
-  - id: comp006
-    images:
-      - comp006.jpg
-    text: |-
-      化合物の名称【有機化合物「酉部」】
-      アルコールやアルデヒドなど、酸素を含む有機化合物は酉部を部首にして表す。ただしカルボン酸はそのまま「酸」を使って表す。
-      例えばエチルメチルエーテルは「甲乙醚」、酢酸メチルは「乙酸甲酯」である。
-  - id: comp007
-    images:
-      - comp007.jpg
-    text: |-
-      化合物の名称【有機化合物「肉部」】
-      アミンやニトリルなど、窒素を含む有機化合物は肉部（月）を部首にして表す。
-      例えばアニリンは「苯胺」、アクリロニトリルは「丙烯腈」である。
-  - id: comp008
-    images:
-      - comp008.jpg
-    text: |-
-      化合物の名称【有機化合物「口部」】
-      フランやピリジンなど、炭素と水素以外の元素を含む環式化合物（複素環式化合物）は口部を部首にして、普通二字で表す。
-      例えばフランは「呋喃」、ピリジン「吡啶」である。
-  - id: cate001
-    images:
-      - cate001.jpg
-    text: |-
-      元素のグループ【アルカリ金属】
-      水素を除く第1族元素のグループ。軽くて軟らかく、反応性が高く水と激しく反応したり、炎色反応を示すのが特徴。鹼金屬の「鹼」は石鹼の「鹼」であるように、アルカリ性を表す関係が見えてくるのも面白い。
-  - id: cate002
-    images:
-      - cate002.jpg
-    text: |-
-      元素のグループ【アルカリ土類金属】
-      ベリリウムとマグネシウムを除く第2族元素のグループ。軽くて軟らかく反応性にも富むが、アルカリ金属ほどではない。炎色反応も示す。その名のとおり、アルカリ金属と土類金属の中間的存在として名付けられた。
-  - id: cate003
-    images:
-      - cate003.png
-    text: |-
-      元素のグループ【亜鉛族元素】
-      第12族元素のグループ。周期表上はdブロックに属すが電子配置の影響で性質上、典型元素に分類される。
-      揮発性が高く気体になりやすい。水銀は常温で液体の金属であり、コペルニシウムも液体もしくは気体の可能性が高いと言われている。
-  - id: cate004
-    images:
-      - cate004.jpg
-    text: |-
-      元素のグループ【ホウ素族元素】
-      第13族元素のグループ。ホウ素を除いた金属元素には「土類金属」という総称があり、酸化アルミニウムとそれに似た酸化物を与えるという意味がある。「土」は酸化物の意味。化学的性質においてはホウ素はむしろケイ素よりである。
-  - id: cate005
-    images:
-      - cate005.jpg
-    text: |-
-      元素のグループ【炭素族元素】
-      第14族元素のグループ。炭素やケイ素、スズや鉛など、馴染みのある元素が並ぶ。ケイ素とゲルマニウムは真性半導体として有名。
-  - id: cate006
-    images:
-      - cate006.jpg
-    text: |-
-      元素のグループ【窒素族元素】
-      第15族元素のグループ。アンチモンやビスマスを含め人工元素以外全て昔から知られている元素である。別名のニクトゲンの語源は「窒息するもの」だが、窒素のニトロゲンは「硝石を生ずる」が語源。混同にご注意。
-  - id: cate007
-    images:
-      - cate007.jpg
-    text: |-
-      元素のグループ【酸素族元素】
-      第16族元素のグループ。別名のカルコゲンがギリシャ語で「石を作るもの」であるよう、鉱物の主成分となるものが多い。特に硫黄、セレン、テルルの3元素は「硫黄族元素」と呼ばれる。
-  - id: cate008
-    images:
-      - cate008.jpg
-    text: |-
-      元素のグループ【ハロゲン】
-      第17族元素のグループ。その名のとおり、ハロゲンはギリシャ語で「塩を作るもの」で、アルカリ金属などと化合して塩（えん）を作る。反応性に富み、フッ素や塩素は毒ガスとして名高い。ちなみにこの族だけ気液固がそろう。
-  - id: cate009
-    images:
-      - cate009.jpg
-    text: |-
-      元素のグループ【希ガス】
-      第18族元素のグループ。ヘリウムやネオンなど、全てが不活性な気体である。希ガスという名称が一般的だが、特に希少なわけではなく、貴ガスと表記する教科書も増えてきている。
-  - id: cate010
-    images:
-      - cate010.jpg
-    text: |-
-      元素のグループ【鉄族元素】
-      第4周期の第8,9,10族に並ぶ鉄、コバルト、ニッケルの3元素のグループ。いずれも強磁性を示す、簡単にいえば磁石にくっつくのが一番の特徴である。
-  - id: cate011
-    images:
-      - cate011.jpg
-    text: |-
-      元素のグループ【白金族元素】
-      第5,6周期の第8,9,10族に並ぶルテニウム、ロジウム、パラジウム、オスミウム、イリジウム、白金の6元素のグループ。簡単に言えば全部だいたい白金である。触媒によく使われる元素が多いのが特徴。
-  - id: cate012
-    images:
-      - cate012.jpg
-    text: |-
-      元素のグループ【ランタノイド】
-      第6周期3族の15元素のグループ。いつも下の方であふれている1段目。特にその上にあるスカンジウムとイットリウムを合わせて希土類元素（レアアース）といい、電子工学を支えるスゴ腕がそろっている。
-  - id: cate013
-    images:
-      - cate013.jpg
-    text: |-
-      元素のグループ【アクチノイド】
-      第7周期3族の15元素のグループ。いつも下の方であふれている2段目。ウランやプルトニウムなど全ての元素が放射性である。自然界にほとんど存在せず、ウランより重い「超ウラン元素」は全て人工元素である。
-  - id: jpka001
-    images: []
-    text: |-
-      鉱物と日本の元素の漢字【Mo：水鉛】
-      水鉛とはモリブデンの和名である。
-      モリブデンの代表的な鉱物である輝水鉛鉱 [MoS₂] は雲母と同じく完全な劈開（へきかい）を持っていて、ぺりぺりめくれて散らばりがち。
-  - id: jpka002
-    images: []
-    text: 鉱物と日本の元素の漢字【Bi：蒼鉛】
-      蒼鉛はビスマスの和名。「蒼い鉛」と書くが、元素鉱物の自然蒼鉛は若干赤い。
-      ほかビスマスの鉱物として輝蒼鉛鉱
-      [Bi₂S₃] などがある。
-  - id: jpka003
-    images: []
-    text: 鉱物と日本の元素の漢字【Mn：満俺】
-      満俺はマンガンの当て字であり、江戸時代の蘭学者、宇田川榕菴の造語のひとつである。
-      今の用例は満礬柘榴石 [Mn₃Al₂(SiO₄)₃]
-      くらいしかない。他のマンガン鉱物は菱マンガン鉱など、普通にカタカナでマンガンである。
-  - id: jpka004
-    images: []
-    text: |-
-      鉱物と日本の元素の漢字【Sb：安質没尼】
-      アンチモンのこと。輝安鉱 [Sb₂S₃] や安四面銅鉱 [(Cu,Fe,Zn)₁₂Sb₄S₁₃] などに使われる。
-      鉱物名の「安」はほとんどがアンチモンのことであるが、安山岩の「安」はアンデス山脈、硫安の「安」はアンモニウムのことなので、迂闊に判断しないように…
-  - id: jpka005
-    images: []
-    text: 鉱物と日本の元素の漢字【Ba：重土】
-      重土はバリウムを意味する。タングステン鉱を意味する重石も「重」なので混同にご注意。
-      重晶石 [BaSO₄]
-      や毒重石 [BaCO₃] など。毒重石は毒重土石ともいう。
-  - id: jpka006
-    images: []
-    text: 鉱物と日本の元素の漢字【W：重石】
-      重石はタングステン鉱を意味する。バリウムを意味する重土も「重」なので混同にご注意。
-      灰重石 [CaWO₄]
-      や鉄重石 [FeWO₄] など。
-  - id: jpka007
-    images: []
-    text: 鉱物と日本の元素の漢字【B：硼】
-      ホウ素は漢字で硼素と書く。硼は中国語も同じ。江戸時代の蘭学者、宇田川榕菴は蓬素と訳した。
-      硼砂 [Na₂B₄O₅(OH)₄・8H₂O]
-      、曹灰硼石（テレビ石） [NaCaB₅O₆(OH)₆・5H₂O] など。
-  - id: jpka008
-    images: []
-    text: |-
-      鉱物と日本の元素の漢字【As：砒】
-      ヒ素は漢字で砒素と書く。自然砒 [As] や硫砒鉄鉱 [FeAsS] など。
-  - id: jpka009
-    images: []
-    text: 鉱物と日本の元素の漢字【P：燐】
-      燐は常用漢字外であるため普通はカタカナでリンと書く。中国では磷。元々の意味である鬼火は墓場などで浮遊する火の玉のこと。これをリン化合物の燃焼とする説もあるが、これは偶然なのか、ただの混同なのか…
-      フッ素燐灰石
-      [Ca₅(PO₄)₃F] 、燐灰ウラン石など。
-  - id: jpka010
-    images: []
-    text: 鉱物と日本の元素の漢字【Sn：錫】
-      錫は常用漢字外であるため普通はスズと書く。錫石 [SnO₂] 、黄錫鉱（おうしゃくこう） [Cu₂FeSnS₄]
-      など。
-  - id: jpka011
-    images: []
-    text: 鉱物と日本の元素の漢字【Na：曹達】
-      曹達（ソーダ）はナトリウムを意味する。重曹は炭酸水素ナトリウムのことで、重炭酸ソーダの略である。
-      曹長石
-      [NaAlSi₃O₈] や曹微斜長石（アノーソクレース） [(Na,K)AlSi₃O₈] など。
-  - id: jpka012
-    images: []
-    text: 鉱物と日本の元素の漢字【Si：珪】
-      ケイ素は漢字で珪素または硅素と書く。硅は中国大陸の元素の漢字でもある。
-      珪藻土とはケイ酸質の殻を持つ藻類の化石の堆積岩のことで、小さな孔をたくさん持つ殻により吸湿性が高く、風呂マットなどに使われている。珪線石
-      [Al₂SiO₅] 、鱗珪石 [SiO₂] など。
-  - id: jpka013
-    images: []
-    text: 鉱物と日本の元素の漢字【Ca：石灰】
-      石灰は、酸化カルシウムの生石灰や水酸化カルシウムの消石灰の総称。草木を燃やして得られる灰にはカリウムやカルシウム、マグネシウムが多く含まれる。
-      灰長石
-      [CaAl₂Si₂O₈] 、灰鉄柘榴石 [Ca₃Fe₂(SiO₄)₃] など。
-  - id: jpka014
-    images: []
-    text: 鉱物と日本の元素の漢字【Mg：苦土】
-      苦土はマグネシウムを意味する。にがりの主成分は塩化マグネシウムであり、文字通り苦い。
-      苦灰石 [CaMg(CO₃)₂]
-      、苦土橄欖石 [Mg₂SiO₄] など。
-  - id: jpka015
-    images: []
-    text: 鉱物と日本の元素の漢字【Al：礬土】
-      礬（バン）は硫酸塩鉱物、特に明礬石 [KAl₃(SO₄)₂(OH)₆] を指す言葉として使われていたが、礬土としてアルミニウムも意味するようになった。鉄礬柘榴石
-      [Fe₃Al₂(SiO₄)₃] など。
-      一方、硫酸塩鉱物として、緑礬 [FeSO₄・7H₂O] などにも使われる。
-  - id: jpka016
-    images:
-      - jpka016.jpg
-    text: |-
-      〜鉱物と日本の元素の漢字〜
-      日本においても元素を表す漢字はいくつか存在し、鉱物名や物質名に使われている。ここでは鉱物に焦点を置いてまとめてみた。
-      鉱物名を見るだけで何が含まれているか見当がつくようになりとても便利。特に柘榴石（ざくろ石）で役に立つ。
-  - id: elem001
-    images:
-      - elem001.jpg
-    text: |-
-      元素の豆知識【炎色反応】
-      炎色反応とは、特定の元素の粉末や塩を燃焼させると、その元素特有の光を発する反応のことである。画像では、その元素の炎の色を文字の色で表し、虹色の順で並べてみた。こうして見てもやはり綺麗である。
-  - id: kanj001
-    images:
-      - kanj001.png
-    text: |-
-      漢字の豆知識【簡体字と繁体字】
-      主に中国大陸で使われる筆画の多い漢字を簡略化した字体を「簡体字」、その簡略化を経ていない、主に台湾や香港で使われる伝統的な字体を「繁体字」という。日本でいう新字体と旧字体の関係に近い。
-      ちなみに簡体字は正式には簡化字という。
-  - id: tips001
-    images:
-      - tips001-1.png
-      - tips001-2.png
-    text: |-
-      〜大陸と台湾の差異〜
-      元素の漢字の命名は同じ中華圏でも大陸と台湾で名称を決定する機関が違うがゆえに、互いに異なる漢字が11存在する。
-      現在は同じ元素の漢字を命名するようになったが、この差異のほとんどは交流が活発でなかった時期の名残である。
-  - id: tips002
-    images:
-      - tips002.png
-    text: 〜水素の同位体〜
-      水素の同位体で質量数が1～3のものも漢字一字で表せる。
-      氕：軽水素：¹H
-      普通の水素。唯一中性子を持たない。
-      氘：重水素：²H
-      (D)
-      重水は原子炉で中性子の減速材として使われる。
-      氚：三重水素：³H (T)
-      一般的にトリチウムと呼ばれる。半減期は約12年。
-  - id: tips003
-    images: []
-    text: |-
-      元素の漢字まとめ【香港繁体】
-      氫氦鋰鈹硼碳氮氧氟氖鈉鎂鋁矽磷硫氯氬鉀鈣鈧鈦釩鉻錳鐵鈷鎳銅鋅鎵鍺砷硒溴氪銣鍶釔鋯鈮鉬鍀釕銠鈀銀鎘銦錫銻碲碘氙銫鋇鑭鈰鐠釹鉕釤銪釓鋱鏑鈥鉺銩鐿鑥鉿鉭鎢錸鋨銥鉑金汞鉈鉛鉍釙砹氡鈁鐳錒釷鏷鈾鎿鈈鎇鋦錇鐦鎄鐨鍆鍩鐒鑪𨧀𨭎𨨏𨭆䥑鐽錀鎶鉨鈇鏌鉝鿬鿫
-  - id: tips004
-    images: []
-    text: |-
-      元素の漢字まとめ【台湾正体】
-      氫氦鋰鈹硼碳氮氧氟氖鈉鎂鋁矽磷硫氯氬鉀鈣鈧鈦釩鉻錳鐵鈷鎳銅鋅鎵鍺砷硒溴氪銣鍶釔鋯鈮鉬鎝釕銠鈀銀鎘銦錫銻碲碘氙銫鋇鑭鈰鐠釹鉕釤銪釓鋱鏑鈥鉺銩鐿鎦鉿鉭鎢錸鋨銥鉑金汞鉈鉛鉍釙砈氡鍅鐳錒釷鏷鈾錼鈽鋂鋦鉳鉲鑀鐨鍆鍩鐒鑪𨧀𨭎𨨏𨭆䥑鐽錀鎶鉨鈇鏌鉝鿬鿫
-  - id: tips005
-    images:
-      - tips005.jpg
-    text: ～新元素の中国語名称の決定～
-      2016年11月30日に名称が決定した
-      113 Nh ニホニウム
-      115 Mc モスコビウム
-      117 Ts テネシン
-      118
-      Og オガネソン
-      の漢字を2017年1月15日、中国の全国科学技術名詞審定委員会が決定した。同年4月5日には台湾の国家教育研究院の化学名詞審訳委員会も漢字を決定している。
-  - id: tips006
-    images:
-      - tips006.png
-    text: |-
-      台湾現地調査【ミネラルウォーター：噶瑪蘭天然水】
-      鈣：カルシウム
-      鎂：マグネシウム
-      鉀：カリウム
-      鈉：ナトリウム
-      鐵：鉄
-      容器側面の成分表示から。さすが「ミネラル」ウォーター、一気に5つも確認できる。
-  - id: tips007
-    images:
-      - tips007-1.png
-      - tips007-2.png
-    text: |-
-      台湾現地調査【イヤホン：JAZZ-i77】
-      鋁：アルミニウム
-      釹：ネオジム
-      鐵：鉄
-      硼：ホウ素
-      矽：ケイ素 
-      イヤホンのパッケージ裏から。「釹鐵硼」はネオジム磁石の成分NdFeBのことで、「矽膠」はシリコーンのこと。膠はゴムの意味を表す。
-  - id: tips008
-    images:
-      - tips008.png
-    text: |-
-      〜漢字の元素周期表〜
-      当botのメインテーマである元素の漢字の周期表。中国では元素それぞれに対して1文字の漢字が当てられていて、部首が金属非金属と常温での三態を、残りが音を表している。
-      この世の元素すべてを漢字ひとつで表せることにロマンを感じずにはいられない。
-  - id: tips009
-    images:
-      - tips009-1.jpg
-      - tips009-2.jpg
-    text: |-
-      漢字ミュージアム現地調査【漢字5万字タワー】
-      漢字ミュージアムは京都市祇園にある漢字をテーマにした博物館。その中央にそびえ立つのは大漢和辞典の約5万の漢字が書かれた「漢字5万字タワー」。圧巻である。
-      もちろん元素の漢字も書かれているので、探してみるのも楽しい。
-  - id: tips010
-    images: []
-    text: |-
-      元素の漢字まとめ【大陸簡体】
-      氢氦锂铍硼碳氮氧氟氖钠镁铝硅磷硫氯氩钾钙钪钛钒铬锰铁钴镍铜锌镓锗砷硒溴氪铷锶钇锆铌钼锝钌铑钯银镉铟锡锑碲碘氙铯钡镧铈镨钕钷钐铕钆铽镝钬铒铥镱镥铪钽钨铼锇铱铂金汞铊铅铋钋砹氡钫镭锕钍镤铀镎钚镅锔锫锎锿镄钔锘铹𬬻𬭊𬭳𬭛𬭶鿏𫟼𬬭鿔鿭𫓧镆𫟷鿬鿫
+    決して石田ではない。
+  image_paths:
+    - main117.png
+- id: main118
+  type: regular
+  group: main
+  text: |-
+    118 Og 鿫：オガネソン
+    名称の由来はロシアの物理学者ユーリイ・オガネシアンから。漢字の由来は中国語表記「奥加涅相」からである。ちなみにオガネシアンさんはご存命で、存命中に元素名となったのはシーボーギウムに次いで2回目。
+  image_paths:
+    - main118.png
+- id: subs001
+  type: regular
+  group: subs
+  text: |-
+    元素の漢字小噺【鑪：Rf】
+    元素としてはラザホージウムを表すが、もとはいろりやふいごを表す漢字で、炉（爐）に通じる。
+    日本では「たたら」とも訓読し、日本の伝統的な製鉄法であるたたら製鉄では、ふいごで粘土製の炉に風を送り込んで砂鉄を木炭で還元し、鉄を作っていた。
+  image_paths: []
+- id: subs002
+  type: regular
+  group: subs
+  text: |-
+    元素の漢字小噺【鏑：Dy】
+    鏑は元素としてはジスプロシウムを表すが、もとは「かぶら」を意味する漢字である。
+    鏑矢は、カブ形の穴のあいた空洞の球を先に付けた矢のこと。射ると空気を切って響きを出し、主に矢合わせに使った。
+    流鏑馬（やぶさめ）にも出てくる漢字である。
+  image_paths: []
+- id: subs003
+  type: regular
+  group: subs
+  text: |-
+    元素の漢字小噺【鉈：Tl】
+    元素としてはタリウムを表すが、よく見るとこれは薪を割るときに使う「なた」と同じ漢字である。なたリウムである。
+    元素以外の意味で漢検に出題される漢字のひとつでもあり、他にもコバルトの鈷、ジスプロシウムの鏑、ラザホージウムの鑪がある。
+  image_paths: []
+- id: subs004
+  type: regular
+  group: subs
+  text: |-
+    元素の漢字小噺【鈷：Co】
+    元素としてはコバルトを表すが、独鈷（とっこ）という煩悩を破るとされるインドの護身用の仏具の名にも使われる漢字。
+    独鈷は両端の尖った短い棒状をしていて、先端のまたの数により三鈷や五鈷などの種類がある。
+    ちなみに漢検では準1級に配当。
+  image_paths: []
+- id: subs005
+  type: regular
+  group: subs
+  text: |-
+    元素の漢字小噺【硅：Si】
+    ケイ素は中国大陸では「硅」、台湾や香港では「矽」と書き、異なっている。
+    実は、大陸も昔はsiliconの音訳、矽[xī]を使っていたが、同音の錫や硒との混乱を嫌い、後に日本の珪素（硅素）より硅[guī]に改めたという。
+    漢字一字にも欠点あり。
+  image_paths: []
+- id: subs006
+  type: regular
+  group: subs
+  text: |-
+    元素の漢字小噺【鎿：Np】
+    鎿はネプツニウムを表す漢字。
+    つくりの拿はひく、とらえるという意味を持つが、構成部分を見てみると合＋手。とてもわかりやすい。つまり会意字である。
+    鎿は音訳字で拿の意味は持たないが、そんな繋がりをたどるのも漢字の楽しみ方のひとつだ。
+  image_paths: []
+- id: subs007
+  type: regular
+  group: subs
+  text: |-
+    元素の漢字小噺【鉕：Pm】
+    プロメチウムを表す鉕のつくりは巨ではなく叵だ。
+    叵は「できない」という意味を持つ漢字であるが、字源は「可」の鏡文字。これだけでワクワクしてくるが、さらに叵の読みハは、フカ（不可）がつづまった言葉であるという。漢字は本当に面白い。
+  image_paths: []
+- id: subs008
+  type: regular
+  group: subs
+  text: |-
+    元素の漢字小噺【鎢：W】
+    鎢はタングステンを表す漢字である。
+    鎢は音訳字で、つくりの烏[wū]は音を表すが、これはtungsten（タングステン）からではなく、別名のwolfram（ウォルフラム）から。元素記号のWもこちら由来である。
+  image_paths: []
+- id: subs009
+  type: regular
+  group: subs
+  text: |-
+    元素の漢字小噺【鍅：Fr】
+    「鍅」はフランシウムを表す台湾での漢字。フランシウムの名の由来はフランス。フランスは中国語で「法国」だ。
+    お！なら中国語でアメリカは「美国」だからこの「鎂」はアメリシウムだな！
+    残念。それはマグネシウムである。
+  image_paths: []
+- id: radc001
+  type: regular
+  group: radc
+  text: |-
+    ～部首の規則～
+    中国では元素の命名に規則があり、その元素の常温での状態によって、
+    金部：固体金属（鐵など）
+    石部：固体非金属（硫など）
+    气部：気体（氟など）
+    水部：液体（溴と汞のみ）
+    の4つの部首のいずれかが付く。調べなくとも性質が見てわかるすぐれもの。
+  image_paths: []
+- id: radc002
+  type: regular
+  group: radc
+  text: |-
+    部首の規則【金部】
+    常温で固体の金属元素は、鐵（鉄）や鋰（リチウム）、鈾（ウラン）など、「金（かね・かねへん）」が部首となる。金の部首ももちろん金。
+    簡体字では偏で「钅」の形となる。
+  image_paths: []
+- id: radc003
+  type: regular
+  group: radc
+  text: |-
+    部首の規則【石部】
+    常温で固体の非金属元素は、硫（硫黄）や碲（テルル）など、「石（いしへん）」が部首となる。
+    炭素の「碳」とリンの「磷」は伝統的な字（炭と燐）から部首の規則にのっとって新たに作られた数少ない漢字である。
+  image_paths: []
+- id: radc004
+  type: regular
+  group: radc
+  text: |-
+    部首の規則【气部】
+    常温で気体の元素は、氧（酸素）や氟（フッ素）など、「气（きがまえ）」が部首となる。
+    气部が部首の漢字が他と比べて少ないせいか、漢和辞典で气部を引くと元素の漢字たちのほぼ独占状態となっている。
+  image_paths: []
+- id: radc005
+  type: regular
+  group: radc
+  text: |-
+    部首の規則【水部】
+    水部が部首となる漢字は、常温で液体の元素である臭素の「溴」と水銀の「汞」の2つのみ。
+    一方、周期表で水銀の下に位置し液体の金属と推測されているコペルニシウムの漢字は「鎶」で、部首はかねへん。
+  image_paths: []
+- id: comp001
+  type: regular
+  group: comp
+  text: |-
+    化合物の名称【無機化合物-1】
+    一般的に知られる「〜化…」や「〜酸…」というような化合物はほとんど日本と表し方は同じで、例えば二酸化炭素は「二氧化碳」、過マンガン酸カリウムは「高錳酸鉀」と表す。
+  image_paths:
+    - comp001.jpg
+- id: comp002
+  type: regular
+  group: comp
+  text: |-
+    化合物の名称【無機化合物-2】
+    例えばシアンは「氰」、アンモニウムは「銨」など、化合する物質単位として扱われる原子団には、元素の漢字とは別の新しい漢字が当てられていて、青酸カリは「氰酸鉀」、塩化アンモニウムは「氯化銨」と表す。
+  image_paths:
+    - comp002.jpg
+- id: comp003
+  type: regular
+  group: comp
+  text: |-
+    化合物の名称【有機化合物】
+    有機化合物の元素の漢字にはそれぞれその構造や含まれる元素の種類によって火部、艸部、酉部、肉部、口部の5つの部首が割り当てられていて、その炭素数を十干（甲乙丙…）を用いて表す。
+  image_paths:
+    - comp003.jpg
+- id: comp004
+  type: regular
+  group: comp
+  text: |-
+    化合物の名称【有機化合物「火部」】
+    脂肪族化合物は火部を部首にして、アルカンは「烷」、アルケンは「烯」、アルキンは「炔」を付け、炭素数を十干（甲乙丙…）を用いて表す。
+    例えばエチレンは「乙烯」、シクロヘキサンは「環己烷」である。
+  image_paths:
+    - comp004.jpg
+- id: comp005
+  type: regular
+  group: comp
+  text: |-
+    化合物の名称【有機化合物「艸部」】
+    ベンゼンを代表とする炭素と水素のみの芳香族化合物は艸部（艹）を部首にして表す。
+    例えばベンゼンは「苯」、ナフタレン「萘」、アントラセンは「蒽」で、パラジクロロベンゼンは「對二氯苯」である。
+  image_paths:
+    - comp005.jpg
+- id: comp006
+  type: regular
+  group: comp
+  text: |-
+    化合物の名称【有機化合物「酉部」】
+    アルコールやアルデヒドなど、酸素を含む有機化合物は酉部を部首にして表す。ただしカルボン酸はそのまま「酸」を使って表す。
+    例えばエチルメチルエーテルは「甲乙醚」、酢酸メチルは「乙酸甲酯」である。
+  image_paths:
+    - comp006.jpg
+- id: comp007
+  type: regular
+  group: comp
+  text: |-
+    化合物の名称【有機化合物「肉部」】
+    アミンやニトリルなど、窒素を含む有機化合物は肉部（月）を部首にして表す。
+    例えばアニリンは「苯胺」、アクリロニトリルは「丙烯腈」である。
+  image_paths:
+    - comp007.jpg
+- id: comp008
+  type: regular
+  group: comp
+  text: |-
+    化合物の名称【有機化合物「口部」】
+    フランやピリジンなど、炭素と水素以外の元素を含む環式化合物（複素環式化合物）は口部を部首にして、普通二字で表す。
+    例えばフランは「呋喃」、ピリジン「吡啶」である。
+  image_paths:
+    - comp008.jpg
+- id: cate001
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【アルカリ金属】
+    水素を除く第1族元素のグループ。軽くて軟らかく、反応性が高く水と激しく反応したり、炎色反応を示すのが特徴。鹼金屬の「鹼」は石鹼の「鹼」であるように、アルカリ性を表す関係が見えてくるのも面白い。
+  image_paths:
+    - cate001.jpg
+- id: cate002
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【アルカリ土類金属】
+    ベリリウムとマグネシウムを除く第2族元素のグループ。軽くて軟らかく反応性にも富むが、アルカリ金属ほどではない。炎色反応も示す。その名のとおり、アルカリ金属と土類金属の中間的存在として名付けられた。
+  image_paths:
+    - cate002.jpg
+- id: cate003
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【亜鉛族元素】
+    第12族元素のグループ。周期表上はdブロックに属すが電子配置の影響で性質上、典型元素に分類される。
+    揮発性が高く気体になりやすい。水銀は常温で液体の金属であり、コペルニシウムも液体もしくは気体の可能性が高いと言われている。
+  image_paths:
+    - cate003.png
+- id: cate004
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【ホウ素族元素】
+    第13族元素のグループ。ホウ素を除いた金属元素には「土類金属」という総称があり、酸化アルミニウムとそれに似た酸化物を与えるという意味がある。「土」は酸化物の意味。化学的性質においてはホウ素はむしろケイ素よりである。
+  image_paths:
+    - cate004.jpg
+- id: cate005
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【炭素族元素】
+    第14族元素のグループ。炭素やケイ素、スズや鉛など、馴染みのある元素が並ぶ。ケイ素とゲルマニウムは真性半導体として有名。
+  image_paths:
+    - cate005.jpg
+- id: cate006
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【窒素族元素】
+    第15族元素のグループ。アンチモンやビスマスを含め人工元素以外全て昔から知られている元素である。別名のニクトゲンの語源は「窒息するもの」だが、窒素のニトロゲンは「硝石を生ずる」が語源。混同にご注意。
+  image_paths:
+    - cate006.jpg
+- id: cate007
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【酸素族元素】
+    第16族元素のグループ。別名のカルコゲンがギリシャ語で「石を作るもの」であるよう、鉱物の主成分となるものが多い。特に硫黄、セレン、テルルの3元素は「硫黄族元素」と呼ばれる。
+  image_paths:
+    - cate007.jpg
+- id: cate008
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【ハロゲン】
+    第17族元素のグループ。その名のとおり、ハロゲンはギリシャ語で「塩を作るもの」で、アルカリ金属などと化合して塩（えん）を作る。反応性に富み、フッ素や塩素は毒ガスとして名高い。ちなみにこの族だけ気液固がそろう。
+  image_paths:
+    - cate008.jpg
+- id: cate009
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【希ガス】
+    第18族元素のグループ。ヘリウムやネオンなど、全てが不活性な気体である。希ガスという名称が一般的だが、特に希少なわけではなく、貴ガスと表記する教科書も増えてきている。
+  image_paths:
+    - cate009.jpg
+- id: cate010
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【鉄族元素】
+    第4周期の第8,9,10族に並ぶ鉄、コバルト、ニッケルの3元素のグループ。いずれも強磁性を示す、簡単にいえば磁石にくっつくのが一番の特徴である。
+  image_paths:
+    - cate010.jpg
+- id: cate011
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【白金族元素】
+    第5,6周期の第8,9,10族に並ぶルテニウム、ロジウム、パラジウム、オスミウム、イリジウム、白金の6元素のグループ。簡単に言えば全部だいたい白金である。触媒によく使われる元素が多いのが特徴。
+  image_paths:
+    - cate011.jpg
+- id: cate012
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【ランタノイド】
+    第6周期3族の15元素のグループ。いつも下の方であふれている1段目。特にその上にあるスカンジウムとイットリウムを合わせて希土類元素（レアアース）といい、電子工学を支えるスゴ腕がそろっている。
+  image_paths:
+    - cate012.jpg
+- id: cate013
+  type: regular
+  group: cate
+  text: |-
+    元素のグループ【アクチノイド】
+    第7周期3族の15元素のグループ。いつも下の方であふれている2段目。ウランやプルトニウムなど全ての元素が放射性である。自然界にほとんど存在せず、ウランより重い「超ウラン元素」は全て人工元素である。
+  image_paths:
+    - cate013.jpg
+- id: jpka001
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【Mo：水鉛】
+    水鉛とはモリブデンの和名である。
+    モリブデンの代表的な鉱物である輝水鉛鉱 [MoS₂] は雲母と同じく完全な劈開（へきかい）を持っていて、ぺりぺりめくれて散らばりがち。
+  image_paths: []
+- id: jpka002
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【Bi：蒼鉛】 蒼鉛はビスマスの和名。「蒼い鉛」と書くが、元素鉱物の自然蒼鉛は若干赤い。 ほかビスマスの鉱物として輝蒼鉛鉱 [Bi₂S₃] などがある。
+  image_paths: []
+- id: jpka003
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【Mn：満俺】 満俺はマンガンの当て字であり、江戸時代の蘭学者、宇田川榕菴の造語のひとつである。 今の用例は満礬柘榴石 [Mn₃Al₂(SiO₄)₃] くらいしかない。他のマンガン鉱物は菱マンガン鉱など、普通にカタカナでマンガンである。
+  image_paths: []
+- id: jpka004
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【Sb：安質没尼】
+    アンチモンのこと。輝安鉱 [Sb₂S₃] や安四面銅鉱 [(Cu,Fe,Zn)₁₂Sb₄S₁₃] などに使われる。
+    鉱物名の「安」はほとんどがアンチモンのことであるが、安山岩の「安」はアンデス山脈、硫安の「安」はアンモニウムのことなので、迂闊に判断しないように…
+  image_paths: []
+- id: jpka005
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【Ba：重土】 重土はバリウムを意味する。タングステン鉱を意味する重石も「重」なので混同にご注意。 重晶石 [BaSO₄] や毒重石 [BaCO₃] など。毒重石は毒重土石ともいう。
+  image_paths: []
+- id: jpka006
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【W：重石】 重石はタングステン鉱を意味する。バリウムを意味する重土も「重」なので混同にご注意。 灰重石 [CaWO₄] や鉄重石 [FeWO₄] など。
+  image_paths: []
+- id: jpka007
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【B：硼】 ホウ素は漢字で硼素と書く。硼は中国語も同じ。江戸時代の蘭学者、宇田川榕菴は蓬素と訳した。 硼砂 [Na₂B₄O₅(OH)₄・8H₂O] 、曹灰硼石（テレビ石） [NaCaB₅O₆(OH)₆・5H₂O] など。
+  image_paths: []
+- id: jpka008
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【As：砒】
+    ヒ素は漢字で砒素と書く。自然砒 [As] や硫砒鉄鉱 [FeAsS] など。
+  image_paths: []
+- id: jpka009
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【P：燐】 燐は常用漢字外であるため普通はカタカナでリンと書く。中国では磷。元々の意味である鬼火は墓場などで浮遊する火の玉のこと。これをリン化合物の燃焼とする説もあるが、これは偶然なのか、ただの混同なのか… フッ素燐灰石 [Ca₅(PO₄)₃F] 、燐灰ウラン石など。
+  image_paths: []
+- id: jpka010
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【Sn：錫】 錫は常用漢字外であるため普通はスズと書く。錫石 [SnO₂] 、黄錫鉱（おうしゃくこう） [Cu₂FeSnS₄] など。
+  image_paths: []
+- id: jpka011
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【Na：曹達】 曹達（ソーダ）はナトリウムを意味する。重曹は炭酸水素ナトリウムのことで、重炭酸ソーダの略である。 曹長石 [NaAlSi₃O₈] や曹微斜長石（アノーソクレース） [(Na,K)AlSi₃O₈] など。
+  image_paths: []
+- id: jpka012
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【Si：珪】 ケイ素は漢字で珪素または硅素と書く。硅は中国大陸の元素の漢字でもある。 珪藻土とはケイ酸質の殻を持つ藻類の化石の堆積岩のことで、小さな孔をたくさん持つ殻により吸湿性が高く、風呂マットなどに使われている。珪線石 [Al₂SiO₅] 、鱗珪石 [SiO₂] など。
+  image_paths: []
+- id: jpka013
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【Ca：石灰】 石灰は、酸化カルシウムの生石灰や水酸化カルシウムの消石灰の総称。草木を燃やして得られる灰にはカリウムやカルシウム、マグネシウムが多く含まれる。 灰長石 [CaAl₂Si₂O₈] 、灰鉄柘榴石 [Ca₃Fe₂(SiO₄)₃] など。
+  image_paths: []
+- id: jpka014
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【Mg：苦土】 苦土はマグネシウムを意味する。にがりの主成分は塩化マグネシウムであり、文字通り苦い。 苦灰石 [CaMg(CO₃)₂] 、苦土橄欖石 [Mg₂SiO₄] など。
+  image_paths: []
+- id: jpka015
+  type: regular
+  group: jpka
+  text: |-
+    鉱物と日本の元素の漢字【Al：礬土】 礬（バン）は硫酸塩鉱物、特に明礬石 [KAl₃(SO₄)₂(OH)₆] を指す言葉として使われていたが、礬土としてアルミニウムも意味するようになった。鉄礬柘榴石 [Fe₃Al₂(SiO₄)₃] など。 一方、硫酸塩鉱物として、緑礬 [FeSO₄・7H₂O] などにも使われる。
+  image_paths: []
+- id: jpka016
+  type: regular
+  group: jpka
+  text: |-
+    〜鉱物と日本の元素の漢字〜
+    日本においても元素を表す漢字はいくつか存在し、鉱物名や物質名に使われている。ここでは鉱物に焦点を置いてまとめてみた。
+    鉱物名を見るだけで何が含まれているか見当がつくようになりとても便利。特に柘榴石（ざくろ石）で役に立つ。
+  image_paths:
+    - jpka016.jpg
+- id: elem001
+  type: regular
+  group: elem
+  text: |-
+    元素の豆知識【炎色反応】
+    炎色反応とは、特定の元素の粉末や塩を燃焼させると、その元素特有の光を発する反応のことである。画像では、その元素の炎の色を文字の色で表し、虹色の順で並べてみた。こうして見てもやはり綺麗である。
+  image_paths:
+    - elem001.jpg
+- id: kanj001
+  type: regular
+  group: kanj
+  text: |-
+    漢字の豆知識【簡体字と繁体字】
+    主に中国大陸で使われる筆画の多い漢字を簡略化した字体を「簡体字」、その簡略化を経ていない、主に台湾や香港で使われる伝統的な字体を「繁体字」という。日本でいう新字体と旧字体の関係に近い。
+    ちなみに簡体字は正式には簡化字という。
+  image_paths:
+    - kanj001.png
+- id: tips001
+  type: regular
+  group: tips
+  text: |-
+    〜大陸と台湾の差異〜
+    元素の漢字の命名は同じ中華圏でも大陸と台湾で名称を決定する機関が違うがゆえに、互いに異なる漢字が11存在する。
+    現在は同じ元素の漢字を命名するようになったが、この差異のほとんどは交流が活発でなかった時期の名残である。
+  image_paths:
+    - tips001-1.png
+    - tips001-2.png
+- id: tips002
+  type: regular
+  group: tips
+  text: |-
+    〜水素の同位体〜 水素の同位体で質量数が1～3のものも漢字一字で表せる。 氕：軽水素：¹H 普通の水素。唯一中性子を持たない。 氘：重水素：²H (D) 重水は原子炉で中性子の減速材として使われる。 氚：三重水素：³H (T) 一般的にトリチウムと呼ばれる。半減期は約12年。
+  image_paths:
+    - tips002.png
+- id: tips003
+  type: regular
+  group: tips
+  text: |-
+    元素の漢字まとめ【香港繁体】
+    氫氦鋰鈹硼碳氮氧氟氖鈉鎂鋁矽磷硫氯氬鉀鈣鈧鈦釩鉻錳鐵鈷鎳銅鋅鎵鍺砷硒溴氪銣鍶釔鋯鈮鉬鍀釕銠鈀銀鎘銦錫銻碲碘氙銫鋇鑭鈰鐠釹鉕釤銪釓鋱鏑鈥鉺銩鐿鑥鉿鉭鎢錸鋨銥鉑金汞鉈鉛鉍釙砹氡鈁鐳錒釷鏷鈾鎿鈈鎇鋦錇鐦鎄鐨鍆鍩鐒鑪𨧀𨭎𨨏𨭆䥑鐽錀鎶鉨鈇鏌鉝鿬鿫
+  image_paths: []
+- id: tips004
+  type: regular
+  group: tips
+  text: |-
+    元素の漢字まとめ【台湾正体】
+    氫氦鋰鈹硼碳氮氧氟氖鈉鎂鋁矽磷硫氯氬鉀鈣鈧鈦釩鉻錳鐵鈷鎳銅鋅鎵鍺砷硒溴氪銣鍶釔鋯鈮鉬鎝釕銠鈀銀鎘銦錫銻碲碘氙銫鋇鑭鈰鐠釹鉕釤銪釓鋱鏑鈥鉺銩鐿鎦鉿鉭鎢錸鋨銥鉑金汞鉈鉛鉍釙砈氡鍅鐳錒釷鏷鈾錼鈽鋂鋦鉳鉲鑀鐨鍆鍩鐒鑪𨧀𨭎𨨏𨭆䥑鐽錀鎶鉨鈇鏌鉝鿬鿫
+  image_paths: []
+- id: tips005
+  type: regular
+  group: tips
+  text: |-
+    ～新元素の中国語名称の決定～ 2016年11月30日に名称が決定した 113 Nh ニホニウム 115 Mc モスコビウム 117 Ts テネシン 118 Og オガネソン の漢字を2017年1月15日、中国の全国科学技術名詞審定委員会が決定した。同年4月5日には台湾の国家教育研究院の化学名詞審訳委員会も漢字を決定している。
+  image_paths:
+    - tips005.jpg
+- id: tips006
+  type: regular
+  group: tips
+  text: |-
+    台湾現地調査【ミネラルウォーター：噶瑪蘭天然水】
+    鈣：カルシウム
+    鎂：マグネシウム
+    鉀：カリウム
+    鈉：ナトリウム
+    鐵：鉄
+    容器側面の成分表示から。さすが「ミネラル」ウォーター、一気に5つも確認できる。
+  image_paths:
+    - tips006.png
+- id: tips007
+  type: regular
+  group: tips
+  text: "台湾現地調査【イヤホン：JAZZ-i77】\n鋁：アルミニウム\n釹：ネオジム\n鐵：鉄\n硼：ホウ素\n矽：ケイ素 \nイヤホンのパッケージ裏から。「釹鐵硼」はネオジム磁石の成分NdFeBのことで、「矽膠」はシリコーンのこと。膠はゴムの意味を表す。"
+  image_paths:
+    - tips007-1.png
+    - tips007-2.png
+- id: tips008
+  type: regular
+  group: tips
+  text: |-
+    〜漢字の元素周期表〜
+    当botのメインテーマである元素の漢字の周期表。中国では元素それぞれに対して1文字の漢字が当てられていて、部首が金属非金属と常温での三態を、残りが音を表している。
+    この世の元素すべてを漢字ひとつで表せることにロマンを感じずにはいられない。
+  image_paths:
+    - tips008.png
+- id: tips009
+  type: regular
+  group: tips
+  text: |-
+    漢字ミュージアム現地調査【漢字5万字タワー】
+    漢字ミュージアムは京都市祇園にある漢字をテーマにした博物館。その中央にそびえ立つのは大漢和辞典の約5万の漢字が書かれた「漢字5万字タワー」。圧巻である。
+    もちろん元素の漢字も書かれているので、探してみるのも楽しい。
+  image_paths:
+    - tips009-1.jpg
+    - tips009-2.jpg
+- id: tips010
+  type: regular
+  group: tips
+  text: |-
+    元素の漢字まとめ【大陸簡体】
+    氢氦锂铍硼碳氮氧氟氖钠镁铝硅磷硫氯氩钾钙钪钛钒铬锰铁钴镍铜锌镓锗砷硒溴氪铷锶钇锆铌钼锝钌铑钯银镉铟锡锑碲碘氙铯钡镧铈镨钕钷钐铕钆铽镝钬铒铥镱镥铪钽钨铼锇铱铂金汞铊铅铋钋砹氡钫镭锕钍镤铀镎钚镅锔锫锎锿镄钔锘铹𬬻𬭊𬭳𬭛𬭶鿏𫟼𬬭鿔鿭𫓧镆𫟷鿬鿫
+  image_paths: []
