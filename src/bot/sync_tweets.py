@@ -6,7 +6,9 @@ from config import get_settings
 from models.tweet import TweetItem
 
 
-def _update_database(bot_db: BotDatabase, file_tweets: list[TweetItem], db_tweets: list[TweetItem]):
+def _get_changes(
+    file_tweets: list[TweetItem], db_tweets: list[TweetItem]
+) -> tuple[list[str], list[TweetItem], list[TweetItem]]:
     file_tweet_ids = set(tweet.id for tweet in file_tweets)
     db_tweet_ids = set(tweet.id for tweet in db_tweets)
 
@@ -23,9 +25,12 @@ def _update_database(bot_db: BotDatabase, file_tweets: list[TweetItem], db_tweet
         if file_tweet != db_tweet:
             updated_tweets.append(file_tweet)
 
-    if not deleted_tweet_ids and not new_tweets and not updated_tweets:
-        logger.info("No changes detected in tweets")
+    return deleted_tweet_ids, new_tweets, updated_tweets
 
+
+def _update_database(
+    bot_db: BotDatabase, deleted_tweet_ids: list[str], new_tweets: list[TweetItem], updated_tweets: list[TweetItem]
+):
     if deleted_tweet_ids:
         bot_db.delete_tweets(deleted_tweet_ids)
         logger.info(f"Deleted {len(deleted_tweet_ids)} tweet(s) from the database")
@@ -46,6 +51,10 @@ def sync_tweets():
     file_tweets = get_all_tweets_from_file()
     db_tweets = bot_db.get_all_tweets()
 
-    _update_database(bot_db, file_tweets, db_tweets)
+    changes = _get_changes(file_tweets, db_tweets)
+    if not any(changes):
+        logger.info("No changes detected in tweets")
+    else:
+        _update_database(bot_db, *changes)
 
     logger.info("✅ Tweet content synchronization completed")
