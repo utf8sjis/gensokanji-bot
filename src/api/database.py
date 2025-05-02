@@ -4,46 +4,20 @@ from zoneinfo import ZoneInfo
 import supabase
 
 from config import Settings
-from data_models import PostedData
 from models.tweet import TweetItem
 
 
 class BotDatabase:
-    def __init__(self, settings: Settings) -> None:
-        """Operate the bot's database.
+    """Database class to handle tweet data."""
 
+    def __init__(self, settings: Settings):
+        """Initialize the BotDatabase class.
         Args:
             settings (Settings): Settings object containing supabase credentials.
-
         """
         self.api_url = settings.database_url
         self.api_key = settings.database_key
         self.tweets_table = "tweets"
-
-    def get_posted_data(self) -> PostedData:
-        """Get posted data from the database.
-
-        Returns:
-            PostedData: Data on tweets already posted
-
-        """
-        supabase = self._connect()
-        records = supabase.table("bot_data").select("*").eq("id", 1).execute()
-        return PostedData(**records.data[0]["posted_data"])
-
-    def update_posted_data(self, posted_data: PostedData) -> None:
-        """Update posted data in the database.
-
-        Args:
-            posted_data PostedData: Data on tweets already posted
-
-        """
-        data = {
-            "updated_at": str(datetime.now(ZoneInfo("Asia/Tokyo"))),
-            "posted_data": posted_data.model_dump(),
-        }
-        supabase = self._connect()
-        supabase.table("bot_data").update(data).eq("id", 1).execute()
 
     def get_all_tweets(self) -> list[TweetItem]:
         """Get all tweets from the database.
@@ -56,7 +30,44 @@ class BotDatabase:
             .select("id", "type", "group", "text", "image_paths")
             .execute()
         )
+
         return [TweetItem(**record) for record in records.data]
+
+    def get_tweet(self, tweet_id: str) -> TweetItem | None:
+        """Get a specific tweet from the database.
+        Args:
+            tweet_id (str): ID of the tweet to be retrieved.
+        Returns:
+            TweetItem | None: The tweet object if found, None otherwise.
+        """
+        supabase = self._connect()
+        record = (
+            supabase.table(self.tweets_table)
+            .select("id", "type", "group", "text", "image_paths")
+            .eq("id", tweet_id)
+            .execute()
+        )
+
+        if record.data:
+            return TweetItem(**record.data[0])
+
+        return None
+
+    def get_unposted_tweet_ids(self) -> list[str]:
+        """Get IDs of tweets that have not been posted yet.
+        Returns:
+            list[str]: List of IDs of unposted tweets.
+        """
+        supabase = self._connect()
+        records = (
+            supabase.table(self.tweets_table)
+            .select("id")
+            .eq("type", "regular")
+            .eq("is_posted", False)
+            .execute()
+        )
+
+        return [record["id"] for record in records.data]
 
     def delete_tweets(self, ids: list[str]):
         """Delete tweets from the database.
@@ -84,6 +95,24 @@ class BotDatabase:
 
         supabase = self._connect()
         supabase.table(self.tweets_table).upsert(data).execute()
+
+    def flag_tweet_as_posted(self, tweet_id: str):
+        """Flag a tweet as posted in the database.
+        Args:
+            tweet_id (str): ID of the tweet to be flagged as posted.
+        """
+        supabase = self._connect()
+        now = datetime.now(ZoneInfo("Asia/Tokyo"))
+        supabase.table(self.tweets_table).update(
+            {"is_posted": True, "posted_at": now}
+        ).eq("id", tweet_id).execute()
+
+    def reset_posted_flag(self):
+        """Reset the posted flag for all tweets in the database."""
+        supabase = self._connect()
+        supabase.table(self.tweets_table).update({"is_posted": False}).eq(
+            "type", "regular"
+        ).execute()
 
     def _connect(self) -> supabase.Client:
         """Connect to the database."""

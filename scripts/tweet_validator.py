@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from twitter_text import ParsedResult, parse_tweet
 
 from bot.utils import get_all_tweets_from_file
-from constants import DATA_DIR
+from constants import TWEET_IMAGES_DIR
 from models.tweet import TweetItem
 
 BAR_LENGTH = 100
@@ -21,7 +21,7 @@ class Color(BaseModel):
 
 
 class TweetValidator:
-    def __init__(self) -> None:
+    def __init__(self):
         self.tweets = get_all_tweets_from_file()
         self.invalid_ids: list[str] = []
         self.excess_image_count_ids: list[str] = []
@@ -49,7 +49,7 @@ class TweetValidator:
             image_count_color = ""
 
         for image in tweet.image_paths:
-            if not (DATA_DIR / "images" / image).exists():
+            if not (TWEET_IMAGES_DIR / image).exists():
                 self.no_image_file_names.append(image)
                 images_color = Fore.RED
                 break
@@ -63,7 +63,7 @@ class TweetValidator:
             images=images_color,
         )
 
-    def _display_tweets(self) -> None:
+    def _display_tweets(self):
         print("=== tweets ===")
 
         for tweet in self.tweets:
@@ -96,7 +96,7 @@ class TweetValidator:
 
             print(f"{id_sec}{percent} |{bar}| {image_count} {images}")
 
-    def _display_summary(self) -> None:
+    def _display_summary(self):
         print("=== summary ===")
 
         print(f"total: {len(self.tweets)}")
@@ -139,7 +139,7 @@ class TweetValidator:
             end="",
         )
 
-    def display_result(self) -> None:
+    def display_result(self):
         self._display_tweets()
         self._display_summary()
 

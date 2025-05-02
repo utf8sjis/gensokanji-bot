@@ -60,4 +60,4 @@ def sync_tweets():
     else:
         _update_database(bot_db, *changes)
 
-    logger.info("✅ Tweet content synchronization completed")
+    logger.info("✅ Tweet content sync completed")

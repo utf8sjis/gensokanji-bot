@@ -2,7 +2,7 @@ import pytest
 from twitter_text import parse_tweet
 
 from bot.utils import get_all_tweets_from_file
-from constants import DATA_DIR
+from constants import TWEET_IMAGES_DIR
 from models.tweet import TweetItem
 
 
@@ -33,4 +33,4 @@ class TestData:
     def test_image_existence(tweets):
         for tweet in tweets:
             for image_path in tweet.image_paths:
-                assert (DATA_DIR / "images" / image_path).exists()
+                assert (TWEET_IMAGES_DIR / image_path).exists()
