@@ -105,12 +105,14 @@ class DatabaseAPI:
         Args:
             tweet_id (str): ID of the tweet to be flagged as posted.
         """
+        now = datetime.now(ZoneInfo("Asia/Tokyo"))
         self.client.table(self.tweets_table).update(
-            {"is_posted": True, "posted_at": datetime.now(ZoneInfo("Asia/Tokyo"))}
+            {"updated_at": str(now), "is_posted": True, "posted_at": str(now)}
         ).eq("id", tweet_id).execute()
 
     def reset_posted_flag(self) -> None:
         """Reset the posted flag for all tweets in the database."""
-        self.client.table(self.tweets_table).update({"is_posted": False}).eq(
-            "type", "regular"
-        ).execute()
+        now = datetime.now(ZoneInfo("Asia/Tokyo"))
+        self.client.table(self.tweets_table).update(
+            {"updated_at": str(now), "is_posted": False}
+        ).eq("type", "regular").execute()
