@@ -1,13 +1,11 @@
-from pathlib import Path
-
 import colorama
-import yaml
 from colorama import Fore, Style
 from pydantic import BaseModel
 from twitter_text import ParsedResult, parse_tweet
 
+from bot.utils import get_all_tweets_from_file
 from constants import DATA_DIR
-from data_models import TweetData, TweetDataItem
+from models.tweet import TweetItem
 
 BAR_LENGTH = 100
 
@@ -23,17 +21,13 @@ class Color(BaseModel):
 
 
 class TweetValidator:
-    def __init__(self, tweet_data_path: Path) -> None:
-        self.tweet_data: TweetData = self._load_tweet_data(tweet_data_path)
+    def __init__(self) -> None:
+        self.tweets = get_all_tweets_from_file()
         self.invalid_ids: list[str] = []
         self.excess_image_count_ids: list[str] = []
         self.no_image_file_names: list[str] = []
 
-    def _load_tweet_data(self, tweet_data_path: Path) -> TweetData:
-        with open(tweet_data_path) as f:
-            return TweetData(**yaml.safe_load(f))
-
-    def _validate_tweet(self, tweet: TweetDataItem, parsed_result: ParsedResult) -> Color:
+    def _validate_tweet(self, tweet: TweetItem, parsed_result: ParsedResult) -> Color:
         if not parsed_result.valid:
             percent_color = Fore.RED
             bar_color = Fore.RED
@@ -48,13 +42,13 @@ class TweetValidator:
             percent_color = Fore.GREEN
             bar_color = ""
 
-        if len(tweet.images) > 4:
+        if len(tweet.image_paths) > 4:
             image_count_color = Fore.RED
             self.excess_image_count_ids.append(tweet.id)
         else:
             image_count_color = ""
 
-        for image in tweet.images:
+        for image in tweet.image_paths:
             if not (DATA_DIR / "images" / image).exists():
                 self.no_image_file_names.append(image)
                 images_color = Fore.RED
@@ -67,14 +61,14 @@ class TweetValidator:
     def _display_tweets(self) -> None:
         print("=== tweets ===")
 
-        for tweet in self.tweet_data.tweets:
+        for tweet in self.tweets:
             parsed_result = parse_tweet(tweet.text)
             color = self._validate_tweet(tweet, parsed_result)
 
             id_sec = f"id: {tweet.id:<7}"
             percent = f"{color.percent}{parsed_result.permillage / 10:>6}%{Style.RESET_ALL}"
-            image_count = f"{color.image_count}{len(tweet.images)} image(s){Style.RESET_ALL}"
-            images = f"{color.images}{'(' + ', '.join(tweet.images) + ')' if tweet.images else ''}{Style.RESET_ALL}"
+            image_count = f"{color.image_count}{len(tweet.image_paths)} image(s){Style.RESET_ALL}"
+            images = f"{color.images}{'(' + ', '.join(tweet.image_paths) + ')' if tweet.image_paths else ''}{Style.RESET_ALL}"
 
             filled_length = int(BAR_LENGTH * parsed_result.permillage // 1000)
             fill = "#" * filled_length
@@ -86,9 +80,9 @@ class TweetValidator:
     def _display_summary(self) -> None:
         print("=== summary ===")
 
-        print(f"total: {len(self.tweet_data.tweets)}")
+        print(f"total: {len(self.tweets)}")
 
-        tweet_ids = [tweet.id for tweet in self.tweet_data.tweets]
+        tweet_ids = [tweet.id for tweet in self.tweets]
         duplicate_ids = set(tweet_id for tweet_id in tweet_ids if tweet_ids.count(tweet_id) > 1)
         print(
             f"{Fore.RED}id uniqueness: NG"
@@ -115,5 +109,5 @@ class TweetValidator:
 
 
 if __name__ == "__main__":
-    tweet_validator = TweetValidator(DATA_DIR / "tweets.yml")
+    tweet_validator = TweetValidator()
     tweet_validator.display_result()
