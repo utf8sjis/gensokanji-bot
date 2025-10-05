@@ -4,6 +4,12 @@ This is the [元素の漢字bot (@gensokanji_bot)](https://twitter.com/gensokanj
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project uses a dual licensing approach:
 
-**Exception:** Content in `resources/tweet_content/` (including `tweets.yml` and all images) is excluded from the MIT License and remains copyrighted by the author. Unauthorized use, reproduction, or distribution of this content is prohibited.
+### Source Code - MIT License
+
+The source code is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+### Content - All Rights Reserved
+
+The content in `resources/tweet_content/` (including `tweets.yml` and all images) is NOT covered by the MIT License and remains under exclusive copyright. See [resources/tweet_content/LICENSE](resources/tweet_content/LICENSE) for details.

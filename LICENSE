@@ -22,7 +22,5 @@ SOFTWARE.
 
 ---
 
-EXCEPTION: The content in the `resources/tweet_content/` directory, including
-but not limited to `tweets.yml` and all images, is NOT covered by the above
-MIT License and remains under exclusive copyright of the author. Unauthorized
-use, reproduction, or distribution of this content is prohibited.
+Note: The content in `resources/tweet_content/` is licensed separately.
+See resources/tweet_content/LICENSE for details.
