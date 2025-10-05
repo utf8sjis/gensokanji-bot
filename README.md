@@ -1,6 +1,6 @@
 # gensokanji-bot
 
-This is the [元素の漢字bot (@gensokanji_bot)](https://twitter.com/gensokanji_bot) a Twitter bot that regularly tweets the Chinese names of elements and trivia. This bot runs on GitHub Actions (scheduled workflows).
+This is [元素の漢字bot (@gensokanji_bot)](https://twitter.com/gensokanji_bot), a Twitter bot that regularly tweets the Chinese names of elements and related trivia. It runs on GitHub Actions using scheduled workflows.
 
 ## License
 
