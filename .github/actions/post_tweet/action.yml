@@ -1,0 +1,47 @@
+name: Post Tweet
+description: Post a regular tweet
+inputs:
+  database-url:
+    description: Database URL
+    required: true
+  database-key:
+    description: Database key
+    required: true
+  twitter-api-key:
+    description: Twitter API key
+    required: true
+  twitter-api-key-secret:
+    description: Twitter API key secret
+    required: true
+  twitter-access-token:
+    description: Twitter access token
+    required: true
+  twitter-access-token-secret:
+    description: Twitter access token secret
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Cache uv dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cache/uv
+          .venv
+        key: ${{ runner.os }}-uv-${{ hashFiles('uv.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-uv-
+    - name: Install dependencies
+      shell: bash
+      run: uv sync
+    - name: Post tweet
+      shell: bash
+      run: uv run python src/main.py
+      env:
+        PYTHONPATH: src
+        DATABASE_URL: ${{ inputs.database-url }}
+        DATABASE_KEY: ${{ inputs.database-key }}
+        TWITTER_API_KEY: ${{ inputs.twitter-api-key }}
+        TWITTER_API_KEY_SECRET: ${{ inputs.twitter-api-key-secret }}
+        TWITTER_ACCESS_TOKEN: ${{ inputs.twitter-access-token }}
+        TWITTER_ACCESS_TOKEN_SECRET: ${{ inputs.twitter-access-token-secret }}

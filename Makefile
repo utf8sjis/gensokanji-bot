@@ -1,8 +1,5 @@
-.PHONY: validate-tweets run format lint test verify docker-build docker-run docker-stop docker-stats docker-clean
+.PHONY: validate-tweets run format lint test verify
 
-export PROJECT_NAME=gensokanji-bot
-export IMAGE_NAME=$(PROJECT_NAME)
-export CONTAINER_NAME=$(PROJECT_NAME)
 export PYTHONPATH=./src
 export ENVFILE_PATH=.env
 
@@ -14,7 +11,7 @@ validate-tweets:
 # development
 
 run:
-	uv run gunicorn -b 0.0.0.0:8000 wsgi:app
+	uv run python src/main.py
 
 format:
 	uv run ruff format .
@@ -31,21 +28,3 @@ verify:
 	make format
 	make lint
 	make test
-
-# docker
-
-docker-build:
-	docker buildx build --tag $(IMAGE_NAME) .
-
-docker-run:
-	docker run --rm -p 8000:8000 --name $(CONTAINER_NAME) $(IMAGE_NAME)
-
-docker-stop:
-	docker stop $(CONTAINER_NAME)
-
-docker-stats:
-	docker stats $(CONTAINER_NAME)
-
-docker-clean:
-	docker rm $(CONTAINER_NAME) || true
-	docker rmi $(IMAGE_NAME)

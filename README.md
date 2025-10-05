@@ -1,5 +1,15 @@
 # gensokanji-bot
 
-This is the source code for a Twitter bot [元素の漢字bot (@gensokanji_bot)](https://twitter.com/gensokanji_bot) that tweets the Chinese names of elements.
+This is [元素の漢字bot (@gensokanji_bot)](https://twitter.com/gensokanji_bot), a Twitter bot that regularly tweets the Chinese names of elements and related trivia. It runs on GitHub Actions using scheduled workflows.
 
-This bot runs for free on render + supabase + cron-job.org. It was migrated from Heroku's free plan (now a thing of the past).
+## License
+
+This project uses a dual licensing approach:
+
+### Source Code - MIT License
+
+The source code is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+### Content - All Rights Reserved
+
+The content in `resources/tweet_content/` (including `tweets.yml` and all images) is NOT covered by the MIT License and remains under exclusive copyright. See [resources/tweet_content/LICENSE](resources/tweet_content/LICENSE) for details.
