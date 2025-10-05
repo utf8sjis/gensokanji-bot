@@ -3,6 +3,15 @@ description: Run tests
 runs:
   using: composite
   steps:
+    - name: Cache uv dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cache/uv
+          .venv
+        key: ${{ runner.os }}-uv-${{ hashFiles('uv.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-uv-
     - name: Install dependencies
       shell: bash
       run: uv sync --dev
