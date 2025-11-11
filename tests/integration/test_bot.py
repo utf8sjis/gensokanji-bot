@@ -150,10 +150,10 @@ class TestBot:
         mock_response.status_code = 500
         mock_post_tweet.side_effect = tweepy.HTTPException(mock_response)
 
-        # When:
-        Bot().post_regular_tweet()
+        # When/Then: Exception should be raised
+        with pytest.raises(tweepy.HTTPException):
+            Bot().post_regular_tweet()
 
-        # Then:
         mock_get_unposted_tweet_ids.assert_called_once()
         mock_reset_posted_flag.assert_not_called()
         mock_get_tweet.assert_called_once_with("test002")
