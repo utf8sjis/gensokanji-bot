@@ -7,4 +7,4 @@ _RESOURCES_DIR = _BASE_DIR / "resources"
 TWEETS_PATH = _RESOURCES_DIR / "tweet_content/tweets.yml"
 TWEET_IMAGES_DIR = _RESOURCES_DIR / "tweet_content/images"
 
-MAX_RETRIES = 5
+MAX_RETRIES = 3
