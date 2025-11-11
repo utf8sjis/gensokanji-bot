@@ -1,10 +1,18 @@
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
+import backoff
+import httpx
 import supabase
+from postgrest.exceptions import APIError
 
 from config import Settings
+from constants import MAX_RETRIES
 from models.tweet import TweetItem
+
+retry_on_api_error = backoff.on_exception(
+    backoff.expo, (APIError, httpx.HTTPError), max_tries=MAX_RETRIES
+)
 
 
 class DatabaseAPI:
@@ -28,6 +36,7 @@ class DatabaseAPI:
         """
         return supabase.create_client(self.database_url, self.database_key)
 
+    @retry_on_api_error
     def get_all_tweets(self) -> list[TweetItem]:
         """Get all tweets from the database.
         Returns:
@@ -41,6 +50,7 @@ class DatabaseAPI:
 
         return [TweetItem(**record) for record in records.data]
 
+    @retry_on_api_error
     def get_tweet(self, tweet_id: str) -> TweetItem | None:
         """Get a specific tweet from the database.
         Args:
@@ -60,6 +70,7 @@ class DatabaseAPI:
 
         return None
 
+    @retry_on_api_error
     def get_unposted_tweet_ids(self) -> list[str]:
         """Get IDs of tweets that have not been posted yet.
         Returns:
@@ -75,6 +86,7 @@ class DatabaseAPI:
 
         return [record["id"] for record in records.data]
 
+    @retry_on_api_error
     def delete_tweets(self, ids: list[str]) -> None:
         """Delete tweets from the database.
         Args:
@@ -82,6 +94,7 @@ class DatabaseAPI:
         """
         self.client.table(self.tweets_table).delete().in_("id", ids).execute()
 
+    @retry_on_api_error
     def update_tweets(self, tweets: list[TweetItem]) -> None:
         """Update tweets in the database.
         Args:
@@ -100,6 +113,7 @@ class DatabaseAPI:
 
         self.client.table(self.tweets_table).upsert(data).execute()
 
+    @retry_on_api_error
     def flag_tweet_as_posted(self, tweet_id: str) -> None:
         """Flag a tweet as posted in the database.
         Args:
@@ -110,6 +124,7 @@ class DatabaseAPI:
             {"updated_at": str(now), "is_posted": True, "posted_at": str(now)}
         ).eq("id", tweet_id).execute()
 
+    @retry_on_api_error
     def reset_posted_flag(self) -> None:
         """Reset the posted flag for all tweets in the database."""
         now = datetime.now(ZoneInfo("Asia/Tokyo"))

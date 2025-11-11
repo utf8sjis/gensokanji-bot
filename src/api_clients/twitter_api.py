@@ -1,9 +1,20 @@
+import backoff
 import tweepy
-from loguru import logger
 
 from config import Settings
-from constants import TWEET_IMAGES_DIR
+from constants import MAX_RETRIES, TWEET_IMAGES_DIR
 from models.tweet import TweetItem
+
+_NO_RETRY_EXCEPTIONS = (
+    tweepy.BadRequest,
+    tweepy.Unauthorized,
+    tweepy.Forbidden,
+    tweepy.NotFound,
+)
+
+retry_on_api_error = backoff.on_exception(
+    backoff.expo, tweepy.TweepyException, max_tries=MAX_RETRIES
+)
 
 
 class TwitterAPI:
@@ -43,12 +54,11 @@ class TwitterAPI:
             access_token_secret=self.access_token_secret,
         )
 
-    def post_tweet(self, tweet: TweetItem) -> bool:
+    @retry_on_api_error
+    def post_tweet(self, tweet: TweetItem) -> None:
         """Post the tweet.
         Args:
             tweet (TweetItem): Tweet object containing tweet data.
-        Returns:
-            bool: True if the tweet was posted successfully, False otherwise.
         """
         try:
             if tweet.image_paths:
@@ -60,8 +70,6 @@ class TwitterAPI:
                 media_ids = None
 
             self.client.create_tweet(text=tweet.text, media_ids=media_ids)
-            return True
 
-        except tweepy.HTTPException as e:
-            logger.error(f"Error: {e}")
-            return False
+        except _NO_RETRY_EXCEPTIONS:
+            raise

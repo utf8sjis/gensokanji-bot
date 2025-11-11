@@ -1,6 +1,7 @@
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import pytest
+import tweepy
 
 from api_clients.database_api import DatabaseAPI
 from api_clients.twitter_api import TwitterAPI
@@ -91,7 +92,7 @@ class TestBot:
     ):
         # Given:
         mock_get_unposted_tweet_ids.return_value = ["test001", "test002"]
-        mock_post_tweet.return_value = True
+        mock_post_tweet.return_value = None
 
         # When:
         Bot().post_regular_tweet()
@@ -145,12 +146,14 @@ class TestBot:
     ):
         # Given:
         mock_get_unposted_tweet_ids.return_value = ["test001", "test002"]
-        mock_post_tweet.return_value = False
+        mock_response = MagicMock()
+        mock_response.status_code = 500
+        mock_post_tweet.side_effect = tweepy.HTTPException(mock_response)
 
-        # When:
-        Bot().post_regular_tweet()
+        # When/Then: Exception should be raised
+        with pytest.raises(tweepy.HTTPException):
+            Bot().post_regular_tweet()
 
-        # Then:
         mock_get_unposted_tweet_ids.assert_called_once()
         mock_reset_posted_flag.assert_not_called()
         mock_get_tweet.assert_called_once_with("test002")
@@ -180,7 +183,7 @@ class TestBot:
             [],
             ["test001", "test002", "test003"],
         ]
-        mock_post_tweet.return_value = True
+        mock_post_tweet.return_value = None
 
         # When:
         Bot().post_regular_tweet()
