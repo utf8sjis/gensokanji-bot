@@ -1,9 +1,14 @@
+import backoff
 import tweepy
 from loguru import logger
 
 from config import Settings
-from constants import TWEET_IMAGES_DIR
+from constants import MAX_RETRIES, TWEET_IMAGES_DIR
 from models.tweet import TweetItem
+
+retry_on_api_error = backoff.on_exception(
+    backoff.expo, tweepy.TweepyException, max_tries=MAX_RETRIES
+)
 
 
 class TwitterAPI:
@@ -43,6 +48,7 @@ class TwitterAPI:
             access_token_secret=self.access_token_secret,
         )
 
+    @retry_on_api_error
     def post_tweet(self, tweet: TweetItem) -> bool:
         """Post the tweet.
         Args:
