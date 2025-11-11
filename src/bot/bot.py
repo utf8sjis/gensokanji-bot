@@ -1,5 +1,6 @@
 import random
 
+import tweepy
 from loguru import logger
 
 from api_clients.database_api import DatabaseAPI
@@ -30,8 +31,9 @@ class Bot:
             logger.error(f"🚨 Tweet with ID {candidate_id} not found in the database")
             return
 
-        if self.twitter.post_tweet(tweet):
+        try:
+            self.twitter.post_tweet(tweet)
             logger.info(f"✅ Success to post tweet {tweet.id}")
             self.db.flag_tweet_as_posted(tweet.id)
-        else:
-            logger.error(f"🚨 Failed to post tweet {tweet.id}")
+        except tweepy.HTTPException as e:
+            logger.error(f"🚨 Failed to post tweet {tweet.id}: {e}")
