@@ -5,11 +5,19 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    # Post backend
+    x_post_backend: str = Field(default="twitter")
+
     # Twitter API credentials
     twitter_api_key: str = Field(default="")
     twitter_api_key_secret: str = Field(default="")
     twitter_access_token: str = Field(default="")
     twitter_access_token_secret: str = Field(default="")
+
+    # Xquik API credentials
+    xquik_api_key: str = Field(default="")
+    xquik_account: str = Field(default="")
+    xquik_create_tweet_url: str = Field(default="https://xquik.com/api/v1/x/tweets")
 
     # Supabase credentials
     database_url: str = Field(default="")
